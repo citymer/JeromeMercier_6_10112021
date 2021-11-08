@@ -1,11 +1,36 @@
 * {
-  box-sizing: -box;
+  box-sizing: border-box;
   margin: 0;
 }
 
 body {
   max-width: 1440px;
   margin: 0 auto;
+  font-family: 'DM Sans',sans-serif;
+}
+
+header {
+  display: flex;
+  width: 1440px;
+  height: 157px;
+}
+
+.logoFisheyes {
+  height: 2.6rem;
+  margin-top: 1.4rem;
+  margin-left: 2rem;
+}
+
+h1 {
+  position: absolute;
+  color: #901c1c;
+  width: 306px;
+  margin-left: auto;
+  margin-right: 0.5rem;
+  font-size: 2.25rem;
+  font-weight: 400;
+  top: 1rem;
+  right: 1.5rem;
 }
 
 section {
@@ -17,22 +42,31 @@ section {
 article {
   text-align: center;
   height: 358px;
+  margin: 2rem 0;
 }
 
 a {
   text-decoration: none;
 }
 
-img {
+.portrait {
   width: 200px;
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
 }
 
+h2 {
+  color: #d3573c;
+  font-weight: 400;
+  font-size: 2.25rem;
+}
+
 ul {
   display: flex;
   justify-content: center;
+  max-width: 880px;
+  margin-top: 1.4rem;
 }
 
 ul li {
