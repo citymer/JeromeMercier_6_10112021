@@ -1,0 +1,19 @@
+* {
+    box-sizing:-box;
+    margin: 0;
+  }
+body{
+    max-width: 1440px;
+    margin: 0 auto;
+} 
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+} 
