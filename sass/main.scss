@@ -8,21 +8,22 @@ body{
     font-family: 'DM Sans',sans-serif;
 } 
 header{
+    position: absolute;
     display: flex;
-    width: 1440px;
-    height: 157px;
+    max-block-size: 75%;
+    height: 100px;
 }
 .logoFisheyes{
     height: 2.6rem;
-    margin-top: 1.4rem;
+    margin-top: 1.6rem;
     margin-left: 2rem;
 }
 h1{
-    position: absolute;
     color: #901c1c;
     width: 306px;
     margin-left: auto;
     margin-right: 0.5rem;
+    padding-top: 1.4rem;
     font-size: 2.25rem;
     font-weight: 400;
     top: 1rem;
@@ -47,21 +48,35 @@ a{
     border-radius: 50%;
     object-fit: cover;
 }
-
 h2{
     color: #d3573c;
     font-weight: 400;
     font-size: 2.25rem;
+    line-height: 46.87px;
+}
+.villePays{
+    color: #901c1c;
+    font-size: 0.81rem;
+    line-height: 16.93px;
+}
+.specialite{
+    font-size: 0.62rem;
+    line-height: 13.02px;
+}
+.tarif{
+    font-size:0.56rem;
+    line-height: 11.72px;
+    color: #757575;
 }
 ul{
     display: flex;
     justify-content: center;
     max-width: 880px;
-    margin-top: 1.4rem;
+    margin-top: 1.7rem;
     li{    
     display: inline-block;
     margin: 0.25rem;
-    padding: 0.25rem 0.5rem;
+    padding: 0.18rem 0.4rem;
     border: 0.5px solid #c4c4c4;
     border-radius: 11rem;
     color: #901c1c;
