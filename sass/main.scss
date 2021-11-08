@@ -15,9 +15,25 @@ article{
     text-align: center;
     height: 358px;
 }
+a{
+    text-decoration: none;
+}
 img{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    li{    
+    display: inline-block;
+    margin: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 11rem;
+    color: #901c1c;
+    transition: border-color 250ms, color 250ms, background-color 250ms;
+    }
 } 
