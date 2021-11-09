@@ -85,18 +85,19 @@ h2 {
 .tarif {
   font-size: 0.56rem;
   line-height: 11.72px;
-  color: #757575;
+  color: #525252;
 }
 
 ul {
   display: flex;
   justify-content: center;
   max-width: 880px;
-  margin-top: 1.7rem;
+  margin-top: 0.5rem;
 }
 
 ul li {
   display: inline-block;
+  cursor: pointer;
   margin: 0.25rem;
   height: 1.31rem;
   padding: 0.18rem;
@@ -105,5 +106,11 @@ ul li {
   border-radius: 11rem;
   color: #901c1c;
   transition: border-color 250ms, color 250ms, background-color 250ms;
+}
+
+ul li:hover, ul li :focus {
+  background-color: #901c1c;
+  color: white;
+  border: transparent;
 }
 /*# sourceMappingURL=main.css.map */

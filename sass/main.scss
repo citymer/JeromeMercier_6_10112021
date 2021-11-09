@@ -1,13 +1,6 @@
-* {
-    box-sizing:border-box;
-    margin: 0;
-    padding: 0;
-  }
-body{
-    max-width: 1440px;
-    margin: 0 auto;
-    font-family: 'DM Sans',sans-serif;
-} 
+@import "./directory/base/_fondation.scss";
+@import "./directory/utils/_variables.scss";
+
 header{
     position: absolute;
     display: flex;
@@ -26,7 +19,7 @@ header{
 }
 
 h1{
-    color: #901c1c;
+    color: $colour_primaire;
     width: 306px;
     margin-left: auto;
     margin-right: 3.5rem;
@@ -56,13 +49,13 @@ a{
     object-fit: cover;
 }
 h2{
-    color: #d3573c;
+    color: $colour_secondaire;
     font-weight: 400;
     font-size: 2.25rem;
     line-height: 46.87px;
 }
 .villePays{
-    color: #901c1c;
+    color: $colour_primaire;
     font-size: 0.81rem;
     line-height: 16.93px;
 }
@@ -73,22 +66,28 @@ h2{
 .tarif{
     font-size:0.56rem;
     line-height: 11.72px;
-    color: #757575;
+    color: $colour_grey;
 }
 ul{
     display: flex;
     justify-content: center;
     max-width: 880px;
-    margin-top: 1.7rem;
+    margin-top: 0.5rem;
     li{    
     display: inline-block;
+    cursor: pointer;
     margin: 0.25rem;
     height: 1.31rem;
     padding: 0.18rem;
     font-size: 0.75rem;
-    border: 0.5px solid #c4c4c4;
+    border: 0.5px solid $colour_border;
     border-radius: 11rem;
-    color: #901c1c;
+    color: $colour_primaire;
     transition: border-color 250ms, color 250ms, background-color 250ms;
+      &:hover, :focus{
+        background-color: $colour_primaire;
+        color:$colour_white;
+        border: transparent;
+      }
     }
 } 
