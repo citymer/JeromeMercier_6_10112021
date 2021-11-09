@@ -10,3 +10,21 @@
     color: $colour_primaire;
     transition: border-color 250ms, color 250ms, background-color 250ms;
 }
+
+// MEDIA QUERIES
+
+@mixin desktop {
+    @media screen and (max-width:1340px) {
+        @content;
+    }
+}
+@mixin mediumDesktop {
+    @media screen and (max-width:1250px) {
+        @content;
+    }
+}
+@mixin minDesktop {
+    @media screen and (max-width:1010px){
+        @content;
+    }
+}

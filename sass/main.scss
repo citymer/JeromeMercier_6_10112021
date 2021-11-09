@@ -5,22 +5,43 @@
 header{
     position: absolute;
     display: flex;
-    max-width: 1100px;
+    max-width: 1200px;
     height: 100px;
+    @include minDesktop{
+        display: block;
+        
+    }
     .logoFisheyes{
         height: 2.6rem;
         margin-top: 1.6rem;
         margin-left: 5.5rem;
     }
     .navHeader{
-        width: 900px;
+        width: 850px;
         margin-left: auto;
         margin-right: 2rem;
+        @include minDesktop {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
     }
 }
 .ulHeader{
     display: flex;
+    justify-content: center;
+    width: 100%;
     margin-top: 2.2rem;
+    @include desktop{
+        width: 75%;
+    }
+    @include mediumDesktop {
+        max-width: 380px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-left: 0.3rem;
+    }
     .liHeader{    
        @include li;
           &:hover, :focus{
@@ -30,6 +51,7 @@ header{
           }
         }
 }
+/* Main */
 h1{
     color: $colour_primaire;
     width: 306px;
@@ -45,6 +67,11 @@ section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    @include minDesktop{
+        margin-top: 6rem;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
 }
 article{
     text-align: center;

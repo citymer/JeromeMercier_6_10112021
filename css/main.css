@@ -13,8 +13,14 @@ body {
 header {
   position: absolute;
   display: flex;
-  max-width: 1100px;
+  max-width: 1200px;
   height: 100px;
+}
+
+@media screen and (max-width: 1010px) {
+  header {
+    display: block;
+  }
 }
 
 header .logoFisheyes {
@@ -24,14 +30,40 @@ header .logoFisheyes {
 }
 
 header .navHeader {
-  width: 900px;
+  width: 850px;
   margin-left: auto;
   margin-right: 2rem;
 }
 
+@media screen and (max-width: 1010px) {
+  header .navHeader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .ulHeader {
   display: flex;
+  justify-content: center;
+  width: 100%;
   margin-top: 2.2rem;
+}
+
+@media screen and (max-width: 1340px) {
+  .ulHeader {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .ulHeader {
+    max-width: 380px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin-left: 0.3rem;
+  }
 }
 
 .ulHeader .liHeader {
@@ -53,6 +85,7 @@ header .navHeader {
   border: transparent;
 }
 
+/* Main */
 h1 {
   color: #901c1c;
   width: 306px;
@@ -69,6 +102,14 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+}
+
+@media screen and (max-width: 1010px) {
+  section {
+    margin-top: 6rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+  }
 }
 
 article {
