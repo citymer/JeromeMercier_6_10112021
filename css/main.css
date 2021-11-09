@@ -29,6 +29,30 @@ header .navHeader {
   margin-right: 2rem;
 }
 
+.ulHeader {
+  display: flex;
+  margin-top: 2.2rem;
+}
+
+.ulHeader .liHeader {
+  display: inline-block;
+  cursor: pointer;
+  margin: 0.25rem;
+  height: 1.31rem;
+  padding: 0.18rem;
+  font-size: 0.75rem;
+  border: 0.5px solid #c4c4c4;
+  border-radius: 11rem;
+  color: #901c1c;
+  transition: border-color 250ms, color 250ms, background-color 250ms;
+}
+
+.ulHeader .liHeader:hover, .ulHeader .liHeader :focus {
+  background-color: #901c1c;
+  color: white;
+  border: transparent;
+}
+
 h1 {
   color: #901c1c;
   width: 306px;
@@ -88,14 +112,14 @@ h2 {
   color: #525252;
 }
 
-ul {
+.ulportrait {
   display: flex;
   justify-content: center;
   max-width: 880px;
   margin-top: 0.5rem;
 }
 
-ul li {
+.ulportrait .liportrait {
   display: inline-block;
   cursor: pointer;
   margin: 0.25rem;
@@ -108,7 +132,7 @@ ul li {
   transition: border-color 250ms, color 250ms, background-color 250ms;
 }
 
-ul li:hover, ul li :focus {
+.ulportrait .liportrait:hover, .ulportrait .liportrait :focus {
   background-color: #901c1c;
   color: white;
   border: transparent;

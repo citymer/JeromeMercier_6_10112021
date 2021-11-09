@@ -1,5 +1,6 @@
 @import "./directory/base/_fondation.scss";
 @import "./directory/utils/_variables.scss";
+@import "./directory/utils/_mixins.scss";
 
 header{
     position: absolute;
@@ -17,7 +18,18 @@ header{
         margin-right: 2rem;
     }
 }
-
+.ulHeader{
+    display: flex;
+    margin-top: 2.2rem;
+    .liHeader{    
+       @include li;
+          &:hover, :focus{
+            background-color: $colour_primaire;
+            color:$colour_white;
+            border: transparent;
+          }
+        }
+}
 h1{
     color: $colour_primaire;
     width: 306px;
@@ -68,22 +80,13 @@ h2{
     line-height: 11.72px;
     color: $colour_grey;
 }
-ul{
+.ulportrait{
     display: flex;
     justify-content: center;
     max-width: 880px;
     margin-top: 0.5rem;
-    li{    
-    display: inline-block;
-    cursor: pointer;
-    margin: 0.25rem;
-    height: 1.31rem;
-    padding: 0.18rem;
-    font-size: 0.75rem;
-    border: 0.5px solid $colour_border;
-    border-radius: 11rem;
-    color: $colour_primaire;
-    transition: border-color 250ms, color 250ms, background-color 250ms;
+    .liportrait{    
+     @include li;
       &:hover, :focus{
         background-color: $colour_primaire;
         color:$colour_white;

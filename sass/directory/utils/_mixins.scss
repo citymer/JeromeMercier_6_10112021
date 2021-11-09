@@ -1,0 +1,12 @@
+@mixin li {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0.25rem;
+    height: 1.31rem;
+    padding: 0.18rem;
+    font-size: 0.75rem;
+    border: 0.5px solid $colour_border;
+    border-radius: 11rem;
+    color: $colour_primaire;
+    transition: border-color 250ms, color 250ms, background-color 250ms;
+}
