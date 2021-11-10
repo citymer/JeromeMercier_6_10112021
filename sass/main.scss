@@ -2,6 +2,20 @@
 @import "./directory/utils/_variables.scss";
 @import "./directory/utils/_mixins.scss";
 
+.btnVisible{
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    outline: none;
+    font-weight: 700;
+    background: $colour_secondaire;
+    cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    left: calc(50% - 5rem);
+    
+
+}
 header{
     position: absolute;
     display: flex;
@@ -98,8 +112,8 @@ section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
+    margin-top: 7rem;
     @include minDesktop{
-        margin-top: 6rem;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     }
