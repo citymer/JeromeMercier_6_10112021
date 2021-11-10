@@ -4,6 +4,10 @@
   padding: 0;
 }
 
+html {
+  width: 100%;
+}
+
 body {
   max-width: 1440px;
   margin: 0 auto;
@@ -19,7 +23,13 @@ header {
 
 @media screen and (max-width: 1010px) {
   header {
-    display: block;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    width: 100%;
   }
 }
 
@@ -27,6 +37,13 @@ header .logoFisheyes {
   height: 2.6rem;
   margin-top: 1.6rem;
   margin-left: 5.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  header .logoFisheyes {
+    margin-left: 1.3rem;
+    margin-top: 0.7rem;
+  }
 }
 
 header .navHeader {
@@ -43,6 +60,13 @@ header .navHeader {
   }
 }
 
+@media screen and (max-width: 768px) {
+  header .navHeader {
+    margin-top: -1rem;
+    margin-right: 0;
+  }
+}
+
 .ulHeader {
   display: flex;
   justify-content: center;
@@ -52,17 +76,26 @@ header .navHeader {
 
 @media screen and (max-width: 1340px) {
   .ulHeader {
-    width: 75%;
+    width: 90%;
   }
 }
 
 @media screen and (max-width: 1250px) {
   .ulHeader {
-    max-width: 380px;
+    width: 40%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    margin-left: 0.3rem;
+    margin-left: 4.2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ulHeader {
+    max-width: 380px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    margin-left: 0;
   }
 }
 
@@ -86,6 +119,16 @@ header .navHeader {
 }
 
 /* Main */
+h3 {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 100%;
+  }
+}
+
 h1 {
   color: #901c1c;
   width: 306px;
@@ -96,6 +139,16 @@ h1 {
   font-weight: 400;
   top: 1rem;
   right: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    width: 119px;
+    font-size: 0.87rem;
+    margin-right: 0.5rem;
+    margin-left: auto;
+    margin-top: 2rem;
+  }
 }
 
 section {
@@ -112,6 +165,14 @@ section {
   }
 }
 
+@media screen and (max-width: 768px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 article {
   text-align: center;
   height: 358px;
@@ -120,6 +181,7 @@ article {
 
 a {
   text-decoration: none;
+  width: 200px;
 }
 
 .portrait {

@@ -8,13 +8,19 @@ header{
     max-width: 1200px;
     height: 100px;
     @include minDesktop{
-        display: block;
-        
+        flex-direction: column;    
+    }
+    @include mobile{
+        width: 100%;
     }
     .logoFisheyes{
         height: 2.6rem;
         margin-top: 1.6rem;
         margin-left: 5.5rem;
+        @include mobile {
+            margin-left: 1.3rem;
+            margin-top: 0.7rem;
+        }
     }
     .navHeader{
         width: 850px;
@@ -25,6 +31,10 @@ header{
             display: flex;
             justify-content: center;
         }
+        @include mobile {
+            margin-top: -1rem;
+            margin-right: 0;
+        }
     }
 }
 .ulHeader{
@@ -33,14 +43,20 @@ header{
     width: 100%;
     margin-top: 2.2rem;
     @include desktop{
-        width: 75%;
+        width: 90%;
     }
     @include mediumDesktop {
-        max-width: 380px;
+        width: 40%;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        margin-left: 0.3rem;
+        margin-left: 4.2rem;
+    }
+    @include mobile{
+        max-width: 380px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        margin-left: 0;
     }
     .liHeader{    
        @include li;
@@ -52,6 +68,14 @@ header{
         }
 }
 /* Main */
+h3{
+    display: none;
+}
+main{
+    @include mobile{
+        width: 100%;
+    }
+}
 h1{
     color: $colour_primaire;
     width: 306px;
@@ -62,6 +86,13 @@ h1{
     font-weight: 400;
     top: 1rem;
     right: 1.5rem;
+    @include mobile {
+        width: 119px;
+        font-size: 0.87rem;
+        margin-right: 0.5rem;
+        margin-left: auto;
+        margin-top: 2rem;
+    }
 }
 section{
     display: grid;
@@ -72,6 +103,11 @@ section{
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     }
+    @include mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
 article{
     text-align: center;
@@ -80,6 +116,7 @@ article{
 }
 a{
     text-decoration: none;
+    width: 200px;
 }
 .portrait{
     width: 200px;
