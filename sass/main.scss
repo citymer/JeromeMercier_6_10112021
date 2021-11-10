@@ -3,6 +3,7 @@
 @import "./directory/utils/_mixins.scss";
 
 .btnVisible{
+    display: none;
     padding: 0.5rem;
     border: none;
     border-radius: 0.25rem;
