@@ -4,6 +4,7 @@
 
 .btnVisible{
     display: none;
+    z-index: 5;
     padding: 0.5rem;
     border: none;
     border-radius: 0.25rem;
@@ -12,10 +13,9 @@
     background: $colour_secondaire;
     cursor: pointer;
     position: fixed;
-    top: 1rem;
-    left: calc(50% - 5rem);
+    top: 2rem;
+    left: calc(50% - 5rem);    
     
-
 }
 header{
     position: absolute;

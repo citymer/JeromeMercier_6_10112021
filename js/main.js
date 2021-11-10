@@ -1,3 +1,4 @@
+// bouton "revenir en haut"
 const btnvisible = document.querySelector('.btnVisible');
 
 btnvisible.addEventListener('click',() => {
@@ -8,16 +9,13 @@ btnvisible.addEventListener('click',() => {
     })
 })
 
-
-
-    window.addEventListener("scroll", () => {
-        let y = window.scrollY;
-
-        if (y >= 80) {
-            btnvisible.style.display = "block";
-        } else {
-            btnvisible.style.display = "none";
-        }
-    });
+ window.addEventListener("scroll", () => {
+    let y = window.scrollY;
+     if (y >= 80) {
+         btnvisible.style.display = "block";
+    } else {
+           btnvisible.style.display = "none";
+    }
+});
 
 
