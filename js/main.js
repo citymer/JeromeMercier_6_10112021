@@ -8,17 +8,16 @@ btnvisible.addEventListener('click',() => {
     })
 })
 
-function appearbutton() {
-    window.addEventListener('scroll', () => {
-    const main = document.querySelector('main').getBoundingClientRect();
-    if (main.top <= 60) {
-        btnvisible.style.display = "block";
-        console.log('yess');
-    }if (main.top > 60) {
-        btnvisible.style.display = "none";
-        console.log('none');
-    }
-    
- })
-}
-appearbutton();
+
+
+    window.addEventListener("scroll", () => {
+        let y = window.scrollY;
+
+        if (y >= 80) {
+            btnvisible.style.display = "block";
+        } else {
+            btnvisible.style.display = "none";
+        }
+    });
+
+
