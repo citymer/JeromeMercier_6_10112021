@@ -22,5 +22,5 @@ function photographerFactory(data) {
         article.appendChild(p);
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture,  getUserCardDOM }
 }
