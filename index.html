@@ -1,126 +1,22 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>FishEyes</title>
-</head>
-<body>
-   <div class="zoneBouton">
-       <button class="btnVisible" id="btnInvisible" type="button">Revenir en haut</button>
-    <!-- HEADER-->
+<html>
+  <head>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <title>Fisheye</title>
+  </head>
+  <body>
     <header>
-        <a href="index.html"><img class="logoFisheyes" src="img/logo-fisheye.png" alt="Lien vers home"></a>
-        <nav class="navHeader" aria-label="categories de photographes" role="navigation">
-            <ul class="ulHeader">
-                <li class="liHeader">#animaux</li>
-                <li class="liHeader">#architecture</li>
-                <li class="liHeader">#art</li>
-                <li class="liHeader">#événement</li>
-                <li class="liHeader">#mode</li>
-                <li class="liHeader">#portrait</li>
-                <li class="liHeader">#sport</li>
-                <li class="liHeader">#voyage</li>
-                <li class="liHeader">#tous</li>
-            </ul>
-        </nav>
-    </header>
-    <!--  MAIN -->
-    <main>
+        <img src="assets/images/logo.png" class="logo" />
         <h1>Nos photographes</h1>
-        <section>
-            <h3>r</h3>
-            <article id="ellie">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/EllieRoseWilkens.jpg" alt="">
-                    <h2>Ellie-Rose Wilkens</h2>
-                </a>
-                <p class="villePays">Paris, France</p>
-                <p class="specialite">Capturer des compositions complexes</p>
-                <p class="tarif">250 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#architecture</li>
-                    <li class="liportrait" >#sport</li>
-                </ul>
-            </article>
-            <article id="marcel">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/MarcelNikolic.jpg" alt="">
-                    <h2>Marcel Nikolic</h2>
-                </a>
-                <p class="villePays">Berlin, Allemagne</p>
-                <p class="specialite">Toujours à la recherche de la photo</p>
-                <p class="tarif">300 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#architecture</li>
-                    <li class="liportrait">#voyage</li>
-                </ul>
-            </article>
-            <article id="mimi">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/MimiKeel.jpg" alt="">
-                    <h2>Mimi Keel</h2>
-                </a>
-                <p class="villePays">Londres, Grande-Bretagne</p>
-                <p class="specialite">Voir le beau dans le quotidien</p>
-                <p class="tarif">400 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#animaux</li>
-                    <li class="liportrait">#portrait</li>
-                    <li class="liportrait">#voyage</li>
-                    <li class="liportrait">#événement</li>
-                </ul>
-            </article>
-            <article id="nabeel">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/NabeelBradford.jpg" alt="">
-                    <h2>Nabeel Bradford</h2>
-                </a>
-                <p class="villePays">Mexico, Mexique</p>
-                <p class="specialite">Toujours aller de l'avant</p>
-                <p class="tarif">350 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#portrait</li>
-                    <li class="liportrait">#voyage</li>
-                </ul>
-            </article>
-            <article id="rhode">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/RhodeDubois.jpg" alt="">
-                    <h2>Rhode Dubois</h2>
-                </a>
-                <p class="villePays">Barcelone, Espagne</p>
-                <p class="specialite">Je crée des souvenirs</p>
-                <p class="tarif">275 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#animaux</li>
-                    <li class="liportrait">#mode</li>
-                    <li class="liportrait">#sport</li>
-                    <li class="liportrait">#événement</li>
-                </ul>
-            </article>
-            <article id="tracy">
-                <a href="">
-                    <img class="portrait" src="img/PhotographersIDPhotos/TracyGalindo.jpg" alt="">
-                    <h2>Tracy Galindo</h2>
-                </a>
-                <p class="villePays">Montréal, Canada</p>
-                <p class="specialite">Photographe freelance</p>
-                <p class="tarif">500 €/jour</p>
-                <ul class="ulportrait">
-                    <li class="liportrait">#art</li>
-                    <li class="liportrait">#mode</li>
-                    <li class="liportrait">#événement</li>
-                </ul>
-            </article>
-        </section>
+    </header>
+    <main id="main">
+        <div class="photographer_section"></div>
     </main>
-   </div> 
-   <script src="js/main.js"></script> 
-</body>
+    <script src="scripts/factories/Photographer.js"></script>
+    <script src="scripts/pages/index.js"></script>
+    <script src="scripts/pages/photographer.js"></script>
+  </body>
 </html>

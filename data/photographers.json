@@ -7,8 +7,7 @@
 			"country": "UK",
 			"tagline": "Voir le beau dans le quotidien",
 			"price": 400,
-			"portrait": "MimiKeel.jpg",
-            "alt": "portrait de Mimi Keel"
+			"portrait": "MimiKeel.jpg"
 		},
 		{
 			"name": "Ellie-Rose Wilkens",
@@ -17,8 +16,7 @@
 			"country": "France",
 			"tagline": "Capturer des compositions complexes",
 			"price": 250,
-			"portrait": "EllieRoseWilkens.jpg",
-            "alt": "portrait de Ellie-Rose Wilkens"
+			"portrait": "EllieRoseWilkens.jpg"
 		},
 		{
 			"name": "Tracy Galindo",
@@ -27,8 +25,7 @@
 			"country": "Canada",
 			"tagline": "Photographe freelance",
 			"price": 500,
-			"portrait": "TracyGalindo.jpg",
-            "alt":"portrait de Tracy Galindo"
+			"portrait": "TracyGalindo.jpg"
 		},
 		{
 			"name": "Nabeel Bradford",
@@ -37,8 +34,7 @@
 			"country": "Mexico",
 			"tagline": "Toujours aller de l'avant",
 			"price": 350,
-			"portrait": "NabeelBradford.jpg",
-            "alt": "portrait de Nabeel Bradford"
+			"portrait": "NabeelBradford.jpg"
 		},
 		{
 			"name": "Rhode Dubois",
@@ -47,8 +43,7 @@
 			"country": "Spain",
 			"tagline": "Je crée des souvenirs",
 			"price": 275,
-			"portrait": "RhodeDubois.jpg",
-            "alt": "portrait de Rhode Dubois"
+			"portrait": "RhodeDubois.jpg"
 		},
 		{
 			"name": "Marcel Nikolic",
@@ -57,8 +52,7 @@
 			"country": "Germany",
 			"tagline": "Toujours à la recherche de LA photo",
 			"price": 300,
-			"portrait": "MarcelNikolic.jpg",
-            "alt": "portrait de Marcel Nikolic"
+			"portrait": "MarcelNikolic.jpg"
 		}
 	],
 	"media": [
@@ -66,205 +60,185 @@
 			"id": 342550,
 			"photographerId": 82,
 			"title": "Fashion Yellow Beach",
-			"image": "img/Tracy/Fashion_Yellow_Beach.jpg",
+			"image": "Fashion_Yellow_Beach.jpg",
 			"likes": 62,
 			"date": "2011-12-08",
-			"price": 55,
-            "alt": "femme en survetement jaune à capuche sur un terrain de basket"
+			"price": 55
 		},
 		{
 			"id": 8520927,
 			"photographerId": 82,
 			"title": "Fashion Urban Jungle",
-			"image": "img/Tracy/Fashion_Urban_Jungle.jpg",
+			"image": "Fashion_Urban_Jungle.jpg",
 			"likes": 11,
 			"date": "2011-11-06",
-			"price": 55,
-            "alt": "femme blonde accroupit en fente latérale au milieu de la route d'un pont en combinaison vertes avec des motifs tropicaux"
+			"price": 55
 		},
 		{
 			"id": 9025895,
 			"photographerId": 82,
 			"title": "Fashion Pattern on a Pattern",
-			"image": "img/Tracy/Fashion_Pattern_on_Pattern.jpg",
+			"image": "Fashion_Pattern_on_Pattern.jpg",
 			"likes": 72,
 			"date": "2013-08-12",
-			"price": 55,
-            "alt": "femme brune avec une robe courte manche longue à rayure moutarde,noir,bleu pastel et blanc, accessoirisé d'un pull moutarde sur ses épaules et d'un sac à main rouge sur un fond a damier noir et blanc "
+			"price": 55
 		},
 		{
 			"id": 9275938,
 			"photographerId": 82,
 			"title": "Wedding Gazebo",
-			"image": "img/Tracy/Event_WeddingGazebo.jpg",
+			"image": "Event_WeddingGazebo.jpg",
 			"likes": 69,
 			"date": "2018-02-22",
-			"price": 55,
-            "alt":"gazebo de mariage"
+			"price": 55
 		},
 		{
 			"id": 2053494,
 			"photographerId": 82,
 			"title": "Sparkles",
-			"image": "img/Tracy/Event_Sparklers.jpg",
+			"image": "Event_Sparklers.jpg",
 			"likes": 2,
 			"date": "2020-05-25",
-			"price": 55,
-            "alt":"haie d'honneur pour les mariés qui regarde leurs invités brandir des cierges magiques"
+			"price": 55
 		},
 		{
 			"id": 7324238,
 			"photographerId": 82,
 			"title": "18th Anniversary",
-			"image": "img/Tracy/Event_18thAnniversary.jpg",
+			"image": "Event_18thAnniversary.jpg",
 			"likes": 33,
 			"date": "2019-06-12",
-			"price": 55,
-            "alt":"tablé dinatoire avec ballons gonflés a l'helium en forme du nombre 18"
+			"price": 55
 		},
 		{
 			"id": 8328953,
 			"photographerId": 82,
-			"video": "img/Tracy/Art_Wooden_Horse_Sculpture.mp4",
+			"video": "Art_Wooden_Horse_Sculpture.mp4",
 			"likes": 24,
 			"date": "2011-12-08",
-			"price": 100,
-			"alt":"sculture bois représentant un cheval"
+			"price": 100
 		  },
 		{
 			"id": 7502053,
 			"photographerId": 82,
 			"title": "Triangle Man",
-			"image": "img/Tracy/Art_Triangle_Man.jpg",
+			"image": "Art_Triangle_Man.jpg",
 			"likes": 88,
 			"date": "2007-05-07",
-			"price": 55,
-			"alt":"peinture contemporaine représentant la tête et le buste d'un homme au long cou avec un triangle blanc sur fond bleu "
+			"price": 55
 		},
 		{
 			"id": 8523492,
 			"photographerId": 82,
 			"title": "Purple Tunnel",
-			"image": "img/Tracy/Art_Purple_light.jpg",
+			"image": "Art_Purple_light.jpg",
 			"likes": 24,
 			"date": "2018-05-05",
-			"price": 55,
-			"alt":"mur de metro tagué"
+			"price": 55
 		},
 		{
 			"id": 75902334,
 			"photographerId": 82,
 			"title": "Art Mine",
-			"image": "img/Tracy/Art_Mine.jpg",
+			"image": "Art_Mine.jpg",
 			"likes": 75,
 			"date": "2019-11-25",
-			"price": 55,
-			"alt":"dessin avec plusieurs têtes de pigeons rouge et bleu"
+			"price": 55
 		},
 
 		{
 			"id": 73852953,
 			"photographerId": 925,
 			"title": "8 Rows",
-			"image": "img/Rhode/Sport_2000_with_8.jpg",
+			"image": "Sport_2000_with_8.jpg",
 			"likes": 52,
 			"date": "2013-02-30",
-			"price": 70,
-			"alt":"vue aerienne d'aviron "
+			"price": 70
 		},
 		{
 			"id": 92758372,
 			"photographerId": 925,
 			"title": "Fashion Wings",
-			"image": "img/Rhode/Fashion_Wings.jpg",
+			"image": "Fashion_Wings.jpg",
 			"likes": 58,
 			"date": "2018-07-17",
-			"price": 70,
-			"alt":"un homme blond et une femme noire lévent un bras au niveau de leurs têtes"
+			"price": 70
 		},
 		{
 			"id": 32958383,
 			"photographerId": 925,
 			"title": "Melody Red on Stripes",
-			"image": "img/Rhode/Fashion_Melody_Red_on_Stripes.jpg",
+			"image": "Fashion_Melody_Red_on_Stripes.jpg",
 			"likes": 11,
 			"date": "2019-08-12",
-			"price": 70,
-			"alt":"femme noire ,cheveux trés court qui descent des escaliers de rue en robe rouge"
+			"price": 70
 		},
 		{
 			"id": 928587383,
 			"photographerId": 925,
 			"title": "Venture Conference",
-			"image": "img/Rhode/Event_VentureConference.jpg",
+			"image": "Event_VentureConference.jpg",
 			"likes": 2,
 			"date": "2019-01-02",
-			"price": 70,
-			"alt":"reunion de bureau avec au tableau des post-it collés de differentes couleurs"
+			"price": 70
 		},
 		{
 			"id": 725639493,
 			"photographerId": 925,
 			"title": "Product Pitch",
-			"image": "img/Rhode/Event_ProductPitch.jpg",
+			"image": "Event_ProductPitch.jpg",
 			"likes": 3,
 			"date": "2019-05-20",
-			"price": 70,
-			"alt":"un picht sur les objectifs de production"
+			"price": 70
 		},
 		{
 			"id": 23394384,
 			"photographerId": 925,
 			"title": "Musical Festival Keyboard",
-			"image": "img/Rhode/Event_KeyboardCheck.jpg",
+			"image": "Event_KeyboardCheck.jpg",
 			"likes": 52,
 			"date": "2019-07-18",
-			"price": 70,
-			"alt":"femme qui joue au clavier synthétiseur numérique"
+			"price": 70
 		},
 		{
 			"id": 87367293,
 			"photographerId": 925,
 			"title": "Musical Festival Singer",
-			"image": "img/Rhode/Event_Emcee.jpg",
+			"image": "Event_Emcee.jpg",
 			"likes": 23,
 			"date": "2018-02-22",
-			"price": 70,
-			"alt":"femme qui chante dans un concert"
+			"price": 70
 		},
 		{
 			"id": 593834784,
 			"photographerId": 925,
 			"title": "Animal Majesty",
-			"image": "img/Rhode/Animals_Majesty.jpg",
+			"image": "Animals_Majesty.jpg",
 			"likes": 52,
 			"date": "2017-03-13",
-			"price": 70,
-			"alt":"portrait d'un cerf en pleine nature"
+			"price": 70
 		},
 		{
 			"id": 83958935,
 			"photographerId": 925,
-			"video": "img/Rhode/Animals_Puppiness.mp4",
+			"video": "Animals_Puppiness.mp4",
 			"likes": 52,
 			"date": "2016-06-12",
-			"price": 70,
-			"alt":"chiot qui joue a mordiller sa laisse sur la plage"
+			"price": 70
 		},
 		{
 			"id": 394583434,
 			"photographerId": 527,
-			"video": "img/Nabeel/Travel_Rock_Mountains.mp4",
+			"video": "Travel_Rock_Mountains.mp4",
 			"likes": 23,
 			"date": "2017-03-18",
-			"price": 45,
-			"alt":"vue aerienne d'une falaise"
+			"price": 45
 		},
 		{
 			"id": 343423425,
 			"photographerId": 527,
 			"title": "Outdoor Baths",
-			"image": "img/Nabeel/Travel_Outdoor_Baths.jpg",
+			"image": "Travel_Outdoor_Baths.jpg",
 			"likes": 101,
 			"date": "2017-04-03",
 			"price": 45
@@ -273,380 +247,342 @@
 			"id": 73434243,
 			"photographerId": 527,
 			"title": "Road into the Hill",
-			"image": "img/Nabeel/Travel_Road_into_Hill.jpg",
+			"image": "Travel_Road_into_Hill.jpg",
 			"likes": 99,
 			"date": "2018-04-30",
-			"price": 45,
-			"alt":"route qui serpente entre de petites collines"
+			"price": 45
 		},
 		{
 			"id": 23425523,
 			"photographerId": 527,
 			"title": "Bridge into the Forest",
-			"image": "img/Nabeel/Travel_Bridge_into_Forest.jpg",
+			"image": "Travel_Bridge_into_Forest.jpg",
 			"likes": 34,
 			"date": "2016-04-05",
-			"price": 45,
-			"alt":"traversé d'un pont à l'interieur d'une forêt"
+			"price": 45
 		},
 		{
 			"id": 23134513,
 			"photographerId": 527,
 			"title": "Boat Wonderer",
-			"image": "img/Nabeel/Travel_Boat_Wanderer.jpg",
+			"image": "Travel_Boat_Wanderer.jpg",
 			"likes": 23,
 			"date": "2017-03-18",
-			"price": 45,
-			"alt":"bateau sur un lac entouré de forêt et de montagne"
+			"price": 45
 		},
 		{
 			"id": 92352352,
 			"photographerId": 527,
 			"title": "Portrait Sunkiss",
-			"image": "img/Nabeel/Portrait_Sunkissed.jpg",
+			"image": "Portrait_Sunkissed.jpg",
 			"likes": 66,
 			"date": "2018-05-24",
-			"price": 45,
-			"alt":"portrait d'une femme rousse qui sourit"
+			"price": 45
 		},
 		{
 			"id": 34513453,
 			"photographerId": 527,
 			"title": "Shaw Potrait",
-			"image": "img/Nabeel/Portrait_Shaw.jpg",
+			"image": "Portrait_Shaw.jpg",
 			"likes": 52,
 			"date": "2017-04-21",
-			"price": 45,
-			"alt":"portrait d'un homme type afro dans l'obscurité"
+			"price": 45
 		},
 		{
 			"id": 23523533,
 			"photographerId": 527,
 			"title": "Alexandra",
-			"image": "img/Nabeel/Portrait_Alexandra.jpg",
+			"image": "Portrait_Alexandra.jpg",
 			"likes": 95,
 			"date": "2018-11-02",
-			"price": 45,
-			"alt":"portrait d'alexandra en noir et blanc"
+			"price": 45
 		},
 		{
 			"id": 525834234,
 			"photographerId": 527,
 			"title": "Afternoon Break",
-			"image": "img/Nabeel/Portrait_AfternoonBreak.jpg",
+			"image": "Portrait_AfternoonBreak.jpg",
 			"likes": 25,
 			"date": "2019-01-02",
-			"price": 45,
-			"alt":"portrait d'un homme en noir et blanc qui fume une cigarette"
+			"price": 45
 		},
 
 		{
 			"id": 623534343,
 			"photographerId": 243,
 			"title": "Lonesome",
-			"image": "img/Mimi/Travel_Lonesome.jpg",
+			"image": "Travel_Lonesome.jpg",
 			"likes": 88,
 			"date": "2019-02-03",
-			"price": 45,
-			"alt":"femme solitaire en haut d'un rocher qui contemple une vallée"
+			"price": 45
 		},
 		{
 			"id": 625025343,
 			"photographerId": 243,
 			"title": "Hillside Color",
-			"image": "img/Mimi/Travel_HillsideColor.jpg",
+			"image": "Travel_HillsideColor.jpg",
 			"likes": 85,
 			"date": "2019-04-03",
-			"price": 45,
-			"alt":"maisons colorés sur un rocher en bord de mer"
+			"price": 45
 		},
 		{
 			"id": 2525345343,
 			"photographerId": 243,
 			"title": "Wednesday Potrait",
-			"image": "img/Mimi/Portrait_Wednesday.jpg",
+			"image": "Portrait_Wednesday.jpg",
 			"likes": 34,
 			"date": "2019-04-07",
-			"price": 45,
-			"alt":"portrait en noir et blanc d'une petite fille a plat ventre qui fait la grimace "
+			"price": 45
 		},
 		{
 			"id": 2523434634,
 			"photographerId": 243,
 			"title": "Nora Portrait",
-			"image": "img/Mimi/Portrait_Nora.jpg",
+			"image": "Portrait_Nora.jpg",
 			"likes": 63,
 			"date": "2019-04-07",
-			"price": 45,
-			"alt": "portrait de Nora dans un restaurant style américain vintage"
+			"price": 45
 		},
 		{
 			"id": 398847109,
 			"photographerId": 243,
 			"title": "Raw Black Portrait",
-			"image": "img/Mimi/Portrait_Background.jpg",
+			"image": "Portrait_Background.jpg",
 			"likes": 55,
 			"date": "2019-06-20",
-			"price": 45,
-			"alt":"portrait d'une femme sur fond noir"
+			"price": 45
 		},
 		{
 			"id": 2534342,
 			"photographerId": 243,
 			"title": "Seaside Wedding",
-			"image": "img/Mimi/Event_SeasideWedding.jpg",
+			"image": "Event_SeasideWedding.jpg",
 			"likes": 25,
 			"date": "2019-06-21",
-			"price": 45,
-			"alt":"longue table en bois de restaurant installé sur la plage"
+			"price": 45
 		},
 		{
 			"id": 65235234,
 			"photographerId": 243,
 			"title": "Boulder Wedding",
-			"image": "img/Mimi/Event_PintoWedding.jpg",
+			"image": "Event_PintoWedding.jpg",
 			"likes": 52,
 			"date": "2019-06-25",
-			"price": 45,
-			"alt":"mariés face à face entourés de rocher"
+			"price": 45
 		},
 		{
 			"id": 23523434,
 			"photographerId": 243,
 			"title": "Benevides Wedding",
-			"image": "img/Mimi/Event_BenevidesWedding.jpg",
+			"image": "Event_BenevidesWedding.jpg",
 			"likes": 77,
 			"date": "2019-06-28",
-			"price": 45,
-			"alt":"jeunes mariés dans l'allée"
+			"price": 45
 		},
 		{
 			"id": 5234343,
 			"photographerId": 243,
-			"video": "img/Mimi/Animals_Wild_Horses_in_the_mountains.mp4",
+			"video": "Animals_Wild_Horses_in_the_mountains.mp4",
 			"likes": 142,
 			"date": "2019-08-23",
-			"price": 60,
-			"alt":"troupeau de cheval qui se déplacent dans la montagne"
+			"price": 60
 		  },
 		{
 			"id": 95234343,
 			"photographerId": 243,
 			"title": "Rainbow Bird",
-			"image": "img/Mimi/Animals_Rainbow.jpg",
+			"image": "Animals_Rainbow.jpg",
 			"likes": 59,
 			"date": "2019-07-02",
-			"price": 60,
-			"alt":"moineau couleur arc-en-ciel "
+			"price": 60
 		},
 
 		{
 			"id": 52343416,
 			"photographerId": 195,
 			"title": "Japanese Tower, Kyoto",
-			"image": "img/Marcel/Travel_Tower.jpg",
+			"image": "Travel_Tower.jpg",
 			"likes": 25,
 			"date": "2019-04-03",
-			"price": 60,
-			"alt":"tour japonaise"
+			"price": 60
 		},
 		{
 			"id": 2523434,
 			"photographerId": 195,
 			"title": "Senset on Canals, Venice",
-			"image": "img/Marcel/Travel_SunsetonCanals.jpg",
+			"image": "Travel_SunsetonCanals.jpg",
 			"likes": 53,
 			"date": "2019-05-06",
-			"price": 60,
-			"alt":"coucher de soleil sur le canal de venise"
+			"price": 60
 		},
 		{
 			"id": 95293534,
 			"photographerId": 195,
 			"title": "Mountain and Lake",
-			"image": "img/Marcel/Travel_OpenMountain.jpg",
+			"image": "Travel_OpenMountain.jpg",
 			"likes": 33,
 			"date": "2019-05-12",
-			"price": 60,
-			"alt":"lac au milieu d'une forêt avec vue sur la montagne"
+			"price": 60
 		},
 		{
 			"id": 356234343,
 			"photographerId": 195,
 			"title": "City Bike and Stair, Paris",
-			"image": "img/Marcel/Travel_Bike_and_Stair.jpg",
+			"image": "Travel_Bike_and_Stair.jpg",
 			"likes": 53,
 			"date": "2019-06-20",
-			"price": 60,
-			"alt":"velo de ville posé sur le coté d'un escalier de rue"
+			"price": 60
 		},
 		{
 			"id": 235234343,
 			"photographerId": 195,
 			"title": "Adventure Door, India",
-			"image": "img/Marcel/Travel_Adventure_Door.jpg",
+			"image": "Travel_Adventure_Door.jpg",
 			"likes": 63,
 			"date": "2019-06-26",
-			"price": 60,
-			"alt":"vue d'une porte arabesque"
+			"price": 60
 		},
 		{
 			"id": 6234234343,
 			"photographerId": 195,
 			"title": "Contrast, St Petersburg",
-			"image": "img/Marcel/Architecture_Contrast.jpg",
+			"image": "Architecture_Contrast.jpg",
 			"likes": 52,
 			"date": "2019-06-30",
-			"price": 60,
-			"alt":"architecture d'une synagogue"
+			"price": 60
 		},
 		{
 			"id": 6525666253,
 			"photographerId": 195,
 			"title": "On a Hill, Tibet",
-			"image": "img/Marcel/Architecture_On_a_hill.jpg",
+			"image": "Architecture_On_a_hill.jpg",
 			"likes": 63,
 			"date": "2019-07-20",
-			"price": 60,
-			"alt":"architecture d'un village posé sur une colline"
+			"price": 60
 		},
 		{
 			"id": 98252523433,
 			"photographerId": 195,
 			"title": "Leaning Tower, Pisa",
-			"image": "img/Marcel/Architecture_Dome.jpg",
+			"image": "Architecture_Dome.jpg",
 			"likes": 88,
 			"date": "2020-01-05",
-			"price": 60,
-			"alt":"tour de pise"
+			"price": 60
 		},
 		{
 			"id": 9259398453,
 			"photographerId": 195,
-			"video": "img/Marcel/Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
+			"video": "Architecture_coverr_circle_empty_highway_in_buenos_aires_587740985637.mp4",
 			"likes": 57,
 			"date": "2020-01-20",
-			"price": 65,
-			"alt":"architecture d'autoroute vide a Buenos Aires"
+			"price": 65
 		  },
 		{
 			"id": 3523523534,
 			"photographerId": 195,
 			"title": "Corner Building and Blue Sky",
-			"image": "img/Marcel/Architecture_Corner_Room.jpg",
+			"image": "Architecture_Corner_Room.jpg",
 			"likes": 54,
 			"date": "2020-05-05",
-			"price": 60,
-			"alt":"angle de maison au derneir étage"
+			"price": 60
 		},
 		{
 			"id": 952343423,
 			"photographerId": 930,
-			"video": "img/Ellie Rose/Sport_Tricks_in_the_air.mp4",
+			"video": "Sport_Tricks_in_the_air.mp4",
 			"likes": 150,
 			"date": "2018-02-30",
-			"price": 70,
-			"alt":"gymnaste suspendu par le bras qui fait des exercices"
+			"price": 70
 		  },
 		{
 			"id": 235234343,
 			"photographerId": 930,
 			"title": "Climber",
-			"image": "img/Ellie Rose/Sport_Next_Hold.jpg",
+			"image": "Sport_Next_Hold.jpg",
 			"likes": 101,
 			"date": "2018-03-05",
-			"price": 65,
-			"alt":"femme qui escalade les rochers à main nu"
+			"price": 65
 		},
 		{
 			"id": 235343222,
 			"photographerId": 930,
 			"title": "Surfer",
-			"image": "img/Ellie Rose/sport_water_tunnel.jpg",
+			"image": "sport_water_tunnel.jpg",
 			"likes": 103,
 			"date": "2018-03-10",
-			"price": 70,
-			"alt":"surfer dans le tunnel de la vague"
+			"price": 70
 		},
 		{
 			"id": 7775342343,
 			"photographerId": 930,
 			"title": "Skier",
-			"image": "img/Ellie Rose/Sport_Sky_Cross.jpg",
+			"image": "Sport_Sky_Cross.jpg",
 			"likes": 77,
 			"date": "2018-04-16",
-			"price": 50,
-			"alt":"skieur dans les airs"
+			"price": 50
 		},
 		{
 			"id": 9253445784,
 			"photographerId": 930,
 			"title": "Race End",
-			"image": "img/Ellie Rose/Sport_Race_End.jpg",
+			"image": "Sport_Race_End.jpg",
 			"likes": 88,
 			"date": "2018-04-22",
-			"price": 65,
-			"alt":"course d'athletisme feminine"
+			"price": 65
 		},
 		{
 			"id": 22299394,
 			"photographerId": 930,
 			"title": "Jump!",
-			"image": "img/Ellie Rose/Sport_Jump.jpg",
+			"image": "Sport_Jump.jpg",
 			"likes": 95,
 			"date": "2018-04-27",
-			"price": 70,
-			"alt":"skateur en plein saut dans un skateparc"
+			"price": 70
 		},
 		{
 			"id": 3452342633,
 			"photographerId": 930,
 			"title": "White Light",
-			"image": "img/Ellie Rose/Architecture_White_Light.jpg",
+			"image": "Architecture_White_Light.jpg",
 			"likes": 52,
 			"date": "2018-05-03",
-			"price": 75,
-			"alt":"architecture a l'interieur d'un dome vitrée"
+			"price": 75
 		},
 		{
 			"id": 939234243,
 			"photographerId": 930,
 			"title": "Water on Modern Building",
-			"image": "img/Ellie Rose/Architecture_Water_on_Modern.jpg",
+			"image": "Architecture_Water_on_Modern.jpg",
 			"likes": 55,
 			"date": "2018-05-10",
-			"price": 72,
-			"alt":"architecture moderne d'un batiment vu a partir d'un plan d'eau"
+			"price": 72
 		},
 		{
 			"id": 222959233,
 			"photographerId": 930,
 			"title": "Horseshoe",
-			"image": "img/Ellie Rose/Architecture_Horseshoe.jpg",
+			"image": "Architecture_Horseshoe.jpg",
 			"likes": 85,
 			"date": "2018-05-15",
-			"price": 71,
-			"alt":"architecfture d'un immeuble au forme arrondie vue du sol"
+			"price": 71
 		},
 		{
 			"id": 965933434,
 			"photographerId": 930,
 			"title": "Cross Bar",
-			"image": "img/Ellie Rose/Architecture_Cross_Bar.jpg",
+			"image": "Architecture_Cross_Bar.jpg",
 			"likes": 66,
 			"date": "2018-05-20",
-			"price": 58,
-			"alt":"architecture de immeubles à structures métalliques et des vitres orangées vue du sol"
+			"price": 58
 		},
 		{
 			"id": 777723343,
 			"photographerId": 930,
 			"title": "Connected Curves",
-			"image": "img/Ellie Rose/Architecture_Connected_Curves.jpg",
+			"image": "Architecture_Connected_Curves.jpg",
 			"likes": 79,
 			"date": "2018-05-21",
-			"price": 80,
-			"alt":"architecture d'un immeuble incurvé avec un trou au milieu laissant passer le soleil"
+			"price": 80
 		}
 	]
 }
