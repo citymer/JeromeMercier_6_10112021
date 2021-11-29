@@ -49,8 +49,13 @@ p{
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
+    margin-bottom: 50px;
 }
 
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
 .photographer_section article ,a{
     justify-self: center;
     display: flex;
