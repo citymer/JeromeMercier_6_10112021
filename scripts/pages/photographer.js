@@ -1,20 +1,7 @@
 //Mettre le code JavaScript lié à la page photographer.html
-const article = document.querySelector('article');
-const h2 = document.createElement('h2');
-h2.textContent = 'Mimi Keel';
-const h3 = document.createElement('h3');
-h3.textContent = 'London, UK';
-const h4 = document.createElement('h4');
-h4.textContent = 'Voir le beau dans le quotidien';
-article.appendChild(h2);
-article.appendChild(h3);
-article.appendChild(h4);
-console.log(h2);
 
 
 
-/*  const photographers = [];
-const media = [];*/
 
 
 fetch('data/photographers.json')
@@ -27,16 +14,49 @@ fetch('data/photographers.json')
 })
 
 .then(json => {
-    this.photographers = json.photographers[0].name;
-    this.media = json.media;
-        console.log(this.photographers)   
-    })
+    this.photographers = json;
+    const {photographers} = json;
+    const {media} = json;
+})
 
-    .catch(function () {
-        this.dataError = true;
-    })  
+.catch(function () {
+    this.dataError = true;
+}) 
 
- 
+// DOM
+const sectionPhotographHeader = document.getElementById('photograph-header');
+
+
+// a l'interieur de sectionphotographHeader
+const article = document.createElement('article');
+const h2 = document.createElement('h2');
+h2.textContent = 'Mimi Keel';
+const h3 = document.createElement('h3');
+h3.textContent = 'London, UK';
+const h4 = document.createElement('h4');
+h4.textContent = 'Voir le beau dans le quotidien';
+
+const button = document.querySelector('.contact_button');
+console.log(button);
+
+const img = document.createElement('img');
+// lien parent,enfant
+sectionPhotographHeader.appendChild(article); 
+sectionPhotographHeader.appendChild(img);
+
+sectionPhotographHeader.prepend(article);
+sectionPhotographHeader.append(button); 
+sectionPhotographHeader.append(img);
+
+article.appendChild(h2);
+article.appendChild(h3);
+article.appendChild(h4);
+
+const main = document.getElementById('main');
+
+const sectionTrier = document.createElement('section');
+
+main.appendChild(sectionTrier);
 
     
         
