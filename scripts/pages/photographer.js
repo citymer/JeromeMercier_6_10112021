@@ -23,11 +23,10 @@ fetch('data/photographers.json')
     this.dataError = true;
 }) 
 
-// DOM
+// ***************    DOM   ******************
 const sectionPhotographHeader = document.getElementById('photograph-header');
 
-
-// a l'interieur de sectionphotographHeader
+// SECTION sectionphotographHeader
 const article = document.createElement('article');
 const h2 = document.createElement('h2');
 h2.textContent = 'Mimi Keel';
@@ -37,13 +36,13 @@ const h4 = document.createElement('h4');
 h4.textContent = 'Voir le beau dans le quotidien';
 
 const button = document.querySelector('.contact_button');
-console.log(button);
 
 const img = document.createElement('img');
+
 // lien parent,enfant
 sectionPhotographHeader.appendChild(article); 
 sectionPhotographHeader.appendChild(img);
-
+//positionne article avant button
 sectionPhotographHeader.prepend(article);
 sectionPhotographHeader.append(button); 
 sectionPhotographHeader.append(img);
@@ -52,11 +51,15 @@ article.appendChild(h2);
 article.appendChild(h3);
 article.appendChild(h4);
 
+// SECTION trier
 const main = document.getElementById('main');
-
 const sectionTrier = document.createElement('section');
-
+sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
+const p = document.createElement('p');
+p.textContent = 'trier par';
+p.className = 'trier';
+sectionTrier.appendChild(p);
 
     
         

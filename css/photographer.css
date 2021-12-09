@@ -6,7 +6,7 @@ body {
 #contact_modal {
     display: none;
 }
-
+/* SECTION PHOTOGRAPH-HEADER */
 #photograph-header {
     display: flex;
     justify-content: space-around;
@@ -35,7 +35,7 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
+/* MODAL */
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
@@ -62,7 +62,7 @@ body {
     font-weight: normal;
     text-align: center;
 }
-
+/* FORMULAIRE */
 form {
     display: flex;
     width: 100%;
