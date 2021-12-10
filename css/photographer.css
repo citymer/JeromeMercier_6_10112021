@@ -35,6 +35,24 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
+.contact_button:hover,.contact_button:focus {
+    background-color: #d3573c;
+}
+/* SECTION TRIER */
+label{
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 100px;
+    color:black;
+}
+select{
+    width: 170px;
+    height: 69px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #901C1C;
+    color: white;
+}
 /* MODAL */
 .modal {
     border-radius: 5px;

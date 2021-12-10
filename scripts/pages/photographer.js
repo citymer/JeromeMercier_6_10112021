@@ -56,12 +56,29 @@ const main = document.getElementById('main');
 const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
-const p = document.createElement('p');
-p.textContent = 'trier par';
-p.className = 'trier';
-sectionTrier.appendChild(p);
+const label = document.createElement('label');
+label.textContent = 'Trier par';
+label.setAttribute("for","trier");
+sectionTrier.appendChild(label);
 
+const select = document.createElement('select');
+select.id = 'trier';
+sectionTrier.appendChild(select);
+
+const optionPopularite = document.createElement('option');
+optionPopularite.setAttribute("value","");
+select.appendChild(optionPopularite);
+optionPopularite.textContent = 'Popularité';
+
+const optionDate = document.createElement('option');
+optionDate.setAttribute("value","date");
+select.appendChild(optionDate);
+optionDate.textContent = 'Date';
     
+const optionTitre = document.createElement('option');
+optionTitre.setAttribute("value","titre");
+select.appendChild(optionTitre);
+optionTitre.textContent = 'Titre';
         
 
      
