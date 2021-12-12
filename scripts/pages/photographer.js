@@ -53,6 +53,7 @@ article.appendChild(h4);
 
 // SECTION trier
 const main = document.getElementById('main');
+
 const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
@@ -61,26 +62,32 @@ label.textContent = 'Trier par';
 label.setAttribute("for","trier");
 sectionTrier.appendChild(label);
 
-const select = document.createElement('select');
-select.id = 'trier';
-sectionTrier.appendChild(select);
+const div = document.createElement('div');
+div.setAttribute("class","navBar");
+sectionTrier.appendChild(div);
 
-const optionPopularite = document.createElement('option');
-optionPopularite.setAttribute("value","");
-select.appendChild(optionPopularite);
-optionPopularite.textContent = 'Popularité';
+const ulMenu = document.createElement('ul');
+ulMenu.id = 'trier';
+div.appendChild(ulMenu);
 
-const optionDate = document.createElement('option');
-optionDate.setAttribute("value","date");
-select.appendChild(optionDate);
-optionDate.textContent = 'Date';
+const liPopularite = document.createElement('li');
+liPopularite.setAttribute("class","popularite");
+ulMenu.appendChild(liPopularite);
+liPopularite.textContent = 'Popularité';
+
+const ul = document.createElement('ul');
+liPopularite.appendChild(ul);
+
+const liDate = document.createElement('li');
+liDate.setAttribute("class","date");
+ul.appendChild(liDate);
+liDate.textContent = 'Date';
     
-const optionTitre = document.createElement('option');
-optionTitre.setAttribute("value","titre");
-select.appendChild(optionTitre);
-optionTitre.textContent = 'Titre';
+const liTitre = document.createElement('li');
+liTitre.setAttribute("class","titre");
+ul.appendChild(liTitre);
+liTitre.textContent = 'Titre';
         
 
-     
-    
+
     

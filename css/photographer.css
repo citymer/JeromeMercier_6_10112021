@@ -39,20 +39,26 @@ body {
     background-color: #d3573c;
 }
 /* SECTION TRIER */
+#filter{
+    display: flex;
+}
 label{
     font-size: 18px;
     font-weight: bold;
     margin-left: 100px;
     color:black;
 }
-select{
+.navBar{
     width: 170px;
-    height: 69px;
-    font-size: 18px;
+    height: 65px;
+    margin-left: 20px;
     border-radius: 5px;
     background-color: #901C1C;
-    color: white;
+    z-index: 99;
+    position: relative;
+
 }
+
 /* MODAL */
 .modal {
     border-radius: 5px;
