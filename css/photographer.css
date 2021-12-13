@@ -1,6 +1,7 @@
 body {
     font-family: "DM Sans", sans-serif;
     margin: 0;
+    padding: 0;
 }
 
 #contact_modal {
@@ -54,11 +55,37 @@ label{
     margin-left: 20px;
     border-radius: 5px;
     background-color: #901C1C;
-    z-index: 99;
+}
+li{
+    list-style-type: none;
+    color:white;
+    font-weight: bold;
+}
+.sousmenu > li {
+    float: left;
     position: relative;
-
+    padding: 11px;
+}
+.sousmenu{
+    display:none ;
+}
+ul::after{
+    content: "";
+    display: table;
+    clear: both;
 }
 
+/* DIV PHOTO */
+
+.divphoto{
+    margin: 50px 100px;
+}
+.imgarticle{
+    width: 350px;
+    height: 300px;
+    border-radius: 5px;
+    color: #c4c4c4;
+}
 /* MODAL */
 .modal {
     border-radius: 5px;

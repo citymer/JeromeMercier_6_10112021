@@ -76,6 +76,7 @@ ulMenu.appendChild(liPopularite);
 liPopularite.textContent = 'Popularité';
 
 const ul = document.createElement('ul');
+ul.setAttribute("class","sousmenu");
 liPopularite.appendChild(ul);
 
 const liDate = document.createElement('li');
@@ -88,6 +89,35 @@ liTitre.setAttribute("class","titre");
 ul.appendChild(liTitre);
 liTitre.textContent = 'Titre';
         
+// DIV contenant les photos et la video des photographes
+
+const divPhoto = document.createElement('div');
+divPhoto.setAttribute("class","divphoto");
+main.appendChild(divPhoto);
+
+const articlePhoto = document.createElement('article');
+divPhoto.appendChild(articlePhoto);
+
+      const imgArticle = document.createElement('img');
+      articlePhoto.appendChild(imgArticle);
+      imgArticle.setAttribute("class","imgarticle");
+
+      const h5 = document.createElement('h5');
+      articlePhoto.appendChild(h5);
+
+      const p = document.createElement('p');
+      p.setAttribute("class","prix");
+      articlePhoto.appendChild(p);
+
+      const divquantityheart = document.createElement('div');
+      divquantityheart.setAttribute("class","quantityHeart");
+      articlePhoto.appendChild(divquantityheart);
+
+           const span = document.createElement('span');
+           divquantityheart.appendChild(span);
+
+           const i = document.createElement('i');
+           divquantityheart.appendChild(i);
 
 
     
