@@ -1,36 +1,64 @@
 //Mettre le code JavaScript lié à la page photographer.html
+async function getPhotographers() {  
+
+    //  données des photographes récupérées dans le json
+    const photographers = [];
+
+    // rapatrie les données de photographers.json
+   await fetch('data/photographers.json')
+    .then(response => {
+          if (!response.ok) {
+            throw new Error("HTTP error " + response.status);
+           }
+           return response.json();  
+       })
+       .then(json => {
+           
+          this.photographers = json.photographers;
+          
+             })
+    .catch(function () {
+            this.dataError = true;
+            })   
+
+       //  retourne le tableau photographers seulement une fois
+       return ({
+           photographers: [...this.photographers]})
+   }
+
+   async function displayData(photographers) {
+
+       const photographersSection = document.getElementById('photograph-header');
+
+       photographers.forEach((photographer) => {
+           const photographerModel = photographerFactory(photographer);
+           const userCardDOM = photographerModel.getUserCardDOM();
+           photographersSection.appendChild(userCardDOM);
+       });
+   };
+
+   async function init() {
+
+       // Récupère les datas des photographes
+       const { photographers } = await getPhotographers();
+       displayData(photographers);
+   };
+   
+   init();
 
 
 
 
-
-fetch('data/photographers.json')
-
-.then(response => {
-    if (!response.ok) {
-        throw new Error("HTTP error " + response.status);
-    }
-    return response.json();  
-})
-
-.then(json => {
-    this.photographers = json;
-    const {photographers} = json;
-    const {media} = json;
-})
-
-.catch(function () {
-    this.dataError = true;
-}) 
 
 // ***************    DOM   ******************
 const sectionPhotographHeader = document.getElementById('photograph-header');
 
 // SECTION sectionphotographHeader
+
 const article = document.createElement('article');
 
    const h2 = document.createElement('h2');
-   h2.textContent = 'Mimi Keel';
+   h2.textContent = "mimi";
 
    const h3 = document.createElement('h3');
    h3.textContent = 'London, UK';
