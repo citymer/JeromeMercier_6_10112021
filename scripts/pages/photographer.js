@@ -93,7 +93,9 @@ main.appendChild(sectionTrier);
                ul.appendChild(liTitre);
                liTitre.textContent = 'Titre';
         
-// DIV contenant les photos et la video des photographes
+
+
+    // DIV contenant les photos et la video des photographes
 
 const divPhoto = document.createElement('div');
 divPhoto.setAttribute("class","divphoto");
@@ -101,6 +103,7 @@ main.appendChild(divPhoto);
 
 const articlePhoto = document.createElement('article');
 divPhoto.appendChild(articlePhoto);
+
 
       const imgArticle = document.createElement('img');
       articlePhoto.appendChild(imgArticle);
@@ -123,5 +126,3 @@ divPhoto.appendChild(articlePhoto);
            const i = document.createElement('i');
            divquantityheart.appendChild(i);
 
-
-    

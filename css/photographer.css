@@ -25,8 +25,16 @@ body {
 }
 #photograph-header h2 {
     color: #d3573c;
+    font-size: 64px;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
-
+#photograph-header h3 {
+    font-size: 24px;
+}
+#photograph-header h4 {
+    font-size: 18px;
+}
 .contact_button {
     font-size: 20px;
     font-weight: bold;
@@ -45,6 +53,7 @@ body {
 /* SECTION TRIER */
 #filter{
     display: flex;
+    margin-top: 40px;
 }
 label{
     font-size: 18px;
