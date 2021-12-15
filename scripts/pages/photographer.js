@@ -1,108 +1,59 @@
-//Mettre le code JavaScript lié à la page photographer.html
-async function getPhotographers() {  
-
-    //  données des photographes récupérées dans le json
-    const photographers = [];
-
-    // rapatrie les données de photographers.json
-   await fetch('data/photographers.json')
-    .then(response => {
-          if (!response.ok) {
-            throw new Error("HTTP error " + response.status);
-           }
-           return response.json();  
-       })
-       .then(json => {
-           
-          this.photographers = json.photographers;
-          
-          
-             })
-    .catch(function () {
-            this.dataError = true;
-            })   
-
-       //  retourne le tableau photographers seulement une fois
-       return ({
-           photographers: [...this.photographers]})
-   }
-
-   async function displayData(photographers) {
-
-      // const photographersSection = document.getElementsById('photograph-header');
-       //const sectionPhotographHeader = document.getElementById('photograph-header');
-
-       photographers.forEach((photographer) => {
-           const photographerModel = photographerFactory(photographer);
-           const userCardDOM = photographerModel.getUserCardDOM();
-           sectionPhotographHeader.appendChild(userCardDOM);
-       });
-   };
-
-   async function init() {
-
-       // Récupère les datas des photographes
-       const { photographers } = await getPhotographers();
-       displayData(photographers);
-   };
-   
-   init();
 
 
-
-
-
-// ***************    DOM   ******************
 
 // SECTION sectionphotographHeader
 
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline,alt,id} = data;
-
+    
     const picture = `assets/photographers/${portrait}`;
-
+    
     function getUserCardDOM() {
 
+        //selectionne la section "photograph-header"
         const sectionPhotographHeader = document.getElementById('photograph-header');
         
-
+        //création "article" qui contient "h2,h3,h4"
         const article = document.createElement('article');
         article.id = id;
-
-             const h2 = document.createElement('h2');
-             h2.textContent = name;
-
-             const h3 = document.createElement('h3');
-             h3.textContent = `${city}, ${country}`;
-
-             const h4 = document.createElement('h4');
-             h4.textContent = tagline;
-
+        
+           const h2 = document.createElement('h2');
+           h2.textContent = name;
+        
+           const h3 = document.createElement('h3');
+           h3.textContent = `${city}, ${country}`;
+        
+           const h4 = document.createElement('h4');
+           h4.textContent = tagline;
+        
+        // selection du bouton "contact_button"   
         const button = document.querySelector('.contact_button');
-
+        
+        //creation d' img pour la photo de profil du photographe
         const img = document.createElement('img');
         img.setAttribute("src", picture);
         img.setAttribute("alt",alt);
-
+        
         // lien parent,enfant
         sectionPhotographHeader.appendChild(article); 
         sectionPhotographHeader.appendChild(img);
         article.appendChild(h2);
         article.appendChild(h3);
         article.appendChild(h4);
-
+        
         //positionne article avant button
         sectionPhotographHeader.prepend(article);
         sectionPhotographHeader.append(button); 
         sectionPhotographHeader.append(img);
-
-      return (article);
+        
+        return (article);
     }
-
+    
     return {getUserCardDOM}
-
+    
 }
 
+// ***************    DOM   ******************
 // SECTION trier
 const main = document.getElementById('main');
 
