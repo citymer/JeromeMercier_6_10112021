@@ -16,6 +16,7 @@ async function getPhotographers() {
            
           this.photographers = json.photographers;
           
+          
              })
     .catch(function () {
             this.dataError = true;
@@ -28,12 +29,13 @@ async function getPhotographers() {
 
    async function displayData(photographers) {
 
-       const photographersSection = document.getElementById('photograph-header');
+      // const photographersSection = document.getElementsById('photograph-header');
+       //const sectionPhotographHeader = document.getElementById('photograph-header');
 
        photographers.forEach((photographer) => {
            const photographerModel = photographerFactory(photographer);
            const userCardDOM = photographerModel.getUserCardDOM();
-           photographersSection.appendChild(userCardDOM);
+           sectionPhotographHeader.appendChild(userCardDOM);
        });
    };
 
@@ -51,36 +53,55 @@ async function getPhotographers() {
 
 
 // ***************    DOM   ******************
-const sectionPhotographHeader = document.getElementById('photograph-header');
 
 // SECTION sectionphotographHeader
 
-const article = document.createElement('article');
+function photographerFactory(data) {
+    const { name, portrait, city, country, tagline,alt,id} = data;
 
-   const h2 = document.createElement('h2');
-   h2.textContent = "mimi";
+    const picture = `assets/photographers/${portrait}`;
 
-   const h3 = document.createElement('h3');
-   h3.textContent = 'London, UK';
+    function getUserCardDOM() {
 
-   const h4 = document.createElement('h4');
-   h4.textContent = 'Voir le beau dans le quotidien';
+        const sectionPhotographHeader = document.getElementById('photograph-header');
+        
 
-const button = document.querySelector('.contact_button');
+        const article = document.createElement('article');
+        article.id = id;
 
-const img = document.createElement('img');
+             const h2 = document.createElement('h2');
+             h2.textContent = name;
 
-// lien parent,enfant
-sectionPhotographHeader.appendChild(article); 
-sectionPhotographHeader.appendChild(img);
-//positionne article avant button
-sectionPhotographHeader.prepend(article);
-sectionPhotographHeader.append(button); 
-sectionPhotographHeader.append(img);
+             const h3 = document.createElement('h3');
+             h3.textContent = `${city}, ${country}`;
 
-article.appendChild(h2);
-article.appendChild(h3);
-article.appendChild(h4);
+             const h4 = document.createElement('h4');
+             h4.textContent = tagline;
+
+        const button = document.querySelector('.contact_button');
+
+        const img = document.createElement('img');
+        img.setAttribute("src", picture);
+        img.setAttribute("alt",alt);
+
+        // lien parent,enfant
+        sectionPhotographHeader.appendChild(article); 
+        sectionPhotographHeader.appendChild(img);
+        article.appendChild(h2);
+        article.appendChild(h3);
+        article.appendChild(h4);
+
+        //positionne article avant button
+        sectionPhotographHeader.prepend(article);
+        sectionPhotographHeader.append(button); 
+        sectionPhotographHeader.append(img);
+
+      return (article);
+    }
+
+    return {getUserCardDOM}
+
+}
 
 // SECTION trier
 const main = document.getElementById('main');

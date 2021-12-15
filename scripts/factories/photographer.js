@@ -10,7 +10,7 @@ function photographerFactory(data) {
 
         // balise <a> lien vers 'photographe.html' contenant <img> et >h2>
         const a = document.createElement('a');
-        a.href = "photographer.html";
+        a.href = "photographer.html?id=${id}";
         a.title = "portrait photographe";
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture);

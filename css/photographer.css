@@ -17,11 +17,14 @@ body {
     margin: 0 100px;
 }
 
-.photograph-header img {
+#photograph-header img {
     height: 200px;
     width: 200px;
     border-radius: 50%;
     object-fit: cover;
+}
+#photograph-header h2 {
+    color: #d3573c;
 }
 
 .contact_button {
