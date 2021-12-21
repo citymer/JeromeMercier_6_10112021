@@ -10,15 +10,15 @@ function photographerFactory(data) {
 
         // balise <a> lien vers 'photographe.html' contenant <img> et >h2>
         const a = document.createElement('a');
-        a.href = "photographer.html?id=${id}";
+        a.href = `photographer.html?id=${id}`;
         a.title = "portrait photographe";
 
           const img = document.createElement( 'img' );
           img.setAttribute("src", picture);
           img.setAttribute("alt",alt)
-          
+
           const h2 = document.createElement( 'h2' );
-          h2.textContent = name;
+          h2.textContent = `${name}`;
 
         // texte comprenant ville et pays
         const h3 = document.createElement('h3');

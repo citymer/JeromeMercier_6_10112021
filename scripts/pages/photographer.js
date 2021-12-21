@@ -3,8 +3,8 @@
 
 // SECTION sectionphotographHeader
 
-function photographerFactory(data) {
-    const { name, portrait, city, country, tagline,alt,id} = data;
+function photographerFactory2(json) {
+    const { name, portrait, city, country, tagline,alt,id} = json;
     
     const picture = `assets/photographers/${portrait}`;
     
@@ -18,13 +18,13 @@ function photographerFactory(data) {
         article.id = id;
         
            const h2 = document.createElement('h2');
-           h2.textContent = name;
+           h2.textContent = `${name}`;
         
            const h3 = document.createElement('h3');
            h3.textContent = `${city}, ${country}`;
         
            const h4 = document.createElement('h4');
-           h4.textContent = tagline;
+           h4.textContent = `${tagline}`;
         
         // selection du bouton "contact_button"   
         const button = document.querySelector('.contact_button');
@@ -52,6 +52,10 @@ function photographerFactory(data) {
     return {getUserCardDOM}
     
 }
+
+
+
+
 
 // ***************    DOM   ******************
 // SECTION trier
@@ -109,20 +113,19 @@ divPhoto.appendChild(articlePhoto);
       articlePhoto.appendChild(imgArticle);
       imgArticle.setAttribute("class","imgarticle");
 
-      const h5 = document.createElement('h5');
-      articlePhoto.appendChild(h5);
-
-      const p = document.createElement('p');
-      p.setAttribute("class","prix");
-      articlePhoto.appendChild(p);
-
+      
       const divquantityheart = document.createElement('div');
       divquantityheart.setAttribute("class","quantityHeart");
       articlePhoto.appendChild(divquantityheart);
+      
+           const h5 = document.createElement('h5');
+           divquantityheart.appendChild(h5);
+           h5.textContent = "Lonesome";
 
            const span = document.createElement('span');
            divquantityheart.appendChild(span);
-
+           span.textContent = "82";
+      
            const i = document.createElement('i');
            divquantityheart.appendChild(i);
 

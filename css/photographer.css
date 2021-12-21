@@ -101,6 +101,9 @@ ul::after{
     border-radius: 5px;
     color: #c4c4c4;
 }
+.quantityHeart {
+    display: flex;
+}
 /* MODAL */
 .modal {
     border-radius: 5px;
