@@ -3,8 +3,8 @@
 
 // SECTION sectionphotographHeader
 
-function photographerFactory2(json) {
-    const { name, portrait, city, country, tagline,alt,id} = json;
+function photographerFactory2(data) {
+    const { name, portrait, city, country, tagline,alt,id} = data;
     
     const picture = `assets/photographers/${portrait}`;
     
@@ -12,13 +12,13 @@ function photographerFactory2(json) {
 
         //selectionne la section "photograph-header"
         const sectionPhotographHeader = document.getElementById('photograph-header');
-        
+        console.log(sectionPhotographHeader);
         //création "article" qui contient "h2,h3,h4"
         const article = document.createElement('article');
         article.id = id;
         
            const h2 = document.createElement('h2');
-           h2.textContent = `${name}`;
+           h2.textContent = filterPhotographer.name;
         
            const h3 = document.createElement('h3');
            h3.textContent = `${city}, ${country}`;
