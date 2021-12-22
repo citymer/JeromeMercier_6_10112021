@@ -27,7 +27,8 @@
    
        // filtre media avec photographerId
        const filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-       console.log(filterMedia);   
+       filterMedia.forEach(item => console.log(item));
+       
        
        const { name, portrait, city, country, tagline,alt,id} = filterPhotographer[0];
    
@@ -95,6 +96,9 @@ main.appendChild(sectionTrier);
        ulMenu.appendChild(liPopularite);
        liPopularite.textContent = 'Popularité';
 
+       
+       
+
           const ul = document.createElement('ul');
           ul.setAttribute("class","sousmenu");
           liPopularite.appendChild(ul);
@@ -110,8 +114,10 @@ main.appendChild(sectionTrier);
               liTitre.textContent = 'Titre';
        
    // DIV contenant les photos et la video des photographes
-   const {title,likes,image} = filterMedia;
-   const images = `assets/image/${image}`;
+
+   const {title,likes,image} = filterMedia[0];
+
+   const images = `assets/images/${image}`;
 
    const divPhoto = document.createElement('div');
    divPhoto.setAttribute("class","divphoto");
@@ -124,7 +130,7 @@ main.appendChild(sectionTrier);
          const imgArticle = document.createElement('img');
          articlePhoto.appendChild(imgArticle);
          imgArticle.setAttribute("class","imgarticle");
-         imgArticle.setAttribute("src",images);
+         imgArticle.setAttribute("src","assets/images/Rhode/Sport_2000_with_8.jpg");
          imgArticle.setAttribute("alt",alt);
    
          
@@ -135,13 +141,18 @@ main.appendChild(sectionTrier);
               const h5 = document.createElement('h5');
               divquantityheart.appendChild(h5);
               h5.textContent = `${title}`;
+
+              const divspanHeart = document.createElement('div');
+              divquantityheart.appendChild(divspanHeart);
+              divspanHeart.setAttribute("class","divspanheart");
    
               const span = document.createElement('span');
-              divquantityheart.appendChild(span);
+              divspanHeart.appendChild(span);
               span.textContent = `${likes}`;
          
               const i = document.createElement('i');
-              divquantityheart.appendChild(i);
+              divspanHeart.appendChild(i);
+              i.setAttribute("class","fas fa-heart");
 
          
    })
@@ -167,7 +178,7 @@ main.appendChild(sectionTrier);
   async function init() {
 
       // Récupère les datas des photographes
-     const { photographers,media} = await getPhotographers();
+     const { photographers,media} =  getPhotographers();
       
       //displayData(photographers);
   };

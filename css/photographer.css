@@ -100,9 +100,27 @@ ul::after{
     height: 300px;
     border-radius: 5px;
     color: #c4c4c4;
+    object-fit: cover;
+}
+h5{
+    color: #901C1C;
+    font-size: 24px;
+    font-weight: 400;
+}
+.divspanheart{
+    margin-right: 8px;
 }
 .quantityHeart {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width: 350px;
+}
+
+.fa-heart{
+    color: #901C1C;
+    margin-left: 5px;
 }
 /* MODAL */
 .modal {
