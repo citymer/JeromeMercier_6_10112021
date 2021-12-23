@@ -51,8 +51,19 @@ function attachInformation(photographer) {
    const { name, portrait, city, country, tagline,alt,id} = this.filterPhotographer[0];
    
        const picture = `assets/photographers/${portrait}`;
+
+          //selectionne header ***** creation du lien vers l'acceuil *****
+          const header = document.querySelector('header');
+              const aLienAcceuil = document.createElement('a');
+              aLienAcceuil.setAttribute("href","./index.html");
+              
+              const imgLogo = document.querySelector('.logo');
+
+              header.appendChild(aLienAcceuil);
+              aLienAcceuil.appendChild(imgLogo);
+               
        
-           //selectionne la section "photograph-header"
+           //SELECTIONNE la section "photograph-header" *****************************
            const sectionPhotographHeader = document.getElementById('photograph-header');
 
            //création "article" qui contient "h2,h3,h4"
