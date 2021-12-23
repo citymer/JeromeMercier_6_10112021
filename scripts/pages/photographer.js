@@ -52,6 +52,7 @@ function attachInformationPhotograph(photographer) {
    const { name, portrait, city, country, tagline,alt,id} = this.filterPhotographer[0];
    
        const picture = `assets/photographers/${portrait}`;
+       console.log(picture);
 
           //selectionne header ***** creation du lien vers l'acceuil *****
           const header = document.querySelector('header');
@@ -148,9 +149,11 @@ main.appendChild(sectionTrier);
             
 function attachInformationMedia(media) {
 
-            const {title,likes,image} = this.filterMedia[0];
+            const {title,likes,image,alt,photographerId} = this.filterMedia[0];
+            console.log(this.filterMedia);
          
-            const images = `assets/images/${image}`;
+            const images = `assets/${photographerId}/${image}`;
+            console.log(images);
          
             const divPhoto = document.createElement('div');
             divPhoto.setAttribute("class","divphoto");
@@ -163,7 +166,7 @@ function attachInformationMedia(media) {
                   const imgArticle = document.createElement('img');
                   articlePhoto.appendChild(imgArticle);
                   imgArticle.setAttribute("class","imgarticle");
-                  imgArticle.setAttribute("src","assets/images/Rhode/Sport_2000_with_8.jpg");
+                  imgArticle.setAttribute("src","assets/img/925/");
                   imgArticle.setAttribute("alt",alt);
             
                   
