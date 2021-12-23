@@ -7,7 +7,8 @@
     const getId = window.location.search;
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
-    
+    const filterPhotographer = [];
+     
     
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
@@ -17,20 +18,37 @@
            }
            return response.json();  
        })
+
        //  données des photographes récupérées dans le json
    .then(json => {
        const {photographers} = json;
        const {media} = json;
        
        // filtre photographe avec id
-       const filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
+       this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
    
        // filtre media avec photographerId
        const filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-       filterMedia.forEach(item => console.log(item));
        
+       //  retourne le tableau photographers seulement une fois
+           return filterPhotographer;
+
        
-       const { name, portrait, city, country, tagline,alt,id} = filterPhotographer[0];
+
+})
+
+.catch(function () {
+    this.dataError = true;
+})   
+
+}
+
+
+
+function attachInformation(photographer) {
+    console.log(photographer);
+
+   const { name, portrait, city, country, tagline,alt,id} = this.filterPhotographer[0];
    
        const picture = `assets/photographers/${portrait}`;
        
@@ -154,16 +172,7 @@ main.appendChild(sectionTrier);
               divspanHeart.appendChild(i);
               i.setAttribute("class","fas fa-heart");
 
-         
-   })
-   
-   .catch(function () {
-       this.dataError = true;
-   })   
-   
-   //  retourne le tableau photographers seulement une fois
-  // return ({photographer:[...this.photographers] });
-}
+}      
 
 //async function displayData(photographers) {
 
@@ -178,8 +187,8 @@ main.appendChild(sectionTrier);
   async function init() {
 
       // Récupère les datas des photographes
-     const { photographers,media} =  getPhotographers();
-      
+     const photographers = await getPhotographers();
+      attachInformation(photographers);
       //displayData(photographers);
   };
   

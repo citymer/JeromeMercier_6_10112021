@@ -7,6 +7,14 @@ body {
 #contact_modal {
     display: none;
 }
+/* HEADER */
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
 /* SECTION PHOTOGRAPH-HEADER */
 #photograph-header {
     display: flex;
@@ -16,7 +24,9 @@ body {
     height: 300px;
     margin: 0 100px;
 }
-
+#photograph-header article{
+    width: auto;
+}
 #photograph-header img {
     height: 200px;
     width: 200px;
@@ -175,4 +185,29 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+/* responsive */
+
+@media screen and (max-width:1280px) {
+    #photograph-header h2 {
+        font-size: 34px;
+       
+    }
+}
+
+@media screen and (max-width:1080px) {
+    #photograph-header h4 {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:992px) {
+    header {
+        width: 100%;
+    }
+    #photograph-header {
+        flex-direction: column-reverse;
+        height: 500px;   
+    }
 }
