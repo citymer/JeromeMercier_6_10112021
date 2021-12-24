@@ -151,15 +151,18 @@ main.appendChild(sectionTrier);
             
 function attachInformationMedia(media) {
 
-            const {title,likes,image,alt,photographerId} = this.filterMedia[0];
+            const {title,likes,image,alt} = this.filterMedia[0];
             console.log(this.filterMedia);
          
             const images = `assets/${image}`;
             console.log(images);
          
+
             const divPhoto = document.createElement('div');
             divPhoto.setAttribute("class","divphoto");
             main.appendChild(divPhoto);
+
+     function getUserCardDOMmedia() {
             
             const articlePhoto = document.createElement('article');
             divPhoto.appendChild(articlePhoto);
@@ -194,17 +197,24 @@ function attachInformationMedia(media) {
 
                      
                        return (articlePhoto);
-                    }
-                       //async function displayData(photographers) {
+            } 
+         return { getUserCardDOMmedia }                 
 
-  
+}
 
+ async function displayData(filterMedia) {
+
+    const divPhotoSelect = document.querySelector('.divphoto');
+
+    filterMedia.forEach((media) => {
+         const mediaModel = attachInformationMedia(media);
+         const userCardDOMmedia = mediaModel.getUserCardDOMmedia(media);
+         divPhotoSelect.appendChild(userCardDOMmedia);
+    });
    
-      // const photographerModel = photographerFactory2(photographers);
-       //const userCardDOM = photographerModel.getUserCardDOM();
-       //sectionPhotographHeader.appendChild(userCardDOM);
-   
-//};
+};
+
+
   async function init() {
 
       // Récupère les datas des photographes
@@ -212,7 +222,7 @@ function attachInformationMedia(media) {
      const media = await getPhotographers();
       attachInformationPhotograph(photographers);
       attachInformationMedia(media);
-      //displayData(photographers);
+      displayData(filterMedia);
   };
   
   init();
