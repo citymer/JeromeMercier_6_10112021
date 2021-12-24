@@ -9,27 +9,29 @@
     const idPhotograph = urlParams.get ('id');
     const filterPhotographer = [];
     const filterMedia = [];
-     
+    
     
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
     .then(response => {
         if (!response.ok) {
             throw new Error("HTTP error " + response.status);
-           }
-           return response.json();  
-       })
+        }
+        return response.json();  
+    })
+    
+    //  données des photographes récupérées dans le json
+    .then(json => {
+        const {photographers} = json;
+        const {media} = json;
+        
+        // filtre photographe avec id
+        this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
+        
+        // filtre media avec photographerId
+        this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
+        
 
-       //  données des photographes récupérées dans le json
-   .then(json => {
-       const {photographers} = json;
-       const {media} = json;
-       
-       // filtre photographe avec id
-       this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
-   
-       // filtre media avec photographerId
-       this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
        
        //  retourne le tableau photographers seulement une fois
            return filterPhotographer,filterMedia;
@@ -152,7 +154,7 @@ function attachInformationMedia(media) {
             const {title,likes,image,alt,photographerId} = this.filterMedia[0];
             console.log(this.filterMedia);
          
-            const images = `assets/${photographerId}/${image}`;
+            const images = `assets/${image}`;
             console.log(images);
          
             const divPhoto = document.createElement('div');
@@ -166,7 +168,7 @@ function attachInformationMedia(media) {
                   const imgArticle = document.createElement('img');
                   articlePhoto.appendChild(imgArticle);
                   imgArticle.setAttribute("class","imgarticle");
-                  imgArticle.setAttribute("src","assets/img/925/");
+                  imgArticle.setAttribute("src",images);
                   imgArticle.setAttribute("alt",alt);
             
                   
@@ -189,9 +191,11 @@ function attachInformationMedia(media) {
                        const i = document.createElement('i');
                        divspanHeart.appendChild(i);
                        i.setAttribute("class","fas fa-heart");
-}
 
-//async function displayData(photographers) {
+                     
+                       return (articlePhoto);
+                    }
+                       //async function displayData(photographers) {
 
   
 
