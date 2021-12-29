@@ -154,16 +154,14 @@ sectionTrier.appendChild(div);
 // FUNCTION qui affiche les images des photographes ****************
 function attachInformationMedia(media) {
     
-    const {title,likes,image,alt} = this.filterMedia[0];
+   // const {title,likes,image,alt} = this.filterMedia[0];
             
          
-            const images = `assets/${image}`;
+           // const images = `assets/${image}`;
             
             
             
             function getUserCardDOMmedia() {
-                
-                // const selectDivPhoto = document.querySelector('.divphoto');
                 
                 const articlePhoto = document.createElement('article');
                 divPhoto.appendChild(articlePhoto);
@@ -204,8 +202,6 @@ function attachInformationMedia(media) {
         }
  // FUNCTION qui affiche la video des photographes       
  function attachInformationVideo(video) {
-
-   
      
 
     const articleVideo = document.createElement('article');
@@ -240,7 +236,7 @@ function attachInformationMedia(media) {
 
 }
 
- async function displayData(media) {
+ async function displayData() {
      
 
   const divPhotoSelect = document.querySelector('.divphoto');
@@ -251,7 +247,7 @@ function attachInformationMedia(media) {
          const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
         divPhotoSelect.appendChild(userCardDOMmedia);
 
-      if (media.video == "undefined") {
+      if (media.video == undefined) {
           attachInformationMedia(media);
           
       } else {
