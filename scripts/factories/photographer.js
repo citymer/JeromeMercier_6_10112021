@@ -2,6 +2,7 @@ function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price,alt,id} = data;
 
     const picture = `assets/photographers/${portrait}`;
+    
 
     function getUserCardDOM() {
         

@@ -7,8 +7,8 @@
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
 
-    //const filterPhotographer = [];
-    //const filterMedia = [];
+    const filterPhotographer = [];
+    const filterMedia = [];
    
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
@@ -26,14 +26,14 @@
         
         // filtre photographe avec id
         this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
-        console.log(this.filterPhotographer);
+        
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
         console.log(this.filterMedia);
         //const thisMedia = this.filterMedia.forEach(item => console.log(item));
        
        //  retourne le tableau photographers seulement une fois
-          // return filterPhotographer,filterMedia;     
+           return filterPhotographer,filterMedia;     
 
 })
 
@@ -160,6 +160,7 @@ function attachInformationMedia(media) {
             const images = `assets/${image}`;
             
             
+            
             function getUserCardDOMmedia() {
                 
                 // const selectDivPhoto = document.querySelector('.divphoto');
@@ -171,8 +172,8 @@ function attachInformationMedia(media) {
                 const imgArticle = document.createElement('img');
                 articlePhoto.appendChild(imgArticle);
                 imgArticle.setAttribute("class","imgarticle");
-                imgArticle.setAttribute("src",images);
-                imgArticle.setAttribute("alt",alt);
+                imgArticle.setAttribute("src",media.image);
+                imgArticle.setAttribute("alt",media.alt);
                 
                 
                 const divquantityheart = document.createElement('div');
@@ -181,7 +182,7 @@ function attachInformationMedia(media) {
                 
                 const h5 = document.createElement('h5');
                 divquantityheart.appendChild(h5);
-                h5.textContent = `${title}`;
+                h5.textContent = media.title;
                 
                 const divspanHeart = document.createElement('div');
                 divquantityheart.appendChild(divspanHeart);
@@ -189,7 +190,7 @@ function attachInformationMedia(media) {
                 
                 const span = document.createElement('span');
                 divspanHeart.appendChild(span);
-                span.textContent = `${likes}`;
+                span.textContent = media.likes;
                 
                 const i = document.createElement('i');
                 divspanHeart.appendChild(i);
@@ -202,20 +203,18 @@ function attachInformationMedia(media) {
             
         }
  // FUNCTION qui affiche la video des photographes       
- function attachInformationVideo() {
+ function attachInformationVideo(video) {
 
-     const {video,alt,title,likes} = this.filterMedia[0];
-            
-     const videos = `assets/${video}`;
-     console.log(videos);
+   
+     
 
     const articleVideo = document.createElement('article');
     divPhoto.appendChild(articleVideo);
             
           const videoArticle = document.createElement('video');
           articleVideo.appendChild(videoArticle); 
-          articleVideo.setAttribute("alt",alt);
-          videoArticle.setAttribute("src","assets/img/Rhode/Animals_Puppiness.mp4");
+          articleVideo.setAttribute("alt",video.alt);
+          videoArticle.setAttribute("src",video.video);
           videoArticle.setAttribute("type","video/mp4");
           videoArticle.setAttribute("controls","");
 
@@ -225,7 +224,7 @@ function attachInformationMedia(media) {
           
                const h5s = document.createElement('h5');
                divquantityhearts.appendChild(h5s);
-               h5s.textContent = `${title}`;
+               h5s.textContent = video.title;
  
                const divspanHearts = document.createElement('div');
                divquantityhearts.appendChild(divspanHearts);
@@ -233,7 +232,7 @@ function attachInformationMedia(media) {
     
                const spans = document.createElement('span');
                divspanHearts.appendChild(spans);
-               spans.textContent = `${likes}`;
+               spans.textContent = video.likes;
           
                const is = document.createElement('i');
                divspanHearts.appendChild(is);
@@ -245,11 +244,21 @@ function attachInformationMedia(media) {
      
 
   const divPhotoSelect = document.querySelector('.divphoto');
+  attachInformationPhotograph();
 
     filterMedia.forEach((media) => {
          const mediaModel = attachInformationMedia(media);
          const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
         divPhotoSelect.appendChild(userCardDOMmedia);
+
+      if (media.video == "undefined") {
+          attachInformationMedia(media);
+          
+      } else {
+          attachInformationVideo(media);
+          console.log(media.video);
+          
+      }
     });
    
 };
@@ -262,10 +271,7 @@ function attachInformationMedia(media) {
       // récupère les medias des photographes
       const media = await getPhotographers();
       
-      attachInformationPhotograph(photographers);
-      attachInformationMedia(media);
-      attachInformationVideo(media);
-      displayData(media);
+      displayData(filterMedia);
 
     };
     
