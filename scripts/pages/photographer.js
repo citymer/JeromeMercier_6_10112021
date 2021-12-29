@@ -7,8 +7,8 @@
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
 
-    const filterPhotographer = [];
-    const filterMedia = [];
+    //const filterPhotographer = [];
+    //const filterMedia = [];
    
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
@@ -33,7 +33,7 @@
         //const thisMedia = this.filterMedia.forEach(item => console.log(item));
        
        //  retourne le tableau photographers seulement une fois
-           return filterPhotographer,filterMedia;     
+          // return filterPhotographer,filterMedia;     
 
 })
 
@@ -98,16 +98,14 @@ function attachInformationPhotograph(photographer) {
            //positionne article avant button
            sectionPhotographHeader.prepend(article);
            sectionPhotographHeader.append(button); 
-           sectionPhotographHeader.append(img);
+           sectionPhotographHeader.append(img);       
            
-       
-           
-           
-        }  
+}  
 
 
 
         // SECTION trier
+
 const main = document.getElementById('main');
 
 const sectionTrier = document.createElement('section');
@@ -153,112 +151,122 @@ sectionTrier.appendChild(div);
  divPhoto.setAttribute("class","divphoto");
  main.appendChild(divPhoto);
 
-
+// FUNCTION qui affiche les images des photographes ****************
 function attachInformationMedia(media) {
     
-    const {title,likes,image,alt,video} = this.filterMedia[0];
+    const {title,likes,image,alt} = this.filterMedia[0];
             
          
             const images = `assets/${image}`;
-            const videos = `assets/${video}`;
-            console.log(videos);
-
             
-     function getUserCardDOMmedia() {
-
-           // const selectDivPhoto = document.querySelector('.divphoto');
+            
+            function getUserCardDOMmedia() {
                 
-            const articlePhoto = document.createElement('article');
-            divPhoto.appendChild(articlePhoto);
-            
-            
-                  const imgArticle = document.createElement('img');
-                  articlePhoto.appendChild(imgArticle);
-                  imgArticle.setAttribute("class","imgarticle");
-                  imgArticle.setAttribute("src",images);
-                  imgArticle.setAttribute("alt",alt);
-            
-                  
-                  const divquantityheart = document.createElement('div');
-                  divquantityheart.setAttribute("class","quantityHeart");
-                  articlePhoto.appendChild(divquantityheart);
-                  
-                       const h5 = document.createElement('h5');
-                       divquantityheart.appendChild(h5);
-                       h5.textContent = `${title}`;
-         
-                       const divspanHeart = document.createElement('div');
-                       divquantityheart.appendChild(divspanHeart);
-                       divspanHeart.setAttribute("class","divspanheart");
-            
-                       const span = document.createElement('span');
-                       divspanHeart.appendChild(span);
-                       span.textContent = `${likes}`;
-                  
-                       const i = document.createElement('i');
-                       divspanHeart.appendChild(i);
-                       i.setAttribute("class","fas fa-heart");
-
-            const articleVideo = document.createElement('article');
-            divPhoto.appendChild(articleVideo);
-                    
-                  const videoArticle = document.createElement('video');
-                  articleVideo.appendChild(videoArticle); 
-                  articleVideo.setAttribute("alt",alt);
-                  videoArticle.setAttribute("src","assets/img/Rhode/Animals_Puppiness.mp4");
-                  videoArticle.setAttribute("type","video/mp4");
-                  videoArticle.setAttribute("controls","");
-
-                  const divquantityhearts = document.createElement('div');
-                  divquantityhearts.setAttribute("class","quantityHeart");
-                  articleVideo.appendChild(divquantityhearts);
-                  
-                       const h5s = document.createElement('h5');
-                       divquantityhearts.appendChild(h5s);
-                       h5s.textContent = `${title}`;
-         
-                       const divspanHearts = document.createElement('div');
-                       divquantityhearts.appendChild(divspanHearts);
-                       divspanHearts.setAttribute("class","divspanheart");
-            
-                       const spans = document.createElement('span');
-                       divspanHearts.appendChild(spans);
-                       spans.textContent = `${likes}`;
-                  
-                       const is = document.createElement('i');
-                       divspanHearts.appendChild(is);
-                       is.setAttribute("class","fas fa-heart");
-
-                       return articlePhoto;
+                // const selectDivPhoto = document.querySelector('.divphoto');
+                
+                const articlePhoto = document.createElement('article');
+                divPhoto.appendChild(articlePhoto);
+                
+                
+                const imgArticle = document.createElement('img');
+                articlePhoto.appendChild(imgArticle);
+                imgArticle.setAttribute("class","imgarticle");
+                imgArticle.setAttribute("src",images);
+                imgArticle.setAttribute("alt",alt);
+                
+                
+                const divquantityheart = document.createElement('div');
+                divquantityheart.setAttribute("class","quantityHeart");
+                articlePhoto.appendChild(divquantityheart);
+                
+                const h5 = document.createElement('h5');
+                divquantityheart.appendChild(h5);
+                h5.textContent = `${title}`;
+                
+                const divspanHeart = document.createElement('div');
+                divquantityheart.appendChild(divspanHeart);
+                divspanHeart.setAttribute("class","divspanheart");
+                
+                const span = document.createElement('span');
+                divspanHeart.appendChild(span);
+                span.textContent = `${likes}`;
+                
+                const i = document.createElement('i');
+                divspanHeart.appendChild(i);
+                i.setAttribute("class","fas fa-heart");
+                
+                
+                return articlePhoto;
             } 
-         return { getUserCardDOMmedia }                 
+            return { getUserCardDOMmedia }                 
+            
+        }
+ // FUNCTION qui affiche la video des photographes       
+ function attachInformationVideo() {
+
+     const {video,alt,title,likes} = this.filterMedia[0];
+            
+     const videos = `assets/${video}`;
+     console.log(videos);
+
+    const articleVideo = document.createElement('article');
+    divPhoto.appendChild(articleVideo);
+            
+          const videoArticle = document.createElement('video');
+          articleVideo.appendChild(videoArticle); 
+          articleVideo.setAttribute("alt",alt);
+          videoArticle.setAttribute("src","assets/img/Rhode/Animals_Puppiness.mp4");
+          videoArticle.setAttribute("type","video/mp4");
+          videoArticle.setAttribute("controls","");
+
+          const divquantityhearts = document.createElement('div');
+          divquantityhearts.setAttribute("class","quantityHeart");
+          articleVideo.appendChild(divquantityhearts);
+          
+               const h5s = document.createElement('h5');
+               divquantityhearts.appendChild(h5s);
+               h5s.textContent = `${title}`;
+ 
+               const divspanHearts = document.createElement('div');
+               divquantityhearts.appendChild(divspanHearts);
+               divspanHearts.setAttribute("class","divspanheart");
+    
+               const spans = document.createElement('span');
+               divspanHearts.appendChild(spans);
+               spans.textContent = `${likes}`;
+          
+               const is = document.createElement('i');
+               divspanHearts.appendChild(is);
+               is.setAttribute("class","fas fa-heart");
 
 }
 
  async function displayData(media) {
      
 
-    const divPhotoSelect = document.querySelector('.divphoto');
+  const divPhotoSelect = document.querySelector('.divphoto');
 
-    //filterMedia.forEach((media) => {
+    filterMedia.forEach((media) => {
          const mediaModel = attachInformationMedia(media);
-         const userCardDOMmedia = mediaModel.getUserCardDOMmedia(filterMedia);
-         divPhotoSelect.appendChild(userCardDOMmedia);
-   // });
+         const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
+        divPhotoSelect.appendChild(userCardDOMmedia);
+    });
    
 };
 
 
   async function init() {
-
+      
       // Récupère les datas des photographes
-     const photographers = await getPhotographers();
-     // récupère les medias des photographes
-     const media = await getPhotographers();
-
+      const photographers = await getPhotographers();
+      // récupère les medias des photographes
+      const media = await getPhotographers();
+      
       attachInformationPhotograph(photographers);
       attachInformationMedia(media);
+      attachInformationVideo(media);
       displayData(media);
-  };
-  
+
+    };
+    
   init();
