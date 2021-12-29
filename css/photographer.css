@@ -38,12 +38,16 @@ body {
     font-size: 64px;
     margin-bottom: 5px;
     margin-top: 5px;
+    font-weight: 400;
 }
 #photograph-header h3 {
     font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
 }
 #photograph-header h4 {
     font-size: 18px;
+    font-weight: 400;
 }
 .contact_button {
     font-size: 20px;
@@ -111,6 +115,13 @@ ul::after{
     border-radius: 5px;
     color: #c4c4c4;
     object-fit: cover;
+}
+video{
+    display: block;
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 h5{
     color: #901C1C;

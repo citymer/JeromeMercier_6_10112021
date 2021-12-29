@@ -2,15 +2,14 @@
 
  async function getPhotographers() {  
 
-    //const photographers = [];
     // OBTENIR les parametres URL
     const getId = window.location.search;
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
+
     const filterPhotographer = [];
     const filterMedia = [];
-    
-    
+   
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
     .then(response => {
@@ -27,34 +26,32 @@
         
         // filtre photographe avec id
         this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
-        
+        console.log(this.filterPhotographer);
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-        
-
+        console.log(this.filterMedia);
+        //const thisMedia = this.filterMedia.forEach(item => console.log(item));
        
        //  retourne le tableau photographers seulement une fois
-           return filterPhotographer,filterMedia;
-
-       
+           return filterPhotographer,filterMedia;     
 
 })
 
-.catch(function () {
-    this.dataError = true;
-})   
+     .catch(function () {
+         this.dataError = true;
+    })   
 
 }
 
 
 
 function attachInformationPhotograph(photographer) {
-    console.log(photographer);
+    
 
    const { name, portrait, city, country, tagline,alt,id} = this.filterPhotographer[0];
    
        const picture = `assets/photographers/${portrait}`;
-       console.log(picture);
+       
 
           //selectionne header ***** creation du lien vers l'acceuil *****
           const header = document.querySelector('header');
@@ -104,66 +101,73 @@ function attachInformationPhotograph(photographer) {
            sectionPhotographHeader.append(img);
            
        
-           // SECTION trier
+           
+           
+        }  
+
+
+
+        // SECTION trier
 const main = document.getElementById('main');
 
 const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
 
-  const label = document.createElement('label');
-  label.textContent = 'Trier par';
-  label.setAttribute("for","trier");
-  sectionTrier.appendChild(label);
+const label = document.createElement('label');
+label.textContent = 'Trier par';
+label.setAttribute("for","trier");
+sectionTrier.appendChild(label);
 
-  const div = document.createElement('div');
-  div.setAttribute("class","navBar");
-  sectionTrier.appendChild(div);
+const div = document.createElement('div');
+div.setAttribute("class","navBar");
+sectionTrier.appendChild(div);
 
-     const ulMenu = document.createElement('ul');
-     ulMenu.id = 'trier';
-     div.appendChild(ulMenu);
+  const ulMenu = document.createElement('ul');
+  ulMenu.id = 'trier';
+  div.appendChild(ulMenu);
 
-       const liPopularite = document.createElement('li');
-       liPopularite.setAttribute("class","popularite");
-       ulMenu.appendChild(liPopularite);
-       liPopularite.textContent = 'Popularité';
+    const liPopularite = document.createElement('li');
+    liPopularite.setAttribute("class","popularite");
+    ulMenu.appendChild(liPopularite);
+    liPopularite.textContent = 'Popularité';
 
-       
-       
+    
+    
 
-          const ul = document.createElement('ul');
-          ul.setAttribute("class","sousmenu");
-          liPopularite.appendChild(ul);
+       const ul = document.createElement('ul');
+       ul.setAttribute("class","sousmenu");
+       liPopularite.appendChild(ul);
 
-              const liDate = document.createElement('li');
-              liDate.setAttribute("class","date");
-              ul.appendChild(liDate);
-              liDate.textContent = 'Date';
-   
-              const liTitre = document.createElement('li');
-              liTitre.setAttribute("class","titre");
-              ul.appendChild(liTitre);
-              liTitre.textContent = 'Titre';
-       
-              
- }  
+           const liDate = document.createElement('li');
+           liDate.setAttribute("class","date");
+           ul.appendChild(liDate);
+           liDate.textContent = 'Date';
+
+           const liTitre = document.createElement('li');
+           liTitre.setAttribute("class","titre");
+           ul.appendChild(liTitre);
+           liTitre.textContent = 'Titre';
             
-function attachInformationMedia(media) {
+ const divPhoto = document.createElement('div');
+ divPhoto.setAttribute("class","divphoto");
+ main.appendChild(divPhoto);
 
-            const {title,likes,image,alt} = this.filterMedia[0];
-            console.log(this.filterMedia);
+
+function attachInformationMedia(media) {
+    
+    const {title,likes,image,alt,video} = this.filterMedia[0];
+            
          
             const images = `assets/${image}`;
-            console.log(images);
-         
+            const videos = `assets/${video}`;
+            console.log(videos);
 
-            const divPhoto = document.createElement('div');
-            divPhoto.setAttribute("class","divphoto");
-            main.appendChild(divPhoto);
-
-     function getUserCardDOMmedia() {
             
+     function getUserCardDOMmedia() {
+
+           // const selectDivPhoto = document.querySelector('.divphoto');
+                
             const articlePhoto = document.createElement('article');
             divPhoto.appendChild(articlePhoto);
             
@@ -195,22 +199,52 @@ function attachInformationMedia(media) {
                        divspanHeart.appendChild(i);
                        i.setAttribute("class","fas fa-heart");
 
-                     
-                       return (articlePhoto);
+            const articleVideo = document.createElement('article');
+            divPhoto.appendChild(articleVideo);
+                    
+                  const videoArticle = document.createElement('video');
+                  articleVideo.appendChild(videoArticle); 
+                  articleVideo.setAttribute("alt",alt);
+                  videoArticle.setAttribute("src","assets/img/Rhode/Animals_Puppiness.mp4");
+                  videoArticle.setAttribute("type","video/mp4");
+                  videoArticle.setAttribute("controls","");
+
+                  const divquantityhearts = document.createElement('div');
+                  divquantityhearts.setAttribute("class","quantityHeart");
+                  articleVideo.appendChild(divquantityhearts);
+                  
+                       const h5s = document.createElement('h5');
+                       divquantityhearts.appendChild(h5s);
+                       h5s.textContent = `${title}`;
+         
+                       const divspanHearts = document.createElement('div');
+                       divquantityhearts.appendChild(divspanHearts);
+                       divspanHearts.setAttribute("class","divspanheart");
+            
+                       const spans = document.createElement('span');
+                       divspanHearts.appendChild(spans);
+                       spans.textContent = `${likes}`;
+                  
+                       const is = document.createElement('i');
+                       divspanHearts.appendChild(is);
+                       is.setAttribute("class","fas fa-heart");
+
+                       return articlePhoto;
             } 
          return { getUserCardDOMmedia }                 
 
 }
 
- async function displayData(filterMedia) {
+ async function displayData(media) {
+     
 
     const divPhotoSelect = document.querySelector('.divphoto');
 
-    filterMedia.forEach((media) => {
+    //filterMedia.forEach((media) => {
          const mediaModel = attachInformationMedia(media);
-         const userCardDOMmedia = mediaModel.getUserCardDOMmedia(media);
+         const userCardDOMmedia = mediaModel.getUserCardDOMmedia(filterMedia);
          divPhotoSelect.appendChild(userCardDOMmedia);
-    });
+   // });
    
 };
 
@@ -219,10 +253,12 @@ function attachInformationMedia(media) {
 
       // Récupère les datas des photographes
      const photographers = await getPhotographers();
+     // récupère les medias des photographes
      const media = await getPhotographers();
+
       attachInformationPhotograph(photographers);
       attachInformationMedia(media);
-      displayData(filterMedia);
+      displayData(media);
   };
   
   init();
