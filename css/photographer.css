@@ -198,6 +198,28 @@ form input {
     border-radius: 5px;
 }
 
+/* FOOTER  */
+.divfooterinfo{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    right: 3%;
+    background-color:#DB8876;
+    width: 376px;
+    border-radius: 5px 5px 0px 0px;
+    padding: 15px 0;
+    z-index: 500;
+}
+.divtotallikes{
+    display: flex;
+    align-items: center;
+}
+.divfooterinfo .fa-heart{
+    color: black;
+}
+
 /* responsive */
 
 @media screen and (max-width:1280px) {

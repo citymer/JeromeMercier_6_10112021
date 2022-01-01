@@ -29,7 +29,7 @@
         
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-        console.log(this.filterMedia);
+
         //const thisMedia = this.filterMedia.forEach(item => console.log(item));
        
        //  retourne le tableau photographers seulement une fois
@@ -154,116 +154,105 @@ sectionTrier.appendChild(div);
 // FUNCTION qui affiche les images des photographes ****************
 function attachInformationMedia(media) {
     
-   // const {title,likes,image,alt} = this.filterMedia[0];
-            
+    function getUserCardDOMmedia() {
          
-           // const images = `assets/${image}`;
-            
-            
-            
-            function getUserCardDOMmedia() {
-                
-                const articlePhoto = document.createElement('article');
-                divPhoto.appendChild(articlePhoto);
-                
-                
-                const imgArticle = document.createElement('img');
-                articlePhoto.appendChild(imgArticle);
-                imgArticle.setAttribute("class","imgarticle");
-                imgArticle.setAttribute("src",media.image);
-                imgArticle.setAttribute("alt",media.alt);
-                
-                
-                const divquantityheart = document.createElement('div');
-                divquantityheart.setAttribute("class","quantityHeart");
-                articlePhoto.appendChild(divquantityheart);
-                
-                const h5 = document.createElement('h5');
-                divquantityheart.appendChild(h5);
-                h5.textContent = media.title;
-                
-                const divspanHeart = document.createElement('div');
-                divquantityheart.appendChild(divspanHeart);
-                divspanHeart.setAttribute("class","divspanheart");
-                
-                const span = document.createElement('span');
-                divspanHeart.appendChild(span);
-                span.textContent = media.likes;
-                
-                const i = document.createElement('i');
-                divspanHeart.appendChild(i);
-                i.setAttribute("class","fas fa-heart");
-                
-                
-                return articlePhoto;
-            } 
-            return { getUserCardDOMmedia }                 
-            
-        }
- // FUNCTION qui affiche la video des photographes       
- function attachInformationVideo(video) {
-     
+        
+        const articlePhoto = document.createElement('article');
+        divPhoto.appendChild(articlePhoto);
+        articlePhoto.setAttribute("class","imgphoto");
+        
+           const imgArticle = document.createElement('img');
+           articlePhoto.appendChild(imgArticle);
+           imgArticle.setAttribute("class","imgarticle");
+           imgArticle.setAttribute("src",media.image);
+           imgArticle.setAttribute("alt",media.alt);
+        
+        
+           const divquantityheart = document.createElement('div');
+           divquantityheart.setAttribute("class","quantityHeart");
+           articlePhoto.appendChild(divquantityheart);
+        
+             const h5 = document.createElement('h5');
+             divquantityheart.appendChild(h5);
+             h5.textContent = media.title;
+        
+             const divspanHeart = document.createElement('div');
+             divquantityheart.appendChild(divspanHeart);
+             divspanHeart.setAttribute("class","divspanheart");
+        
+               const span = document.createElement('span');
+               divspanHeart.appendChild(span);
+               span.textContent = media.likes;
+        
+               const i = document.createElement('i');
+               divspanHeart.appendChild(i);
+               i.setAttribute("class","fas fa-heart");
+        
+        
+        return articlePhoto;
+    } 
 
-    const articleVideo = document.createElement('article');
-    divPhoto.appendChild(articleVideo);
-            
-          const videoArticle = document.createElement('video');
-          articleVideo.appendChild(videoArticle); 
-          articleVideo.setAttribute("alt",video.alt);
-          videoArticle.setAttribute("src",video.video);
-          videoArticle.setAttribute("type","video/mp4");
-          videoArticle.setAttribute("controls","");
-
-          const divquantityhearts = document.createElement('div');
-          divquantityhearts.setAttribute("class","quantityHeart");
-          articleVideo.appendChild(divquantityhearts);
-          
-               const h5s = document.createElement('h5');
-               divquantityhearts.appendChild(h5s);
-               h5s.textContent = video.title;
- 
-               const divspanHearts = document.createElement('div');
-               divquantityhearts.appendChild(divspanHearts);
-               divspanHearts.setAttribute("class","divspanheart");
-    
-               const spans = document.createElement('span');
-               divspanHearts.appendChild(spans);
-               spans.textContent = video.likes;
-          
-               const is = document.createElement('i');
-               divspanHearts.appendChild(is);
-               is.setAttribute("class","fas fa-heart");
+return { getUserCardDOMmedia }                 
 
 }
+// FUNCTION qui affiche la video des photographes       
+function attachInformationVideo(video) {
+    
+    const articleVideo = document.createElement('article');
+    divPhoto.appendChild(articleVideo);
+    
+    const videoArticle = document.createElement('video');
+    articleVideo.appendChild(videoArticle); 
+    articleVideo.setAttribute("alt",video.alt);
+    videoArticle.setAttribute("src",video.video);
+    videoArticle.setAttribute("type","video/mp4");
+    videoArticle.setAttribute("controls","");
+    
+    const divquantityhearts = document.createElement('div');
+    divquantityhearts.setAttribute("class","quantityHeart");
+    articleVideo.appendChild(divquantityhearts);
+    
+    const h5s = document.createElement('h5');
+    divquantityhearts.appendChild(h5s);
+    h5s.textContent = video.title;
+    
+    const divspanHearts = document.createElement('div');
+    divquantityhearts.appendChild(divspanHearts);
+    divspanHearts.setAttribute("class","divspanheart");
+    
+    const spans = document.createElement('span');
+    divspanHearts.appendChild(spans);
+    spans.textContent = video.likes;
+    
+    const is = document.createElement('i');
+    divspanHearts.appendChild(is);
+    is.setAttribute("class","fas fa-heart");
+    
+}
 
- async function displayData() {
-     
-
-  const divPhotoSelect = document.querySelector('.divphoto');
-  attachInformationPhotograph();
-
+async function displayData() {
+    
+    
+    const divPhotoSelect = document.querySelector('.divphoto');
+    attachInformationPhotograph();
+    
     filterMedia.forEach((media) => {
-         const mediaModel = attachInformationMedia(media);
-         const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
+        const mediaModel = attachInformationMedia(media);
+        const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
         divPhotoSelect.appendChild(userCardDOMmedia);
-
-      if (media.video == undefined) {
-          attachInformationMedia(media);
-          
-      } else {
-          attachInformationVideo(media);
-          console.log(media.video);
-          
-      }
+        
+        if (media.image == undefined) {
+            attachInformationVideo(media);
+        }
     });
-   
+    
 };
 
 
-  async function init() {
-      
-      // Récupère les datas des photographes
-      const photographers = await getPhotographers();
+async function init() {
+    
+    // Récupère les datas des photographes
+    const photographers = await getPhotographers();
       // récupère les medias des photographes
       const media = await getPhotographers();
       
@@ -272,3 +261,35 @@ function attachInformationMedia(media) {
     };
     
   init();
+
+  // DOM
+  const body = document.querySelector('body');
+
+     // FOOTER
+    const footer = document.createElement('footer');
+    body.appendChild(footer);
+
+       const divFooterInfo = document.createElement('div');
+       footer.appendChild(divFooterInfo);
+       divFooterInfo.setAttribute("class","divfooterinfo");
+
+          const divTotalLikes = document.createElement('div');
+          divFooterInfo.appendChild(divTotalLikes);
+          divTotalLikes.setAttribute("class","divtotallikes");
+
+               const textNumber = document.createElement('p');
+               divTotalLikes.appendChild(textNumber);
+               textNumber.setAttribute("class","textnumber");
+               textNumber.textContent = "300";
+
+               const iconHeartFooter = document.createElement('i');
+               divTotalLikes.appendChild(iconHeartFooter);
+               iconHeartFooter.setAttribute("class","fas fa-heart")
+
+          const divPriceDay = document.createElement('div');
+          divFooterInfo.appendChild(divPriceDay);
+          divPriceDay.setAttribute("class","divpriceday");
+               const textPriceDay = document.createElement('p');
+               divPriceDay.appendChild(textPriceDay);
+               textPriceDay.setAttribute("class","textpriceday");
+               textPriceDay.textContent = "prix/jour";
