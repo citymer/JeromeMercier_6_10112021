@@ -29,8 +29,6 @@
         
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-
-        //const thisMedia = this.filterMedia.forEach(item => console.log(item));
        
        //  retourne le tableau photographers seulement une fois
            return filterPhotographer,filterMedia;     
@@ -44,7 +42,7 @@
 }
 
 
-
+// Récupère et affiche les informations des photographes
 function attachInformationPhotograph(photographer) {
     
 
@@ -53,7 +51,7 @@ function attachInformationPhotograph(photographer) {
        const picture = `assets/photographers/${portrait}`;
        
 
-          //selectionne header ***** creation du lien vers l'acceuil *****
+          //selectionne header ***** creation du lien vers l'acceuil 
           const header = document.querySelector('header');
               const aLienAcceuil = document.createElement('a');
               aLienAcceuil.setAttribute("href","./index.html");
@@ -64,21 +62,21 @@ function attachInformationPhotograph(photographer) {
               aLienAcceuil.appendChild(imgLogo);
                
        
-           //SELECTIONNE la section "photograph-header" *****************************
+           //SELECTIONNE la section "photograph-header" 
            const sectionPhotographHeader = document.getElementById('photograph-header');
 
            //création "article" qui contient "h2,h3,h4"
            const article = document.createElement('article');
            article.id = id;
            
-              const h2 = document.createElement('h2');
-              h2.textContent = `${name}`;
+              const namePhotograph = document.createElement('h2');
+              namePhotograph.textContent = `${name}`;
            
-              const h3 = document.createElement('h3');
-              h3.textContent = `${city}, ${country}`;
+              const addressPhotograph = document.createElement('h3');
+              addressPhotograph.textContent = `${city}, ${country}`;
            
-              const h4 = document.createElement('h4');
-              h4.textContent = `${tagline}`;
+              const taglinePhotograph = document.createElement('h4');
+              taglinePhotograph.textContent = `${tagline}`;
            
            // selection du bouton "contact_button"   
            const button = document.querySelector('.contact_button');
@@ -91,11 +89,11 @@ function attachInformationPhotograph(photographer) {
            // lien parent,enfant
            sectionPhotographHeader.appendChild(article); 
            sectionPhotographHeader.appendChild(img);
-           article.appendChild(h2);
-           article.appendChild(h3);
-           article.appendChild(h4);
+           article.appendChild(namePhotograph);
+           article.appendChild(addressPhotograph);
+           article.appendChild(taglinePhotograph);
            
-           //positionne article avant button
+           //positionne article avant button dans HTML
            sectionPhotographHeader.prepend(article);
            sectionPhotographHeader.append(button); 
            sectionPhotographHeader.append(img);       
@@ -104,7 +102,7 @@ function attachInformationPhotograph(photographer) {
 
 
 
-        // SECTION trier
+        // DOM   SECTION trier
 
 const main = document.getElementById('main');
 
@@ -129,9 +127,6 @@ sectionTrier.appendChild(div);
     liPopularite.setAttribute("class","popularite");
     ulMenu.appendChild(liPopularite);
     liPopularite.textContent = 'Popularité';
-
-    
-    
 
        const ul = document.createElement('ul');
        ul.setAttribute("class","sousmenu");
@@ -210,7 +205,7 @@ return { getUserCardDOMmedia }
 
 }
 
-// FUNCTION qui affiche la video des photographes       
+// FUNCTION qui affiche la video des photographes   **********    
 function attachInformationVideo(video) {
     
     const articleVideo = document.createElement('article');
