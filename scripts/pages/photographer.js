@@ -180,14 +180,28 @@ function attachInformationMedia(media) {
              divquantityheart.appendChild(divspanHeart);
              divspanHeart.setAttribute("class","divspanheart");
         
-               const span = document.createElement('span');
-               divspanHeart.appendChild(span);
-               span.textContent = media.likes;
-        
-               const i = document.createElement('i');
-               divspanHeart.appendChild(i);
-               i.setAttribute("class","fas fa-heart");
-        
+               let numberHeart = document.createElement('span');
+               divspanHeart.appendChild(numberHeart);
+               numberHeart.textContent = media.likes;
+               numberHeart.setAttribute("class","nombrelike");
+               
+               const heart = document.createElement('i');
+               divspanHeart.appendChild(heart);
+               heart.setAttribute("class","fas fa-heart like-button");
+               
+               // COMPTEUR DE LIKES
+               let compteur = media.likes;
+               
+               let numberSpan = document.querySelectorAll('.nombrelike');
+            
+               numberSpan.innerText = +numberHeart;
+
+               heart.addEventListener('click',function(){
+                   numberSpan++;
+                   compteur++;
+                   console.log(compteur);
+                   compteur.innerText = +numberSpan;
+               })
         
         return articlePhoto;
     } 
@@ -195,38 +209,40 @@ function attachInformationMedia(media) {
 return { getUserCardDOMmedia }                 
 
 }
+
 // FUNCTION qui affiche la video des photographes       
 function attachInformationVideo(video) {
     
     const articleVideo = document.createElement('article');
     divPhoto.appendChild(articleVideo);
     
-    const videoArticle = document.createElement('video');
-    articleVideo.appendChild(videoArticle); 
-    articleVideo.setAttribute("alt",video.alt);
-    videoArticle.setAttribute("src",video.video);
-    videoArticle.setAttribute("type","video/mp4");
-    videoArticle.setAttribute("controls","");
+        const videoArticle = document.createElement('video');
+        articleVideo.appendChild(videoArticle); 
+        articleVideo.setAttribute("alt",video.alt);
+        videoArticle.setAttribute("src",video.video);
+        videoArticle.setAttribute("type","video/mp4");
+        videoArticle.setAttribute("controls","");
     
-    const divquantityhearts = document.createElement('div');
-    divquantityhearts.setAttribute("class","quantityHeart");
-    articleVideo.appendChild(divquantityhearts);
+        const divTitleQuantityHearts = document.createElement('div');
+        divTitleQuantityHearts.setAttribute("class","quantityHeart");
+        articleVideo.appendChild(divTitleQuantityHearts);
     
-    const h5s = document.createElement('h5');
-    divquantityhearts.appendChild(h5s);
-    h5s.textContent = video.title;
+            const titleVideo = document.createElement('h5');
+            divTitleQuantityHearts.appendChild(titleVideo);
+            titleVideo.textContent = video.title;
     
-    const divspanHearts = document.createElement('div');
-    divquantityhearts.appendChild(divspanHearts);
-    divspanHearts.setAttribute("class","divspanheart");
+            const divSpanHearts = document.createElement('div');
+            divTitleQuantityHearts.appendChild(divSpanHearts);
+            divSpanHearts.setAttribute("class","divspanheart");
     
-    const spans = document.createElement('span');
-    divspanHearts.appendChild(spans);
-    spans.textContent = video.likes;
+                const numberHeartVideo = document.createElement('span');
+                divSpanHearts.appendChild(numberHeartVideo);
+                numberHeartVideo.textContent = video.likes;
+                numberHeartVideo.setAttribute("class","nombrelike");
     
-    const is = document.createElement('i');
-    divspanHearts.appendChild(is);
-    is.setAttribute("class","fas fa-heart");
+                const heartVideo = document.createElement('i');
+                divSpanHearts.appendChild(heartVideo);
+                heartVideo.setAttribute("class","fas fa-heart like-button");
     
 }
 
@@ -293,3 +309,21 @@ async function init() {
                divPriceDay.appendChild(textPriceDay);
                textPriceDay.setAttribute("class","textpriceday");
                textPriceDay.textContent = "prix/jour";
+
+
+// comptage like
+
+
+
+
+/*let likePlus = document.querySelector('.like-button');
+
+
+let nombreLike =  document.getElementById('nombrelike');
+console.log(nombreLike);
+let comptage = parseInt(nombreLike.innerText);
+
+likePlus.addEventListener("click",function(){
+    comptage = comptage+1;
+    nombreLike.innerHTML = comptage;
+});*/

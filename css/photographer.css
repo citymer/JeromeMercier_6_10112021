@@ -142,6 +142,7 @@ h5{
 .fa-heart{
     color: #901C1C;
     margin-left: 5px;
+    cursor: pointer;
 }
 /* MODAL */
 .modal {
