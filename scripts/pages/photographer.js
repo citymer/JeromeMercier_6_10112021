@@ -6,10 +6,10 @@
     const getId = window.location.search;
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
-
+    
     const filterPhotographer = [];
     const filterMedia = [];
-   
+    
     // rapatrie les données de photographers.json
     await fetch('data/photographers.json')
     .then(response => {
@@ -29,78 +29,81 @@
         
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-       
-       //  retourne le tableau photographers seulement une fois
-           return filterPhotographer,filterMedia;     
-
-})
-
-     .catch(function () {
-         this.dataError = true;
+        
+        //  retourne le tableau photographers seulement une fois
+        return filterPhotographer,filterMedia;     
+        
+    })
+    
+    .catch(function () {
+        this.dataError = true;
     })   
-
+    
 }
 
-
 // Récupère et affiche les informations des photographes
-function attachInformationPhotograph(photographer) {
+function attachInformationPhotograph(photographers) {
     
-
-   const { name, portrait, city, country, tagline,alt,id} = this.filterPhotographer[0];
-   
-       const picture = `assets/photographers/${portrait}`;
+    const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
+    
+    const picture = `assets/photographers/${portrait}`;
+    
+    
+    //selectionne header ***** creation du lien vers l'acceuil 
+    const header = document.querySelector('header');
+    
+    const aLienAcceuil = document.createElement('a');
+       header.appendChild(aLienAcceuil);
+       aLienAcceuil.setAttribute("href","./index.html");
        
-
-          //selectionne header ***** creation du lien vers l'acceuil 
-          const header = document.querySelector('header');
-              const aLienAcceuil = document.createElement('a');
-              aLienAcceuil.setAttribute("href","./index.html");
-
-              const imgLogo = document.querySelector('.logo');
-
-              header.appendChild(aLienAcceuil);
-              aLienAcceuil.appendChild(imgLogo);
-               
-       
-           //SELECTIONNE la section "photograph-header" 
-           const sectionPhotographHeader = document.getElementById('photograph-header');
-
-           //création "article" qui contient "h2,h3,h4"
-           const article = document.createElement('article');
-           article.id = id;
-           
-              const namePhotograph = document.createElement('h2');
-              namePhotograph.textContent = `${name}`;
-           
-              const addressPhotograph = document.createElement('h3');
-              addressPhotograph.textContent = `${city}, ${country}`;
-           
-              const taglinePhotograph = document.createElement('h4');
-              taglinePhotograph.textContent = `${tagline}`;
-           
-           // selection du bouton "contact_button"   
-           const button = document.querySelector('.contact_button');
-           
-           //creation d' img pour la photo de profil du photographe
-           const img = document.createElement('img');
-           img.setAttribute("src", picture);
-           img.setAttribute("alt",alt);
-           
-           // lien parent,enfant
-           sectionPhotographHeader.appendChild(article); 
-           sectionPhotographHeader.appendChild(img);
-           article.appendChild(namePhotograph);
-           article.appendChild(addressPhotograph);
-           article.appendChild(taglinePhotograph);
-           
-           //positionne article avant button dans HTML
-           sectionPhotographHeader.prepend(article);
-           sectionPhotographHeader.append(button); 
-           sectionPhotographHeader.append(img);       
-           
+       const imgLogo = document.querySelector('.logo');
+       aLienAcceuil.appendChild(imgLogo);
+    
+    //SELECTIONNE la section "photograph-header" 
+    const sectionPhotographHeader = document.getElementById('photograph-header');
+    
+    //création "article" qui contient "h2,h3,h4"
+    const article = document.createElement('article');
+    article.id = id;
+    
+      const namePhotograph = document.createElement('h2');
+      namePhotograph.textContent = `${name}`;
+    
+      const addressPhotograph = document.createElement('h3');
+      addressPhotograph.textContent = `${city}, ${country}`;
+    
+      const taglinePhotograph = document.createElement('h4');
+      taglinePhotograph.textContent = `${tagline}`;
+    
+    // selection du bouton "contact_button"   
+    const button = document.querySelector('.contact_button');
+    
+    //creation d' img pour la photo de profil du photographe
+    const img = document.createElement('img');
+    img.setAttribute("src", picture);
+    img.setAttribute("alt",alt);
+    
+    // lien parent,enfant
+    sectionPhotographHeader.appendChild(article); 
+    sectionPhotographHeader.appendChild(img);
+    article.appendChild(namePhotograph);
+    article.appendChild(addressPhotograph);
+    article.appendChild(taglinePhotograph);
+    
+    //positionne article avant button dans HTML
+    sectionPhotographHeader.prepend(article);
+    sectionPhotographHeader.append(button); 
+    sectionPhotographHeader.append(img);       
+    
+    //ecrit le prix/jour dans le footer
+    const divPriceDay = document.createElement('div');
+    divFooterInfo.appendChild(divPriceDay);
+    divPriceDay.setAttribute("class","divpriceday");
+         const textPriceDay = document.createElement('p');
+         divPriceDay.appendChild(textPriceDay);
+         textPriceDay.setAttribute("class","textpriceday");
+         textPriceDay.textContent =  `${price}€/ jour`;
 }  
-
-
 
         // DOM   SECTION trier
 
@@ -297,28 +300,6 @@ async function init() {
                divTotalLikes.appendChild(iconHeartFooter);
                iconHeartFooter.setAttribute("class","fas fa-heart")
 
-          const divPriceDay = document.createElement('div');
-          divFooterInfo.appendChild(divPriceDay);
-          divPriceDay.setAttribute("class","divpriceday");
-               const textPriceDay = document.createElement('p');
-               divPriceDay.appendChild(textPriceDay);
-               textPriceDay.setAttribute("class","textpriceday");
-               textPriceDay.textContent = "prix/jour";
-
-
-// comptage like
 
 
 
-
-/*let likePlus = document.querySelector('.like-button');
-
-
-let nombreLike =  document.getElementById('nombrelike');
-console.log(nombreLike);
-let comptage = parseInt(nombreLike.innerText);
-
-likePlus.addEventListener("click",function(){
-    comptage = comptage+1;
-    nombreLike.innerHTML = comptage;
-});*/

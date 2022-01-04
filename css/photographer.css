@@ -64,7 +64,9 @@ body {
 .contact_button:hover,.contact_button:focus {
     background-color: #d3573c;
 }
+
 /* SECTION TRIER */
+
 #filter{
     display: flex;
     margin-top: 40px;
@@ -101,13 +103,16 @@ ul::after{
     clear: both;
 }
 
-/* DIV PHOTO */
+/* SECTION DIV PHOTO */
 
 .divphoto{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     margin: 50px 100px;
+}
+.imgphoto{
+    margin-bottom: 20px;
 }
 .imgarticle{
     width: 350px;
@@ -210,12 +215,18 @@ form input {
     background-color:#DB8876;
     width: 376px;
     border-radius: 5px 5px 0px 0px;
-    padding: 15px 0;
+    padding: 10px 0;
     z-index: 500;
 }
 .divtotallikes{
     display: flex;
     align-items: center;
+}
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 500;
 }
 .divfooterinfo .fa-heart{
     color: black;
@@ -225,8 +236,13 @@ form input {
 
 @media screen and (max-width:1280px) {
     #photograph-header h2 {
-        font-size: 34px;
-       
+        font-size: 34px;   
+    }
+    .divphoto{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        align-items: center;
     }
 }
 
