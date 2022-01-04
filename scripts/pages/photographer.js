@@ -105,119 +105,64 @@ function attachInformationPhotograph(photographers) {
          textPriceDay.textContent =  `${price}€/ jour`;
 }  
 
-        // DOM   SECTION trier
-
-const main = document.getElementById('main');
-
-const sectionTrier = document.createElement('section');
-sectionTrier.id = 'filter';
-main.appendChild(sectionTrier);
-
-   const label = document.createElement('label');
-   label.textContent = 'Trier par';
-   label.setAttribute("for","trier");
-   sectionTrier.appendChild(label);
-
-   const select = document.createElement('select');
-   select.setAttribute("class","navBar");
-   sectionTrier.appendChild(select);
-       
-       const optionDate = document.createElement('option');
-       select.appendChild(optionDate);
-
-       const optionLikes = document.createElement('option');
-       select.appendChild(optionLikes);
-
-       const optiontitle = document.createElement('option');
-       select.appendChild(optiontitle);
-
-    const divSelect = document.createElement('div');
-    sectionTrier.appendChild(divSelect);
-    divSelect.setAttribute("class","divselect");  
-    
-        const divmenu = document.createElement('div');
-        divSelect.appendChild(divmenu);
-        divmenu.setAttribute("class","divmenu");
-
-           const menuDate = document.createElement('p');
-           divmenu.appendChild(menuDate);
-           menuDate.setAttribute("class","menudate");
-
-           const chevron = document.createElement('i');
-           divmenu.appendChild(chevron);
-           chevron.setAttribute("class","fas fa-chevron-down");
-
-           const menuPopularite = document.createElement('p');
-           divmenu.appendChild(menuPopularite);
-           menuPopularite.setAttribute("class","menupopularite");
-
-           const menuTitre = document.createElement('p');
-           divmenu.appendChild(menuTitre);
-           menuTitre.setAttribute("class","menutitre");
-
- 
-            
- const divPhoto = document.createElement('div');
- divPhoto.setAttribute("class","divphoto");
- main.appendChild(divPhoto);
 
 // FUNCTION qui affiche les images des photographes ****************
 
 function attachInformationMedia(media) {
     
     function getUserCardDOMmedia() {
-         
+        
         
         const articlePhoto = document.createElement('article');
         divPhoto.appendChild(articlePhoto);
         articlePhoto.setAttribute("class","imgphoto");
         
-           const imgArticle = document.createElement('img');
-           articlePhoto.appendChild(imgArticle);
-           imgArticle.setAttribute("class","imgarticle");
-           imgArticle.setAttribute("src",media.image);
-           imgArticle.setAttribute("alt",media.alt);
+        const imgArticle = document.createElement('img');
+        articlePhoto.appendChild(imgArticle);
+        imgArticle.setAttribute("class","imgarticle");
+        imgArticle.setAttribute("src",media.image);
+        imgArticle.setAttribute("alt",media.alt);
         
         
-           const divquantityheart = document.createElement('div');
-           divquantityheart.setAttribute("class","quantityHeart");
-           articlePhoto.appendChild(divquantityheart);
+        const divquantityheart = document.createElement('div');
+        divquantityheart.setAttribute("class","quantityHeart");
+        articlePhoto.appendChild(divquantityheart);
         
-             const h5 = document.createElement('h5');
-             divquantityheart.appendChild(h5);
-             h5.textContent = media.title;
+        const h5 = document.createElement('h5');
+        divquantityheart.appendChild(h5);
+        h5.textContent = media.title;
         
-             const divspanHeart = document.createElement('div');
-             divquantityheart.appendChild(divspanHeart);
-             divspanHeart.setAttribute("class","divspanheart");
+        const divspanHeart = document.createElement('div');
+        divquantityheart.appendChild(divspanHeart);
+        divspanHeart.setAttribute("class","divspanheart");
         
-               let numberHeart = document.createElement('span');
-               divspanHeart.appendChild(numberHeart);
-               numberHeart.textContent = media.likes;
-               numberHeart.setAttribute("class","nombrelike");
-               
-               const heart = document.createElement('i');
-               divspanHeart.appendChild(heart);
-               heart.setAttribute("class","fas fa-heart like-button");
-               
-               // COMPTEUR DE LIKES
-               let compteur = numberHeart.textContent;
-               console.log(compteur);
-               
-               let numberSpan = document.querySelectorAll('span');
-            
-               numberSpan.innerText = +compteur;
-               
-               heart.addEventListener('click',function(){
+        let numberHeart = document.createElement('span');
+        divspanHeart.appendChild(numberHeart);
+        numberHeart.textContent = media.likes;
+        numberHeart.setAttribute("class","nombrelike");
+        
+        const heart = document.createElement('i');
+        divspanHeart.appendChild(heart);
+        heart.setAttribute("class","fas fa-heart like-button");
+        
+        // COMPTEUR DE LIKES
+        let compteur = numberHeart.textContent;
+        console.log(compteur);
+        
+        let numberSpan = document.querySelectorAll('span');
+        
+        numberSpan.innerText = +compteur;
+        
+        heart.addEventListener('click',function(){
                    compteur++;
                    console.log(compteur);
                    numberSpan.innerText = +compteur;
-               })
-     
-
-        return articlePhoto;
-    } 
-
+                })
+                
+                
+                return articlePhoto;
+            } 
+            
 return { getUserCardDOMmedia }                 
 
 }
@@ -229,33 +174,33 @@ function attachInformationVideo(video) {
     const articleVideo = document.createElement('article');
     divPhoto.appendChild(articleVideo);
     
-        const videoArticle = document.createElement('video');
-        articleVideo.appendChild(videoArticle); 
-        articleVideo.setAttribute("alt",video.alt);
-        videoArticle.setAttribute("src",video.video);
-        videoArticle.setAttribute("type","video/mp4");
-        videoArticle.setAttribute("controls","");
+    const videoArticle = document.createElement('video');
+    articleVideo.appendChild(videoArticle); 
+    articleVideo.setAttribute("alt",video.alt);
+    videoArticle.setAttribute("src",video.video);
+    videoArticle.setAttribute("type","video/mp4");
+    videoArticle.setAttribute("controls","");
     
-        const divTitleQuantityHearts = document.createElement('div');
-        divTitleQuantityHearts.setAttribute("class","quantityHeart");
-        articleVideo.appendChild(divTitleQuantityHearts);
+    const divTitleQuantityHearts = document.createElement('div');
+    divTitleQuantityHearts.setAttribute("class","quantityHeart");
+    articleVideo.appendChild(divTitleQuantityHearts);
     
-            const titleVideo = document.createElement('h5');
-            divTitleQuantityHearts.appendChild(titleVideo);
-            titleVideo.textContent = video.title;
+    const titleVideo = document.createElement('h5');
+    divTitleQuantityHearts.appendChild(titleVideo);
+    titleVideo.textContent = video.title;
     
-            const divSpanHearts = document.createElement('div');
-            divTitleQuantityHearts.appendChild(divSpanHearts);
-            divSpanHearts.setAttribute("class","divspanheart");
+    const divSpanHearts = document.createElement('div');
+    divTitleQuantityHearts.appendChild(divSpanHearts);
+    divSpanHearts.setAttribute("class","divspanheart");
     
-                const numberHeartVideo = document.createElement('span');
-                divSpanHearts.appendChild(numberHeartVideo);
-                numberHeartVideo.textContent = video.likes;
-                numberHeartVideo.setAttribute("class","nombrelike");
+    const numberHeartVideo = document.createElement('span');
+    divSpanHearts.appendChild(numberHeartVideo);
+    numberHeartVideo.textContent = video.likes;
+    numberHeartVideo.setAttribute("class","nombrelike");
     
-                const heartVideo = document.createElement('i');
-                divSpanHearts.appendChild(heartVideo);
-                heartVideo.setAttribute("class","fas fa-heart like-button");
+    const heartVideo = document.createElement('i');
+    divSpanHearts.appendChild(heartVideo);
+    heartVideo.setAttribute("class","fas fa-heart like-button");
     
 }
 
@@ -282,39 +227,116 @@ async function init() {
     
     // Récupère les datas des photographes
     const photographers = await getPhotographers();
-      // récupère les medias des photographes
-      const media = await getPhotographers();
-      
-      displayData(filterMedia);
-
-    };
+    // récupère les medias des photographes
+    const media = await getPhotographers();
     
-  init();
+    displayData(filterMedia);
+    
+};
 
-  // DOM
-  const body = document.querySelector('body');
+init();
 
-     // FOOTER
+// DOM
+const body = document.querySelector('body');
+
+// DOM   SECTION trier avec menu déroulant
+
+const main = document.getElementById('main');
+
+const sectionTrier = document.createElement('section');
+sectionTrier.id = 'filter';
+main.appendChild(sectionTrier);
+
+   const label = document.createElement('label');
+   label.textContent = 'Trier par';
+   label.setAttribute("for","trier");
+   sectionTrier.appendChild(label);
+
+   const customSelect = document.createElement('div');
+   sectionTrier.appendChild(customSelect);
+   customSelect.setAttribute("class","customselect");
+
+   const select = document.createElement('select');
+   select.setAttribute("class","navBar");
+   customSelect.appendChild(select);
+
+       const optionDate = document.createElement('option');
+       select.appendChild(optionDate);
+       optionDate.setAttribute("value","date");
+
+       const optionLikes = document.createElement('option');
+       select.appendChild(optionLikes);
+       optionLikes.setAttribute("value","likes");
+
+       const optiontitle = document.createElement('option');
+       select.appendChild(optiontitle);
+       optiontitle.setAttribute("value","title")
+
+    const divSelect = document.createElement('div');
+    customSelect.appendChild(divSelect);
+    divSelect.setAttribute("class","newselect"); 
+
+       const divmenu = document.createElement('div');
+       divSelect.appendChild(divmenu);
+       divmenu.setAttribute("class","divmenu");
+
+           const menuDate = document.createElement('p');
+           divmenu.appendChild(menuDate);
+           menuDate.setAttribute("class","menu date");
+           menuDate.textContent = "Date";
+
+           const chevron = document.createElement('i');
+           divmenu.appendChild(chevron);
+           chevron.setAttribute("class","fas fa-chevron-down chevrondown");
+
+ 
+        const menuPopularite = document.createElement('div');
+        divSelect.appendChild(menuPopularite);
+        menuPopularite.setAttribute("class","menu");
+        menuPopularite.textContent = "Popularité";
+
+        const menuTitre = document.createElement('div');
+        divSelect.appendChild(menuTitre);
+        menuTitre.setAttribute("class","menu");
+        menuTitre.textContent = "Titre";
+    // menu déroulant
+        const selectElt = document.querySelector('select');
+        const selectDiv = document.querySelector('.customselect');
+        const newSelect = document.querySelector('.newselect');
+        
+        
+        //on lui donne le contenu de l'option actuellement choisie dans le select
+       newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML;
+       console.log(selectElt.options);
+       selectDiv.appendChild(newSelect);
+
+// DOM section Divphoto     
+const divPhoto = document.createElement('div');
+divPhoto.setAttribute("class","divphoto");
+main.appendChild(divPhoto);
+
+// DOM FOOTER
     const footer = document.createElement('footer');
     body.appendChild(footer);
 
-       const divFooterInfo = document.createElement('div');
+    const divFooterInfo = document.createElement('div');
        footer.appendChild(divFooterInfo);
        divFooterInfo.setAttribute("class","divfooterinfo");
-
-          const divTotalLikes = document.createElement('div');
-          divFooterInfo.appendChild(divTotalLikes);
-          divTotalLikes.setAttribute("class","divtotallikes");
-
-               const textNumber = document.createElement('p');
-               divTotalLikes.appendChild(textNumber);
-               textNumber.setAttribute("class","textnumber");
-               textNumber.textContent = "300";
-
-               const iconHeartFooter = document.createElement('i');
-               divTotalLikes.appendChild(iconHeartFooter);
-               iconHeartFooter.setAttribute("class","fas fa-heart")
-
-
-
-
+       
+       const divTotalLikes = document.createElement('div');
+       divFooterInfo.appendChild(divTotalLikes);
+       divTotalLikes.setAttribute("class","divtotallikes");
+       
+       const textNumber = document.createElement('p');
+       divTotalLikes.appendChild(textNumber);
+       textNumber.setAttribute("class","textnumber");
+       textNumber.textContent = "300";
+       
+       const iconHeartFooter = document.createElement('i');
+       divTotalLikes.appendChild(iconHeartFooter);
+       iconHeartFooter.setAttribute("class","fas fa-heart")
+       
+       
+       
+       
+       

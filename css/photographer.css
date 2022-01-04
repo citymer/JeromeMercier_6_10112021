@@ -69,7 +69,19 @@ body {
 
 #filter{
     display: flex;
+    position: absolute;
     margin-top: 40px;
+
+}
+
+.newselect{
+    display: block;
+    width: 176px;
+    height: 56px;
+    margin-left: 20px;
+    border-radius: 5px;
+    color: white;
+    background-color: #901C1C;
 }
 label{
     font-size: 18px;
@@ -77,39 +89,42 @@ label{
     margin-left: 100px;
     color:black;
 }
-.navBar{
-    width: 170px;
-    height: 65px;
-    margin-left: 20px;
-    border-radius: 5px;
-    background-color: #901C1C;
+
+select {
+    display: none;
+
 }
-li{
-    list-style-type: none;
-    color:white;
-    font-weight: bold;
-}
-.sousmenu > li {
-    float: left;
-    position: relative;
-    padding: 11px;
-}
-.sousmenu{
-    display:none ;
-}
-ul::after{
-    content: "";
-    display: table;
-    clear: both;
+option{
+    display: block;
+    white-space: nowrap;
+    font-weight: normal;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
 }
 
+.menu{
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16.5px 20px 16.5px;
+    cursor: pointer;
+    background-color: #901C1C;
+}
+.chevrondown{
+    position: absolute;
+    margin-left: 135px;
+    margin-top: -35px;
+    color: white;
+    cursor: pointer;
+}
 /* SECTION DIV PHOTO */
 
 .divphoto{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    margin: 50px 100px;
+    margin: 150px 100px;
 }
 .imgphoto{
     margin-bottom: 20px;
