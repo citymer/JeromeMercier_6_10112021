@@ -113,43 +113,56 @@ const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
 
-const label = document.createElement('label');
-label.textContent = 'Trier par';
-label.setAttribute("for","trier");
-sectionTrier.appendChild(label);
+   const label = document.createElement('label');
+   label.textContent = 'Trier par';
+   label.setAttribute("for","trier");
+   sectionTrier.appendChild(label);
 
-const div = document.createElement('div');
-div.setAttribute("class","navBar");
-sectionTrier.appendChild(div);
+   const select = document.createElement('select');
+   select.setAttribute("class","navBar");
+   sectionTrier.appendChild(select);
+       
+       const optionDate = document.createElement('option');
+       select.appendChild(optionDate);
 
-  const ulMenu = document.createElement('ul');
-  ulMenu.id = 'trier';
-  div.appendChild(ulMenu);
+       const optionLikes = document.createElement('option');
+       select.appendChild(optionLikes);
 
-    const liPopularite = document.createElement('li');
-    liPopularite.setAttribute("class","popularite");
-    ulMenu.appendChild(liPopularite);
-    liPopularite.textContent = 'Popularité';
+       const optiontitle = document.createElement('option');
+       select.appendChild(optiontitle);
 
-       const ul = document.createElement('ul');
-       ul.setAttribute("class","sousmenu");
-       liPopularite.appendChild(ul);
+    const divSelect = document.createElement('div');
+    sectionTrier.appendChild(divSelect);
+    divSelect.setAttribute("class","divselect");  
+    
+        const divmenu = document.createElement('div');
+        divSelect.appendChild(divmenu);
+        divmenu.setAttribute("class","divmenu");
 
-           const liDate = document.createElement('li');
-           liDate.setAttribute("class","date");
-           ul.appendChild(liDate);
-           liDate.textContent = 'Date';
+           const menuDate = document.createElement('p');
+           divmenu.appendChild(menuDate);
+           menuDate.setAttribute("class","menudate");
 
-           const liTitre = document.createElement('li');
-           liTitre.setAttribute("class","titre");
-           ul.appendChild(liTitre);
-           liTitre.textContent = 'Titre';
+           const chevron = document.createElement('i');
+           divmenu.appendChild(chevron);
+           chevron.setAttribute("class","fas fa-chevron-down");
+
+           const menuPopularite = document.createElement('p');
+           divmenu.appendChild(menuPopularite);
+           menuPopularite.setAttribute("class","menupopularite");
+
+           const menuTitre = document.createElement('p');
+           divmenu.appendChild(menuTitre);
+           menuTitre.setAttribute("class","menutitre");
+
+ 
             
  const divPhoto = document.createElement('div');
  divPhoto.setAttribute("class","divphoto");
  main.appendChild(divPhoto);
 
 // FUNCTION qui affiche les images des photographes ****************
+
 function attachInformationMedia(media) {
     
     function getUserCardDOMmedia() {
@@ -188,19 +201,20 @@ function attachInformationMedia(media) {
                heart.setAttribute("class","fas fa-heart like-button");
                
                // COMPTEUR DE LIKES
-               let compteur = media.likes;
+               let compteur = numberHeart.textContent;
+               console.log(compteur);
                
-               let numberSpan = document.querySelectorAll('.nombrelike');
+               let numberSpan = document.querySelectorAll('span');
             
-               numberSpan.innerText = +numberHeart;
-
+               numberSpan.innerText = +compteur;
+               
                heart.addEventListener('click',function(){
-                   numberSpan++;
                    compteur++;
                    console.log(compteur);
-                   compteur.innerText = +numberSpan;
+                   numberSpan.innerText = +compteur;
                })
-        
+     
+
         return articlePhoto;
     } 
 
@@ -208,7 +222,8 @@ return { getUserCardDOMmedia }
 
 }
 
-// FUNCTION qui affiche la video des photographes   **********    
+// FUNCTION qui affiche la video des photographes   **********  
+
 function attachInformationVideo(video) {
     
     const articleVideo = document.createElement('article');
