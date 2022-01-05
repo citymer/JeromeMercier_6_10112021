@@ -147,7 +147,6 @@ function attachInformationMedia(media) {
         
         // COMPTEUR DE LIKES
         let compteur = numberHeart.textContent;
-        console.log(compteur);
         
         let numberSpan = document.querySelectorAll('span');
         
@@ -208,8 +207,10 @@ async function displayData() {
     
     
     const divPhotoSelect = document.querySelector('.divphoto');
+
     attachInformationPhotograph();
     
+    // créer un article pour chaque photo
     filterMedia.forEach((media) => {
         const mediaModel = attachInformationMedia(media);
         const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
@@ -252,63 +253,40 @@ main.appendChild(sectionTrier);
    label.setAttribute("for","trier");
    sectionTrier.appendChild(label);
 
-   const customSelect = document.createElement('div');
-   sectionTrier.appendChild(customSelect);
-   customSelect.setAttribute("class","customselect");
+   const nav = document.createElement('nav');
+   sectionTrier.appendChild(nav);
 
-   const select = document.createElement('select');
-   select.setAttribute("class","navBar");
-   customSelect.appendChild(select);
+       const ul = document.createElement('ul');
+       nav.appendChild(ul);
+       ul.setAttribute("class" , "menu");
 
-       const optionDate = document.createElement('option');
-       select.appendChild(optionDate);
-       optionDate.setAttribute("value","date");
+        const liDate = document.createElement('li');
+        ul.appendChild(liDate);
 
-       const optionLikes = document.createElement('option');
-       select.appendChild(optionLikes);
-       optionLikes.setAttribute("value","likes");
-
-       const optiontitle = document.createElement('option');
-       select.appendChild(optiontitle);
-       optiontitle.setAttribute("value","title")
-
-    const divSelect = document.createElement('div');
-    customSelect.appendChild(divSelect);
-    divSelect.setAttribute("class","newselect"); 
-
-       const divmenu = document.createElement('div');
-       divSelect.appendChild(divmenu);
-       divmenu.setAttribute("class","divmenu");
-
-           const menuDate = document.createElement('p');
-           divmenu.appendChild(menuDate);
-           menuDate.setAttribute("class","menu date");
-           menuDate.textContent = "Date";
+           const date = document.createElement('a');
+           liDate.appendChild(date);
+           date.textContent = "Date";
 
            const chevron = document.createElement('i');
-           divmenu.appendChild(chevron);
-           chevron.setAttribute("class","fas fa-chevron-down chevrondown");
+           liDate.appendChild(chevron);
+           chevron.setAttribute("class","fas fa-chevron-down");
 
- 
-        const menuPopularite = document.createElement('div');
-        divSelect.appendChild(menuPopularite);
-        menuPopularite.setAttribute("class","menu");
-        menuPopularite.textContent = "Popularité";
+           const sousMenu = document.createElement('ul');
+           liDate.appendChild(sousMenu);
+           sousMenu.setAttribute("class","sousmenu");
 
-        const menuTitre = document.createElement('div');
-        divSelect.appendChild(menuTitre);
-        menuTitre.setAttribute("class","menu");
-        menuTitre.textContent = "Titre";
-    // menu déroulant
-        const selectElt = document.querySelector('select');
-        const selectDiv = document.querySelector('.customselect');
-        const newSelect = document.querySelector('.newselect');
-        
-        
-        //on lui donne le contenu de l'option actuellement choisie dans le select
-       newSelect.innerHTML = selectElt.options[selectElt.selectedIndex].innerHTML;
-       console.log(selectElt.options);
-       selectDiv.appendChild(newSelect);
+              const popularite = document.createElement('li');
+              sousMenu.appendChild(popularite);
+                  const lienPopularite = document.createElement('a');
+                  popularite.appendChild(lienPopularite);
+                  lienPopularite.textContent = "Popularité";
+
+              const titre = document.createElement('li');
+              sousMenu.appendChild(titre);
+                   const lienTitre = document.createElement('a');
+                   titre.appendChild(lienTitre);
+                   lienTitre.textContent = "Titre";    
+       
 
 // DOM section Divphoto     
 const divPhoto = document.createElement('div');

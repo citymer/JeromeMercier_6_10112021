@@ -74,15 +74,6 @@ body {
 
 }
 
-.newselect{
-    display: block;
-    width: 176px;
-    height: 56px;
-    margin-left: 20px;
-    border-radius: 5px;
-    color: white;
-    background-color: #901C1C;
-}
 label{
     font-size: 18px;
     font-weight: bold;
@@ -90,34 +81,40 @@ label{
     color:black;
 }
 
-select {
-    display: none;
-
-}
-option{
-    display: block;
-    white-space: nowrap;
-    font-weight: normal;
-    min-height: 1.2em;
-    padding: 0px 2px 1px;
-}
-
-.menu{
-    display: block;
-    color: white;
+nav{
+    width: 170px;
     font-size: 18px;
     font-weight: 700;
-    padding: 16.5px 20px 16.5px;
-    cursor: pointer;
     background-color: #901C1C;
-}
-.chevrondown{
-    position: absolute;
-    margin-left: 135px;
-    margin-top: -35px;
+    margin-left: 20px;
     color: white;
+    border-radius:5px;
     cursor: pointer;
 }
+nav ul{
+    list-style: none;  
+}
+nav li a {
+    padding: 20px 35px 20px 0px;
+}
+nav li:hover .sousmenu{
+    display: block;
+}
+.sousmenu{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    
+    padding-left: 0;
+    display: none;
+    margin-top: 15px;
+    height: 100px;
+}
+.sousmenu a {
+    margin-top: 25px;
+}
+
+
 /* SECTION DIV PHOTO */
 
 .divphoto{
