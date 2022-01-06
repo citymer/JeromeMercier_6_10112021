@@ -126,6 +126,9 @@ nav li:hover .sousmenu{
 .imgphoto{
     margin-bottom: 20px;
 }
+article{
+    height: 350px;
+}
 .imgarticle{
     width: 350px;
     height: 300px;
@@ -144,6 +147,10 @@ h5{
     color: #901C1C;
     font-size: 24px;
     font-weight: 400;
+    max-width: 290px;
+    max-height: 30px;
+    line-height: 25px;
+    margin: 0;
 }
 .divspanheart{
     margin-right: 8px;

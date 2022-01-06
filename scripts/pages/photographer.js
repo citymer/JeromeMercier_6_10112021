@@ -318,6 +318,7 @@ const divPhoto = document.createElement('div');
 divPhoto.setAttribute("class","divphoto");
 main.appendChild(divPhoto);
 
+
 // DOM FOOTER
     const footer = document.createElement('footer');
     body.appendChild(footer);
