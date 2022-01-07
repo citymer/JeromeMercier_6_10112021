@@ -115,10 +115,11 @@ function attachInformationMedia(media) {
         const articlePhoto = document.createElement('article');
         divPhoto.appendChild(articlePhoto);
         articlePhoto.setAttribute("class","imgphoto");
-        articlePhoto.setAttribute("id",media.id);
+        //articlePhoto.setAttribute("id",media.id);
 
            const lienImage = document.createElement('a');
            articlePhoto.appendChild(lienImage);
+           lienImage.setAttribute("class","lienimage");
            lienImage.setAttribute("href",media.image);
         
            const imgArticle = document.createElement('img');
@@ -185,11 +186,17 @@ function attachInformationVideo(video) {
     
     const articleVideo = document.createElement('article');
     divPhoto.appendChild(articleVideo);
-    articleVideo.setAttribute("id","");
+    articleVideo.setAttribute("class","imgphoto");
+
+       const lienVideo = document.createElement('a');
+       articleVideo.appendChild(lienVideo);
+       lienVideo.setAttribute("class","lienimage");
+       lienVideo.setAttribute("href",video.video);
     
        const videoArticle = document.createElement('video');
-       articleVideo.appendChild(videoArticle); 
-       articleVideo.setAttribute("alt",video.alt);
+       lienVideo.appendChild(videoArticle); 
+       videoArticle.setAttribute("class","imgarticle");
+       videoArticle.setAttribute("alt",video.alt);
        videoArticle.setAttribute("src",video.video);
        videoArticle.setAttribute("type","video/mp4");
        videoArticle.setAttribute("controls","");
@@ -259,25 +266,30 @@ async function displayData() {
 
 // LIGHTBOX 
 
-class lightbox {
-    static init () {
 
-    }
-}
+    
+
+const body = document.querySelector('body');
+
+        const lightbox = document.createElement('div');
+        body.appendChild(lightbox);
+        lightbox.setAttribute("class","lightbox");
+        lightbox.innerHTML = `<button class="lightbox__close" ></button>
+        <button class="lightbox__next" ></button>
+        <button class="lightbox__prev" ></button>
+        <div class="lightbox__container">
+          <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
+        </div>`
+
 
 /**
  * 
  <div class="lightbox">
-       <button class="lightbox__close" ></button>
-       <button class="lightbox__next" ></button>
-       <button class="lightbox__prev" ></button>
-       <div class="lightbox__container">
-         <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
-       </div>
+       
     </div>
  */
 
-lightbox.init()
+
     
     
 
@@ -299,7 +311,6 @@ init();
 
 //*****************************  DOM ********************************************************************
 
-const body = document.querySelector('body');
 
 // DOM   SECTION trier avec menu déroulant  ****************
 
