@@ -235,10 +235,38 @@ form input {
     background-color: white;
     z-index: 10;
 }
-.lightbox__next,.lightbox__prev{
-    background: url('assets/icons/chevron-right-solid.svg');
-    height: 10px;
-    color: black;
+.lightbox__next{
+    border: none;
+    background:  url(/assets/icons/chevron-right.svg) center center / 48px 29.64px no-repeat;
+    height:90% ;
+    width: 48px;
+    z-index: 11;
+    position: fixed;
+    top: 50px;
+    right: 0;
+    cursor: pointer;
+}
+.lightbox__prev {
+    border: none;
+    background: url(/assets/icons/chevron-left-solid.svg) center center / 48px 29.64px no-repeat;
+    height: 90%;
+    width: 48px;
+    z-index: 11;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    cursor: pointer;
+}
+.lightbox__close {
+    border: none;
+    background: url(/assets/icons/close.svg) center center / 42px 42px no-repeat;
+    height: 42px;
+    width: 42px;
+    z-index: 11;
+    position: fixed;
+    top: 5px;
+    right: 0.5%;
+    cursor: pointer;
 }
 /* FOOTER  */
 .divfooterinfo{
