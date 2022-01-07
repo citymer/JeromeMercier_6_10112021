@@ -259,7 +259,25 @@ async function displayData() {
 
 // LIGHTBOX 
 
+class lightbox {
+    static init () {
 
+    }
+}
+
+/**
+ * 
+ <div class="lightbox">
+       <button class="lightbox__close" ></button>
+       <button class="lightbox__next" ></button>
+       <button class="lightbox__prev" ></button>
+       <div class="lightbox__container">
+         <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
+       </div>
+    </div>
+ */
+
+lightbox.init()
     
     
 
