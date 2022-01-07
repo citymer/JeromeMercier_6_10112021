@@ -1,4 +1,4 @@
-
+// Récupère tous les parametres des photographes dans le JSON  ***
 
  async function getPhotographers() {  
 
@@ -41,15 +41,14 @@
     
 }
 
-// Récupère et affiche les informations des photographes
+// Récupère et affiche les informations des photographes dans la section photograph-header ***
 function attachInformationPhotograph(photographers) {
     
     const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
     
     const picture = `assets/photographers/${portrait}`;
     
-    
-    //selectionne header ***** creation du lien vers l'acceuil 
+    //selectionne header ***** creation du lien vers l'acceuil (index.html)
     const header = document.querySelector('header');
     
     const aLienAcceuil = document.createElement('a');
@@ -106,7 +105,7 @@ function attachInformationPhotograph(photographers) {
 }  
 
 
-// FUNCTION qui affiche les images des photographes ****************
+// FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
 
 function attachInformationMedia(media) {
     
@@ -117,9 +116,13 @@ function attachInformationMedia(media) {
         divPhoto.appendChild(articlePhoto);
         articlePhoto.setAttribute("class","imgphoto");
         articlePhoto.setAttribute("id",media.id);
+
+           const lienImage = document.createElement('a');
+           articlePhoto.appendChild(lienImage);
+           lienImage.setAttribute("href",media.image);
         
            const imgArticle = document.createElement('img');
-           articlePhoto.appendChild(imgArticle);
+           lienImage.appendChild(imgArticle);
            imgArticle.setAttribute("class","imgarticle");
            imgArticle.setAttribute("src",media.image);
            imgArticle.setAttribute("alt",media.alt);
@@ -150,30 +153,35 @@ function attachInformationMedia(media) {
  // COMPTEUR DE LIKES DES IMAGES
 
         let compteur = media.likes;
-        
         numberLikes.innerText = +compteur;
+        console.log(numberLikes);
         
         heart.addEventListener('click',function(){
                    compteur++;
 
-        // Récupère le nombre de like dans le DOM
-        let changeNumberlikes = numberLikes;
+             // Récupère le nombre de like dans le DOM
+             changeNumberlikes = numberLikes;
 
-        // Remplace le nombre de like par le resultat du compteur
-        changeNumberlikes.innerText = +compteur;
+             // Remplace le nombre de like par le resultat du compteur
+             changeNumberlikes.innerText = +compteur;
+
+             selectTextNumber = document.querySelector('.textnumber');
+             selectTextNumber.innerText = media.likes + compteur;
+             console.log(selectTextNumber);
     
        })
                        
                 return articlePhoto;
-            } 
+   } 
             
 return { getUserCardDOMmedia }                 
 
 }
 
-// FUNCTION qui affiche la video des photographes   **********  
+// FUNCTION qui affiche la video des photographes   **** ATTACH INFORMATION VIDEO  ******  
 
 function attachInformationVideo(video) {
+    
     
     const articleVideo = document.createElement('article');
     divPhoto.appendChild(articleVideo);
@@ -206,8 +214,8 @@ function attachInformationVideo(video) {
                const heartVideo = document.createElement('i');
                divSpanHearts.appendChild(heartVideo);
                heartVideo.setAttribute("class","fas fa-heart like-button");
-
-      // COMPTEUR de like des videos
+               
+  // COMPTEUR de like des videos
       
       let compteur = video.likes;
       
@@ -216,15 +224,16 @@ function attachInformationVideo(video) {
       heartVideo.addEventListener('click',function(){
           compteur++
 
+          // Récupère le nombre de like dans le DOM
           let changeNumberLikesVideo = numberLikesVideo;
-          
+
+          // Remplace le nombre de like par le resultat du compteur
           changeNumberLikesVideo.innerText = +compteur;
       })
-    
+         
 }
 
 async function displayData() {
-    
     
     const divPhotoSelect = document.querySelector('.divphoto');
 
@@ -248,6 +257,11 @@ async function displayData() {
     
 };
 
+// LIGHTBOX 
+
+
+    
+    
 
 async function init() {
     
@@ -262,10 +276,14 @@ async function init() {
 
 init();
 
-// DOM
+
+
+
+//*****************************  DOM ********************************************************************
+
 const body = document.querySelector('body');
 
-// DOM   SECTION trier avec menu déroulant
+// DOM   SECTION trier avec menu déroulant  ****************
 
 const main = document.getElementById('main');
 
@@ -313,13 +331,12 @@ main.appendChild(sectionTrier);
                    lienTitre.textContent = "Titre";    
        
 
-// DOM section Divphoto     
+// DOM section Divphoto  *******************   
 const divPhoto = document.createElement('div');
 divPhoto.setAttribute("class","divphoto");
 main.appendChild(divPhoto);
 
-
-// DOM FOOTER
+// DOM FOOTER    *************************************
     const footer = document.createElement('footer');
     body.appendChild(footer);
 
@@ -330,15 +347,16 @@ main.appendChild(divPhoto);
        const divTotalLikes = document.createElement('div');
        divFooterInfo.appendChild(divTotalLikes);
        divTotalLikes.setAttribute("class","divtotallikes");
-       
+     
        const textNumber = document.createElement('p');
        divTotalLikes.appendChild(textNumber);
        textNumber.setAttribute("class","textnumber");
-       textNumber.textContent = "300";
+       textNumber.textContent = "";
        
        const iconHeartFooter = document.createElement('i');
        divTotalLikes.appendChild(iconHeartFooter);
        iconHeartFooter.setAttribute("class","fas fa-heart")
+
        
        
        
