@@ -94,7 +94,7 @@ function attachInformationPhotograph(photographers) {
     sectionPhotographHeader.append(button); 
     sectionPhotographHeader.append(img);       
     
-    //ecrit le prix/jour dans le footer
+    //ecrit le prix/jour dans le Footer
     const divPriceDay = document.createElement('div');
     divFooterInfo.appendChild(divPriceDay);
     divPriceDay.setAttribute("class","divpriceday");
@@ -104,10 +104,12 @@ function attachInformationPhotograph(photographers) {
          textPriceDay.textContent =  `${price}€/ jour`;
 }  
 
+function yes() {
 
 // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
 
 function attachInformationMedia(media) {
+    
     
     function getUserCardDOMmedia() {
         
@@ -238,79 +240,83 @@ function attachInformationVideo(video) {
           changeNumberLikesVideo.innerText = +compteur;
       })
          
-}
-
-async function displayData() {
+    }
     
-    const divPhotoSelect = document.querySelector('.divphoto');
+    
+    async function displayData() {
+        
+        const divPhotoSelect = document.querySelector('.divphoto');
+        
+        attachInformationPhotograph();
+        
+        // créer un article pour chaque photo
+        filterMedia.forEach((media) => {
+            
+            if (media.video == undefined){
+                
+                const mediaModel = attachInformationMedia(media);
+                const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
+                divPhotoSelect.appendChild(userCardDOMmedia);
+                
+            }else {
+                
+                attachInformationVideo(media);
+            }
+            
+        });
 
-    attachInformationPhotograph();
 
-    // créer un article pour chaque photo
-    filterMedia.forEach((media) => {
-
-        if (media.video == undefined){
-
-            const mediaModel = attachInformationMedia(media);
-            const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
-            divPhotoSelect.appendChild(userCardDOMmedia);
-
-        }else {
-
-            attachInformationVideo(media);
-        }
+        // LIGHTBOX 
       
-    });
+        const bodyPage = document.querySelector('body');
     
-};
-
-// LIGHTBOX 
-
-
-    
-
-const body = document.querySelector('body');
-
         const lightbox = document.createElement('div');
-        body.appendChild(lightbox);
+        bodyPage.appendChild(lightbox);
+        
         lightbox.setAttribute("class","lightbox");
         lightbox.innerHTML = `<button class="lightbox__close" ></button>
         <button class="lightbox__next" ></button>
         <button class="lightbox__prev" ></button>
         <div class="lightbox__container">
-          <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
+        <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
         </div>`
+        
+        const a = document.querySelectorAll('.lienimage');
+        console.log(a);
 
-
-/**
- * 
- <div class="lightbox">
-       
-    </div>
- */
-
-
+  
+  
+    };
     
     
+    
+    async function init() {
+        
+        // Récupère les datas des photographes
+        const photographers = await getPhotographers();
+        // récupère les medias des photographes
+        const media = await getPhotographers();
+        
+        displayData(filterMedia);
+        
+    };
+    
+    init();
 
-async function init() {
-    
-    // Récupère les datas des photographes
-    const photographers = await getPhotographers();
-    // récupère les medias des photographes
-    const media = await getPhotographers();
-    
-    displayData(filterMedia);
-    
-};
+}
 
-init();
+yes();
+
+
+
+
 
 
 
 
 //*****************************  DOM ********************************************************************
 
+const body = document.querySelector('body');
 
 // DOM   SECTION trier avec menu déroulant  ****************
 
@@ -320,7 +326,7 @@ const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
 
-   const label = document.createElement('label');
+const label = document.createElement('label');
    label.textContent = 'Trier par';
    label.setAttribute("for","trier");
    sectionTrier.appendChild(label);

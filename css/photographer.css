@@ -237,6 +237,9 @@ form input {
     z-index: 10;
     animation: lightboxIn .5s;
 }
+.show {
+    display: initial;
+}
 .lightbox button {
     border: none;
     z-index: 11;
