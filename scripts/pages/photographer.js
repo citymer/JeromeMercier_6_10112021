@@ -157,7 +157,7 @@ function attachInformationMedia(media) {
 
         let compteur = media.likes;
         numberLikes.innerText = +compteur;
-        console.log(numberLikes);
+
         
         heart.addEventListener('click',function(){
                    compteur++;
@@ -278,11 +278,34 @@ function attachInformationVideo(video) {
         <button class="lightbox__next" ></button>
         <button class="lightbox__prev" ></button>
         <div class="lightbox__container">
-        <img src="assets/img/Marcel/Travel_Tower.jpg" alt="">
+        <img src="" alt="">
         </div>`
+        const buttonNext = document.querySelector('.lightbox__next');
+        const buttonPrev = document.querySelector('.lightbox__prev');
+        const buttonClose = document.querySelector('.lightbox__close');
+        const lienphoto = document.querySelectorAll('.lienimage');
+        console.log(lienphoto);
         
-        const a = document.querySelectorAll('.lienimage');
-        console.log(a);
+        //on ajoute l'ecouteur click sur les liens
+        for(let link of lienphoto) {
+            link.addEventListener("click",function(e){
+
+                // désactive le comportement des liens
+                e.preventDefault();
+
+                // ajoute l'image du lien cliqué dans la modale
+                const image = lightbox.querySelector(".lightbox__container img");
+                image.src = this.href;
+
+                // affiche la lightbox
+                lightbox.classList.add("show");
+            })
+        }
+
+        // active le bouton close 
+        buttonClose.addEventListener("click",function() {
+            lightbox.classList.remove("show");
+        })
 
   
   
