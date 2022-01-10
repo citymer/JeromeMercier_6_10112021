@@ -284,7 +284,6 @@ function attachInformationVideo(video) {
         const buttonPrev = document.querySelector('.lightbox__prev');
         const buttonClose = document.querySelector('.lightbox__close');
         const lienphoto = document.querySelectorAll('.lienimage');
-        console.log(lienphoto);
         
         //on ajoute l'ecouteur click sur les liens
         for(let link of lienphoto) {
@@ -293,7 +292,7 @@ function attachInformationVideo(video) {
                 // désactive le comportement des liens
                 e.preventDefault();
 
-                // ajoute l'image du lien cliqué dans la modale
+                // ajoute l'image du lien cliqué dans la lightbox
                 const image = lightbox.querySelector(".lightbox__container img");
                 image.src = this.href;
 

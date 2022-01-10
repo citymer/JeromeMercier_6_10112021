@@ -268,15 +268,18 @@ form input {
     right: 0.5%;
 }
 .lightbox__container {
-    max-width: 1050px;
-    max-height: 900px;
+    width: 1050px;
+    height: 900px;
     margin: 0 auto;
     margin-top: 5%;
     margin-bottom: 5%;
 }
 .lightbox__container img {
-    max-width: 100%;
-    height: auto;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+    margin:30px auto 10px;
     animation: lightboxIn .5s;
 }
 @keyframes lightboxIn {
