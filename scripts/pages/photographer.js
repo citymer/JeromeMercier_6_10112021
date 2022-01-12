@@ -97,7 +97,7 @@ function attachInformationPhotograph(photographers) {
     sectionPhotographHeader.append(button); 
     sectionPhotographHeader.append(img);       
     
-    //ecrit le prix/jour dans le Footer
+    //ECRIT le prix/jour dans le FOOTER
     const divPriceDay = document.createElement('div');
     divFooterInfo.appendChild(divPriceDay);
     divPriceDay.setAttribute("class","divpriceday");
@@ -107,52 +107,56 @@ function attachInformationPhotograph(photographers) {
     textPriceDay.textContent =  `${price}€/ jour`;
 }  
 
-//function allMedias() {
     
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
-    function attachInformationMedia(media) {
+function attachInformationMedia(media) {
         
         
         function getUserCardDOMmedia() {
             
-            
+            // <article>
             const articlePhoto = document.createElement('article');
             divPhoto.appendChild(articlePhoto);
             articlePhoto.setAttribute("class","imgphoto");
             
+            // <a>
             const lienImage = document.createElement('a');
             articlePhoto.appendChild(lienImage);
             lienImage.setAttribute("class","lienimage");
             lienImage.setAttribute("href",media.image);
+               
+               // <img>
+               const imgArticle = document.createElement('img');
+               lienImage.appendChild(imgArticle);
+               imgArticle.setAttribute("class","imgarticle");
+               imgArticle.setAttribute("src",media.image);
+               imgArticle.setAttribute("alt",media.alt);
             
-            const imgArticle = document.createElement('img');
-            lienImage.appendChild(imgArticle);
-            imgArticle.setAttribute("class","imgarticle");
-            imgArticle.setAttribute("src",media.image);
-            imgArticle.setAttribute("alt",media.alt);
-            
-            
+            // <div>
             const divquantityheart = document.createElement('div');
             divquantityheart.setAttribute("class","quantityHeart");
             articlePhoto.appendChild(divquantityheart);
-            
-            const titrePhoto = document.createElement('h5');
-            divquantityheart.appendChild(titrePhoto);
-            titrePhoto.textContent = media.title;
-            
-            const divspanHeart = document.createElement('div');
-            divquantityheart.appendChild(divspanHeart);
-            divspanHeart.setAttribute("class","divspanheart");
-            
-            let numberLikes = document.createElement('span');
-            divspanHeart.appendChild(numberLikes);
-            numberLikes.textContent = media.likes;
-            numberLikes.setAttribute("class","nombrelike");
-            
-            const heart = document.createElement('i');
-            divspanHeart.appendChild(heart);
-            heart.setAttribute("class","fas fa-heart like-button");
+                
+               // <h5>
+               const titrePhoto = document.createElement('h5');
+               divquantityheart.appendChild(titrePhoto);
+               titrePhoto.textContent = media.title;
+                
+               // <div>
+               const divspanHeart = document.createElement('div');
+               divquantityheart.appendChild(divspanHeart);
+               divspanHeart.setAttribute("class","divspanheart");
+                    // <span>
+                    let numberLikes = document.createElement('span');
+                    divspanHeart.appendChild(numberLikes);
+                    numberLikes.textContent = media.likes;
+                    numberLikes.setAttribute("class","nombrelike");
+                     
+                    // <i>
+                    const heart = document.createElement('i');
+                    divspanHeart.appendChild(heart);
+                    heart.setAttribute("class","fas fa-heart like-button");
             
             
             // COMPTEUR DE LIKES DES IMAGES
@@ -181,52 +185,60 @@ function attachInformationPhotograph(photographers) {
         return { getUserCardDOMmedia }                 
         
     }
+
     // FUNCTION qui affiche la video des photographes   **** ATTACH INFORMATION VIDEO  ******  
     
-    function attachInformationVideo(video) {
+function attachInformationVideo(video) {
         
-        
+        // <article>
         const articleVideo = document.createElement('article');
         divPhoto.appendChild(articleVideo);
         articleVideo.setAttribute("class","imgphoto");
+            
+            // <a>
+           const lienVideo = document.createElement('a');
+           articleVideo.appendChild(lienVideo);
+           lienVideo.setAttribute("class","lienimage");
+           lienVideo.setAttribute("href",video.video); 
+              
+              // <video>
+              const videoArticle = document.createElement('video');
+              lienVideo.appendChild(videoArticle); 
+              videoArticle.setAttribute("class","imgarticle");
+              videoArticle.setAttribute("alt",video.alt);
+              videoArticle.setAttribute("src",video.video);
+              videoArticle.setAttribute("type","video/mp4");
+              videoArticle.setAttribute("controls","");
+
+             //DIV
+            const divTitleQuantityHearts = document.createElement('div');
+            divTitleQuantityHearts.setAttribute("class","quantityHeart");
+            articleVideo.appendChild(divTitleQuantityHearts);
+               
+              // <h5>
+              const titleVideo = document.createElement('h5');
+              divTitleQuantityHearts.appendChild(titleVideo);
+              titleVideo.textContent = video.title;
+                
+               // <div>
+               const divSpanHearts = document.createElement('div');
+               divTitleQuantityHearts.appendChild(divSpanHearts);
+               divSpanHearts.setAttribute("class","divspanheart");
+                     
+                    // <span>
+                    const numberLikesVideo = document.createElement('span');
+                    divSpanHearts.appendChild(numberLikesVideo);
+                    numberLikesVideo.textContent = video.likes;
+                    numberLikesVideo.setAttribute("class","nombrelike");
+                     
+                     // <i>
+                    const heartVideo = document.createElement('i');
+                    divSpanHearts.appendChild(heartVideo);
+                    heartVideo.setAttribute("class","fas fa-heart like-button");
+                    heartVideo.setAttribute("role","button");
         
-        const lienVideo = document.createElement('a');
-        articleVideo.appendChild(lienVideo);
-        lienVideo.setAttribute("class","lienimage");
-        lienVideo.setAttribute("href",video.video);
         
-        const videoArticle = document.createElement('video');
-        lienVideo.appendChild(videoArticle); 
-        videoArticle.setAttribute("class","imgarticle");
-        videoArticle.setAttribute("alt",video.alt);
-        videoArticle.setAttribute("src",video.video);
-        videoArticle.setAttribute("type","video/mp4");
-        videoArticle.setAttribute("controls","");
-        
-        const divTitleQuantityHearts = document.createElement('div');
-        divTitleQuantityHearts.setAttribute("class","quantityHeart");
-        articleVideo.appendChild(divTitleQuantityHearts);
-        
-        const titleVideo = document.createElement('h5');
-        divTitleQuantityHearts.appendChild(titleVideo);
-        titleVideo.textContent = video.title;
-        
-        const divSpanHearts = document.createElement('div');
-        divTitleQuantityHearts.appendChild(divSpanHearts);
-        divSpanHearts.setAttribute("class","divspanheart");
-        
-        const numberLikesVideo = document.createElement('span');
-        divSpanHearts.appendChild(numberLikesVideo);
-        numberLikesVideo.textContent = video.likes;
-        numberLikesVideo.setAttribute("class","nombrelike");
-        
-        const heartVideo = document.createElement('i');
-        divSpanHearts.appendChild(heartVideo);
-        heartVideo.setAttribute("class","fas fa-heart like-button");
-        heartVideo.setAttribute("role","button");
-        
-        
-        // COMPTEUR de like des videos
+   // COMPTEUR de like des videos
         
         let compteur = video.likes;
         
@@ -242,10 +254,10 @@ function attachInformationPhotograph(photographers) {
             // Remplace le nombre de like par le resultat du compteur
             changeNumberLikesVideo.innerText = +compteur;
         })
-    }
+}
     
     
-    async function displayData() {
+async function displayData() {
         
         const divPhotoSelect = document.querySelector('.divphoto');
         
@@ -263,12 +275,8 @@ function attachInformationPhotograph(photographers) {
             }else {
                 
                 attachInformationVideo(media);
-            }
-            
-            
+            }        
         });
-        
-        
         
         
         // COMPTEUR TOTAL DE LIKES  //
@@ -284,7 +292,7 @@ function attachInformationPhotograph(photographers) {
             
         })   
         
-        //LIGHTBOX //
+        //LIGHTBOX //******************************* */
 
         const body = document.querySelector('body');
         const sheader = document.querySelector('header');
@@ -300,6 +308,7 @@ function attachInformationPhotograph(photographers) {
         <img src="" alt="">
         </div>`
 
+         // replace les balise FOOTER et DIV Lightbox dans le DOM
         document.body.insertBefore(lightbox,main);
         document.body.insertBefore(footer,contactModal);
 
@@ -331,10 +340,10 @@ function attachInformationPhotograph(photographers) {
         })
         
         
-    };
+};
     
     
-    async function init() {
+async function init() {
         
         // Récupère les datas des photographes
         const photographers = await getPhotographers();
@@ -343,19 +352,9 @@ function attachInformationPhotograph(photographers) {
         
         displayData(filterMedia);
         
-    };
+};
     
     init();
-    
-//}
-
-
-
-
-//allMedias();
-
-
-
 
 
 //*****************************  DOM ********************************************************************
@@ -370,44 +369,46 @@ const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
 
-const label = document.createElement('label');
-label.textContent = 'Trier par';
-label.setAttribute("for","trier");
-sectionTrier.appendChild(label);
+    const label = document.createElement('label');
+    label.textContent = 'Trier par';
+    label.setAttribute("for","trier");
+    sectionTrier.appendChild(label);
 
-const nav = document.createElement('nav');
-sectionTrier.appendChild(nav);
+    const nav = document.createElement('nav');
+    sectionTrier.appendChild(nav);
 
-const ul = document.createElement('ul');
-nav.appendChild(ul);
-ul.setAttribute("class" , "menu");
+       const ul = document.createElement('ul');
+       nav.appendChild(ul);
+       ul.setAttribute("class" , "menu");
 
-const liDate = document.createElement('li');
-ul.appendChild(liDate);
+          const liDate = document.createElement('li');
+          ul.appendChild(liDate);
 
-const date = document.createElement('a');
-liDate.appendChild(date);
-date.textContent = "Date";
+              const date = document.createElement('a');
+              liDate.appendChild(date);
+              date.textContent = "Date";
 
-const chevron = document.createElement('i');
-liDate.appendChild(chevron);
-chevron.setAttribute("class","fas fa-chevron-down");
+              const chevron = document.createElement('i');
+              liDate.appendChild(chevron);
+              chevron.setAttribute("class","fas fa-chevron-down");
 
-const sousMenu = document.createElement('ul');
-liDate.appendChild(sousMenu);
-sousMenu.setAttribute("class","sousmenu");
+              const sousMenu = document.createElement('ul');
+              liDate.appendChild(sousMenu);
+              sousMenu.setAttribute("class","sousmenu");
 
-const popularite = document.createElement('li');
-sousMenu.appendChild(popularite);
-const lienPopularite = document.createElement('a');
-popularite.appendChild(lienPopularite);
-lienPopularite.textContent = "Popularité";
+                    const popularite = document.createElement('li');
+                    sousMenu.appendChild(popularite);
 
-const titre = document.createElement('li');
-sousMenu.appendChild(titre);
-const lienTitre = document.createElement('a');
-titre.appendChild(lienTitre);
-lienTitre.textContent = "Titre";    
+                        const lienPopularite = document.createElement('a');
+                        popularite.appendChild(lienPopularite);
+                        lienPopularite.textContent = "Popularité";
+
+                    const titre = document.createElement('li');
+                    sousMenu.appendChild(titre);
+
+                        const lienTitre = document.createElement('a');
+                        titre.appendChild(lienTitre);
+                        lienTitre.textContent = "Titre";    
 
 
 // DOM section Divphoto  *******************   
@@ -419,22 +420,22 @@ main.appendChild(divPhoto);
 const footer = document.createElement('footer');
 body.appendChild(footer);
 
-const divFooterInfo = document.createElement('div');
-footer.appendChild(divFooterInfo);
-divFooterInfo.setAttribute("class","divfooterinfo");
+    const divFooterInfo = document.createElement('div');
+    footer.appendChild(divFooterInfo);
+    divFooterInfo.setAttribute("class","divfooterinfo");
 
-const divTotalLikes = document.createElement('div');
-divFooterInfo.appendChild(divTotalLikes);
-divTotalLikes.setAttribute("class","divtotallikes");
+    const divTotalLikes = document.createElement('div');
+    divFooterInfo.appendChild(divTotalLikes);
+    divTotalLikes.setAttribute("class","divtotallikes");
 
-const textNumber = document.createElement('p');
-divTotalLikes.appendChild(textNumber);
-textNumber.setAttribute("class","textnumber totalnumber");
-textNumber.textContent = "";
+        const textNumber = document.createElement('p');
+        divTotalLikes.appendChild(textNumber);
+        textNumber.setAttribute("class","textnumber totalnumber");
+        textNumber.textContent = "";
 
-const iconHeartFooter = document.createElement('i');
-divTotalLikes.appendChild(iconHeartFooter);
-iconHeartFooter.setAttribute("class","fas fa-heart");
+        const iconHeartFooter = document.createElement('i');
+        divTotalLikes.appendChild(iconHeartFooter);
+        iconHeartFooter.setAttribute("class","fas fa-heart");
 
 
 
