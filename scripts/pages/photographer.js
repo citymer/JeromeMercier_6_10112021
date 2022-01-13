@@ -162,20 +162,27 @@ function attachInformationMedia(media) {
             // COMPTEUR DE LIKES DES IMAGES
             
             let compteur = media.likes;
+
             numberLikes.innerText = +compteur;
             
             
             heart.addEventListener('click',function(){
                 compteur++;
                 
+                let textNumber = document.querySelector('.totalnumber');
+                textNumber.textContent = parseInt(textNumber.textContent);
+                
                 // Récupère le nombre de like dans le DOM
-                changeNumberlikes = numberLikes;
+               let changeNumberlikes = numberLikes;
+                console.log(changeNumberlikes);
                 
                 // Remplace le nombre de like par le resultat du compteur
+                changeNumberlikes.innerText = parseInt(changeNumberlikes.innerText)+1;
                 changeNumberlikes.innerText = +compteur;
+                console.log(changeNumberlikes);
                 
                 selectTextNumber = document.querySelector('.textnumber');
-                selectTextNumber.innerText = media.likes + compteur;
+                selectTextNumber.innerText = +compteur;
                 
             })
             return articlePhoto;
@@ -240,13 +247,18 @@ function attachInformationVideo(video) {
         
    // COMPTEUR de like des videos
         
+        // récupère le nombre de likes de la video
         let compteur = video.likes;
         
-        
+        // <span>
         numberLikesVideo.innerText = +compteur;
         
+        // écoute le click de  l'icone coeur
         heartVideo.addEventListener('click',function(){
             compteur++
+            
+            let textNumber = document.querySelector('.totalnumber');
+            textNumber.textContent = parseInt(textNumber.textContent)+1;
             
             // Récupère le nombre de like dans le DOM
             let changeNumberLikesVideo = numberLikesVideo;
@@ -255,7 +267,7 @@ function attachInformationVideo(video) {
             changeNumberLikesVideo.innerText = +compteur;
         })
 }
-    
+  
     
 async function displayData() {
         
@@ -279,18 +291,21 @@ async function displayData() {
         });
         
         
-        // COMPTEUR TOTAL DE LIKES  //
+        // COMPTEUR total de likes  //
+
         
-        const {likes} = this.filterMedia[0];
-        console.log(likes);
-        const selectSpan = document.querySelectorAll('span');
-        // console.log(selectSpan); 
+       // const {likes} = this.filterMedia[0];
+       // console.log(likes);
+
         
+        const selectSpan = document.querySelectorAll('span'); 
         
-        selectSpan.forEach(function(likes) {
-            let allLikes = likes.innerText;
-            
-        })   
+        let somme = 0;
+        this.filterMedia.forEach(function(media) {
+            somme += media.likes;
+        })
+        textNumber.textContent = somme;
+       
         
         //LIGHTBOX //******************************* */
 
@@ -340,8 +355,7 @@ async function displayData() {
         })
         
         
-};
-    
+};   
     
 async function init() {
         
