@@ -70,6 +70,7 @@ function attachInformationPhotograph(photographers) {
     
       const namePhotograph = document.createElement('h2');
       namePhotograph.textContent = `${name}`;
+      namePhotograph.setAttribute("class","namephotograph");
     
       const addressPhotograph = document.createElement('h3');
       addressPhotograph.textContent = `${city}, ${country}`;
@@ -386,6 +387,7 @@ main.appendChild(sectionTrier);
     const label = document.createElement('label');
     label.textContent = 'Trier par';
     label.setAttribute("for","trier");
+    label.setAttribute("class","trierpar"),
     sectionTrier.appendChild(label);
 
     const nav = document.createElement('nav');

@@ -74,7 +74,7 @@ body {
 
 }
 
-label{
+.trierpar {
     font-size: 18px;
     font-weight: bold;
     margin-left: 100px;
@@ -169,7 +169,9 @@ h5{
     cursor: pointer;
 }
 /* MODAL */
+
 .modal {
+    position: absolute;
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
@@ -178,7 +180,10 @@ h5{
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    position: fixed;
+    top: 3%;
+    left: 20%;
+  
 }
 
 .modal header {
@@ -188,12 +193,17 @@ h5{
 
 .modal header img {
     cursor: pointer;
+    position: fixed;
+    top: 12%;
+    right:27%;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
     text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 
 /* FORMULAIRE */
@@ -222,6 +232,10 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.inputmessage {
+    height: 170px;
 }
 
 /* LIGHTBOX */
