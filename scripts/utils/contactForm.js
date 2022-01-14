@@ -7,6 +7,19 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }
+
+window.addEventListener('keydown', function (e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+        closeModal(e);
+    };
+})
+
+
+
+
+
+
+
 const divFormData = document.querySelector('.formdata');
 
 // Label du nom
