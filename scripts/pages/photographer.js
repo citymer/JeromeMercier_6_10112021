@@ -45,7 +45,7 @@
 
 
 // Récupère et affiche les informations des photographes dans la section photograph-header ***
-function attachInformationPhotograph(photographers) {
+const presentation = function attachInformationPhotograph(photographers) {
     
     const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
     
@@ -64,19 +64,14 @@ function attachInformationPhotograph(photographers) {
     //SELECTIONNE la section "photograph-header" 
     const sectionPhotographHeader = document.getElementById('photograph-header');
     
-    //création "article" qui contient "h2,h3,h4"
-    const article = document.createElement('article');
-    article.id = id;
-    
-      const namePhotograph = document.createElement('h2');
-      namePhotograph.textContent = `${name}`;
-      namePhotograph.setAttribute("class","namephotograph");
-    
-      const addressPhotograph = document.createElement('h3');
-      addressPhotograph.textContent = `${city}, ${country}`;
-    
-      const taglinePhotograph = document.createElement('h4');
-      taglinePhotograph.textContent = `${tagline}`;
+      //création "article" qui contient "h2,h3,h4"
+      const article = document.createElement('article');
+      sectionPhotographHeader.appendChild(article); 
+      article.id = id;
+      article.innerHTML = `<h2>${name}</h2>
+                           <h3>${city}, ${country}</h3>
+                           <h4>${tagline}</h4>`;
+  
     
     // selection du bouton "contact_button"   
     const button = document.querySelector('.contact_button');
@@ -85,13 +80,6 @@ function attachInformationPhotograph(photographers) {
     const img = document.createElement('img');
     img.setAttribute("src", picture);
     img.setAttribute("alt",alt);
-    
-    // lien parent,enfant
-    sectionPhotographHeader.appendChild(article); 
-    sectionPhotographHeader.appendChild(img);
-    article.appendChild(namePhotograph);
-    article.appendChild(addressPhotograph);
-    article.appendChild(taglinePhotograph);
     
     //positionne article avant button dans HTML
     sectionPhotographHeader.prepend(article);
@@ -102,16 +90,14 @@ function attachInformationPhotograph(photographers) {
     const divPriceDay = document.createElement('div');
     divFooterInfo.appendChild(divPriceDay);
     divPriceDay.setAttribute("class","divpriceday");
-    const textPriceDay = document.createElement('p');
-    divPriceDay.appendChild(textPriceDay);
-    textPriceDay.setAttribute("class","textpriceday");
-    textPriceDay.textContent =  `${price}€/ jour`;
+    divPriceDay.innerHTML = `<p class="textpriceday">${price} €/jour</p>`; 
+
 }  
 
     
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
-function attachInformationMedia(media) {
+ const mediaImage = function attachInformationMedia(media) {
         
         
         function getUserCardDOMmedia() {
@@ -120,7 +106,7 @@ function attachInformationMedia(media) {
             const articlePhoto = document.createElement('article');
             divPhoto.appendChild(articlePhoto);
             articlePhoto.setAttribute("class","imgphoto");
-            
+
             // <a>
             const lienImage = document.createElement('a');
             articlePhoto.appendChild(lienImage);
@@ -149,7 +135,7 @@ function attachInformationMedia(media) {
                divquantityheart.appendChild(divspanHeart);
                divspanHeart.setAttribute("class","divspanheart");
                     // <span>
-                    let numberLikes = document.createElement('span');
+                    const numberLikes = document.createElement('span');
                     divspanHeart.appendChild(numberLikes);
                     numberLikes.textContent = media.likes;
                     numberLikes.setAttribute("class","nombrelike");
@@ -164,14 +150,13 @@ function attachInformationMedia(media) {
             
             let compteur = media.likes;
 
-            numberLikes.innerText = +compteur;
-            
+            numberLikes.innerText = compteur;
             
             heart.addEventListener('click',function(){
                 compteur++;
                 
                 let textNumber = document.querySelector('.totalnumber');
-                textNumber.textContent = parseInt(textNumber.textContent);
+                textNumber.textContent = parseInt(textNumber.textContent)+1;
                 
                 // Récupère le nombre de like dans le DOM
                let changeNumberlikes = numberLikes;
@@ -180,10 +165,12 @@ function attachInformationMedia(media) {
                 // Remplace le nombre de like par le resultat du compteur
                 changeNumberlikes.innerText = parseInt(changeNumberlikes.innerText)+1;
                 changeNumberlikes.innerText = +compteur;
-                console.log(changeNumberlikes);
+    
                 
                 selectTextNumber = document.querySelector('.textnumber');
                 selectTextNumber.innerText = +compteur;
+
+                //textNumber.innerText = selectTextNumber+1;
                 
             })
             return articlePhoto;
@@ -196,108 +183,107 @@ function attachInformationMedia(media) {
 
     // FUNCTION qui affiche la video des photographes   **** ATTACH INFORMATION VIDEO  ******  
     
-function attachInformationVideo(video) {
+const mediavideo =  function attachInformationVideo(video) {
         
         // <article>
         const articleVideo = document.createElement('article');
         divPhoto.appendChild(articleVideo);
         articleVideo.setAttribute("class","imgphoto");
-            
-            // <a>
-           const lienVideo = document.createElement('a');
-           articleVideo.appendChild(lienVideo);
-           lienVideo.setAttribute("class","lienimage");
-           lienVideo.setAttribute("href",video.video); 
-              
-              // <video>
-              const videoArticle = document.createElement('video');
-              lienVideo.appendChild(videoArticle); 
-              videoArticle.setAttribute("class","imgarticle");
-              videoArticle.setAttribute("alt",video.alt);
-              videoArticle.setAttribute("src",video.video);
-              videoArticle.setAttribute("type","video/mp4");
-              videoArticle.setAttribute("controls","");
 
-             //DIV
-            const divTitleQuantityHearts = document.createElement('div');
-            divTitleQuantityHearts.setAttribute("class","quantityHeart");
-            articleVideo.appendChild(divTitleQuantityHearts);
+          // <a>
+          const lienVideo = document.createElement('a');
+          articleVideo.appendChild(lienVideo);
+          lienVideo.setAttribute("class","lienimage");
+          lienVideo.setAttribute("href",video.video); 
+             
+             // <video>
+             const videoArticle = document.createElement('video');
+             lienVideo.appendChild(videoArticle); 
+             videoArticle.setAttribute("class","imgarticle");
+             videoArticle.setAttribute("alt",video.alt);
+             videoArticle.setAttribute("src",video.video);
+             videoArticle.setAttribute("type","video/mp4");
+             videoArticle.setAttribute("controls","");
+
+            //DIV
+           const divTitleQuantityHearts = document.createElement('div');
+           divTitleQuantityHearts.setAttribute("class","quantityHeart");
+           articleVideo.appendChild(divTitleQuantityHearts);
+              
+             // <h5>
+             const titleVideo = document.createElement('h5');
+             divTitleQuantityHearts.appendChild(titleVideo);
+             titleVideo.textContent = video.title;
                
-              // <h5>
-              const titleVideo = document.createElement('h5');
-              divTitleQuantityHearts.appendChild(titleVideo);
-              titleVideo.textContent = video.title;
-                
-               // <div>
-               const divSpanHearts = document.createElement('div');
-               divTitleQuantityHearts.appendChild(divSpanHearts);
-               divSpanHearts.setAttribute("class","divspanheart");
-                     
-                    // <span>
-                    const numberLikesVideo = document.createElement('span');
-                    divSpanHearts.appendChild(numberLikesVideo);
-                    numberLikesVideo.textContent = video.likes;
-                    numberLikesVideo.setAttribute("class","nombrelike");
-                     
-                     // <i>
-                    const heartVideo = document.createElement('i');
-                    divSpanHearts.appendChild(heartVideo);
-                    heartVideo.setAttribute("class","fas fa-heart like-button");
-                    heartVideo.setAttribute("role","button");
-        
-        
-   // COMPTEUR de like des videos
-        
-        // récupère le nombre de likes de la video
-        let compteur = video.likes;
-        
-        // <span>
-        numberLikesVideo.innerText = +compteur;
-        
-        // écoute le click de  l'icone coeur
-        heartVideo.addEventListener('click',function(){
+              // <div>
+              const divSpanHearts = document.createElement('div');
+              divTitleQuantityHearts.appendChild(divSpanHearts);
+              divSpanHearts.setAttribute("class","divspanheart");
+                    
+                   // <span>
+                   const numberLikesVideo = document.createElement('span');
+                   divSpanHearts.appendChild(numberLikesVideo);
+                   numberLikesVideo.textContent = video.likes;
+                   numberLikesVideo.setAttribute("class","nombrelike");
+                    
+                    // <i>
+                   const heartVideo = document.createElement('i');
+                   divSpanHearts.appendChild(heartVideo);
+                   heartVideo.setAttribute("class","fas fa-heart like-button");
+                   heartVideo.setAttribute("role","button");
+         
+         
+         // COMPTEUR de like des videos
+         
+         // récupère le nombre de likes de la video
+         let compteur = video.likes;
+         
+         
+         // <span>
+         numberLikesVideo.innerText = compteur;
+         
+         // écoute le click de  l'icone coeur
+         heartVideo.addEventListener('click',function(){
+                              
             compteur++
             
             let textNumber = document.querySelector('.totalnumber');
-            textNumber.textContent = parseInt(textNumber.textContent)+1;
+           textNumber.textContent = parseInt(textNumber.textContent)+1;
+            
             
             // Récupère le nombre de like dans le DOM
             let changeNumberLikesVideo = numberLikesVideo;
+            console.log(changeNumberLikesVideo);
             
             // Remplace le nombre de like par le resultat du compteur
             changeNumberLikesVideo.innerText = +compteur;
         })
-}
-  
+    }
+    
     
 async function displayData() {
         
         const divPhotoSelect = document.querySelector('.divphoto');
         
-        attachInformationPhotograph();
+        presentation();
         
         // créer un article pour chaque photo
         filterMedia.forEach((media) => {
             
             if (media.video == undefined){
                 
-                const mediaModel = attachInformationMedia(media);
+                const mediaModel = mediaImage(media);
                 const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
                 divPhotoSelect.appendChild(userCardDOMmedia);
                 
             }else {
                 
-                attachInformationVideo(media);
+                mediavideo(media);
             }        
         });
         
         
         // COMPTEUR total de likes  //
-
-        
-       // const {likes} = this.filterMedia[0];
-       // console.log(likes);
-
         
         const selectSpan = document.querySelectorAll('span'); 
         
@@ -306,12 +292,12 @@ async function displayData() {
             somme += media.likes;
         })
         textNumber.textContent = somme;
-       
+           
         
         //LIGHTBOX //******************************* */
 
         const body = document.querySelector('body');
-        const sheader = document.querySelector('header');
+        
         const contactModal = document.querySelector('#contact_modal');
         const lightbox = document.createElement('div');
         body.appendChild(lightbox);
@@ -321,7 +307,7 @@ async function displayData() {
         <button class="lightbox__next" ></button>
         <button class="lightbox__prev" ></button>
         <div class="lightbox__container">
-        <img src="" alt="">
+        <img class="lightbox__img" src="" alt="">
         </div>`
 
          // replace les balise FOOTER et DIV Lightbox dans le DOM
@@ -339,6 +325,7 @@ async function displayData() {
                 
                 // désactive le comportement des liens
                 e.preventDefault();
+
                 
                 // ajoute l'image du lien cliqué dans la lightbox
                 const image = lightbox.querySelector(".lightbox__container img");
@@ -360,9 +347,31 @@ async function displayData() {
         buttonClose.addEventListener("click",function() {
             lightbox.classList.remove("show");
 
-        })  
+        }) 
+
+
+        const image = {filterMedia};
         
-};
+        const picture = image.lenght;
+        //const picture = `assets/img/${image}`;
+    
+        
+        const images = document.getElementsByClassName('lightbox__img');
+         
+        let i = 0;
+        buttonPrev.addEventListener("click", function() {
+            
+            if(i <= 0) i = image.lenght;
+            i--;
+            console.log(image);
+            return image[i]; 
+        })
+        
+        
+        
+ };
+
+    
     
 async function init() {
         

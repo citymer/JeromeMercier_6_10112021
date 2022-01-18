@@ -236,10 +236,19 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 38px;
 }
 
-.inputmessage {
+#your_message {
+    width: 100%;
     height: 170px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+}
+form p {
+    font-size: 16px;
+    color: black;    
 }
 
 /* LIGHTBOX */
