@@ -119,10 +119,12 @@ nav li:hover .sousmenu{
 
 .divphoto{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    margin: 150px 100px;
+    grid-template-columns: 1fr 1fr 1fr; 
+    align-items: center;
+    justify-items: center;
+    margin: 150px auto;
 }
+/* article*/
 .imgphoto{
     margin-bottom: 20px;
 }
@@ -188,7 +190,8 @@ h5{
     justify-content: space-between;
     padding: 35px;
     top: 3%;
-    left: 20%;
+    left: 25%;
+    right: auto;
   
 }
 
@@ -353,11 +356,17 @@ p{
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
         align-items: center;
     }
+    .modal {
+        left: 20%;
+    }
 }
 
 @media screen and (max-width:1080px) {
     #photograph-header h4 {
         font-size: 14px;
+    }
+    .modal {
+        left: 15%;
     }
 }
 
@@ -368,5 +377,42 @@ p{
     #photograph-header {
         flex-direction: column-reverse;
         height: 500px;   
+    }
+    .divphoto {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .imagephoto {
+        width: 300px;
+    }
+    .modal {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .modal {
+        left: 7%;
+        width: 350px;
+    }
+    .modal header h2 {
+        font-size: 38px;
+    }
+    form label {
+        font-size: 28px;
+    }
+    .modal header img {
+        height: 25px;
+    }
+}
+@media screen and (max-width:540px) {
+    .modal {
+        left: 2%;
+        width: 280px;
+        height: 75%;
+    }
+    .modal header h2 {
+        font-size: 30px;
     }
 }
