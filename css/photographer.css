@@ -359,6 +359,9 @@ p{
     .modal {
         left: 20%;
     }
+    .lightbox__container img {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width:1080px) {
@@ -367,6 +370,9 @@ p{
     }
     .modal {
         left: 15%;
+    }
+    .lightbox__container img {
+        width: 70%;
     }
 }
 
@@ -389,6 +395,17 @@ p{
     .modal {
         width: 500px;
     }
+    .lightbox__container {
+        display: flex;
+        justify-content: center;
+        width: auto;
+        height: 100%;
+    }
+    .lightbox__container img {
+        width: 60%;
+        margin: 0;
+        
+    }
 }
 
 @media screen and (max-width:768px) {
@@ -407,6 +424,9 @@ p{
     }
 }
 @media screen and (max-width:540px) {
+    .trierpar {
+        margin-left: 50px;
+    }
     .modal {
         left: 2%;
         width: 280px;
