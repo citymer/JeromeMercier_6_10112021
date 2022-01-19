@@ -21,6 +21,14 @@ window.addEventListener('keydown', function (e) {
 
 const divFormData = document.querySelector('.formdata');
 
+// header du formulaire
+const header = document.querySelector('.modal header');
+
+const namePhotograph = document.createElement('span');
+header.appendChild(namePhotograph);
+namePhotograph.textContent = "namephotograph";
+namePhotograph.setAttribute("class","namephotograph");
+
 // PRENOM *
 //Label du prenom
 const labelPrenom = document.querySelector('.formdata label');

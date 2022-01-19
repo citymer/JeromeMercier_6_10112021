@@ -196,21 +196,24 @@ h5{
 }
 
 .modal header {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 80% 1fr;
     width: 100%;
 }
 
 .modal header img {
     cursor: pointer;
+    margin-left: 70%;
 }
 
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
     margin-top: 0px;
     margin-bottom: 0px;
+}
+.namephotograph {
+    font-size: 64px;
 }
 
 /* FORMULAIRE */
@@ -395,6 +398,10 @@ p{
     .modal {
         width: 500px;
     }
+    .modal header h2, .namephotograph{
+        font-size: 38px;
+    }
+
     .lightbox__container {
         display: flex;
         justify-content: center;
@@ -413,9 +420,7 @@ p{
         left: 7%;
         width: 350px;
     }
-    .modal header h2 {
-        font-size: 38px;
-    }
+
     form label {
         font-size: 28px;
     }
