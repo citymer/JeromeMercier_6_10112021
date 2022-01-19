@@ -176,6 +176,9 @@ const presentation = function attachInformationPhotograph(photographers) {
         
     }
 
+
+
+
     // FUNCTION qui affiche la video des photographes   **** ATTACH INFORMATION VIDEO  ******  
     
 const mediavideo =  function attachInformationVideo(video) {
@@ -255,7 +258,9 @@ const mediavideo =  function attachInformationVideo(video) {
         })
     }
     
+  
     
+
 async function displayData() {
         
         const divPhotoSelect = document.querySelector('.divphoto');
@@ -364,7 +369,8 @@ async function displayData() {
         
  };
 
-    
+  
+ 
     
 async function init() {
         
