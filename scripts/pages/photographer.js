@@ -99,8 +99,6 @@ const presentation = function attachInformationPhotograph(photographers) {
     
  const mediaImage = function attachInformationMedia(media) {
         
-        
-        function getUserCardDOMmedia() {
             
             // <article>
             const articlePhoto = document.createElement('article');
@@ -174,10 +172,7 @@ const presentation = function attachInformationPhotograph(photographers) {
                 
             })
             return articlePhoto;
-        } 
-        
-        
-        return { getUserCardDOMmedia }                 
+                   
         
     }
 
@@ -273,8 +268,6 @@ async function displayData() {
             if (media.video == undefined){
                 
                 const mediaModel = mediaImage(media);
-                const userCardDOMmedia = mediaModel.getUserCardDOMmedia();
-                divPhotoSelect.appendChild(userCardDOMmedia);
                 
             }else {
                 
