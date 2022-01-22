@@ -19,9 +19,11 @@ window.addEventListener('keydown', function (e) {
 
 
 
+
 //            DOM DU FORMULAIRE            //
 
 const divFormData = document.querySelector('.formdata');
+
 
 const envoyez = document.querySelector('#send');
 
@@ -32,7 +34,7 @@ const header = document.querySelector('.modal header');
 const namePhotograph = document.createElement('span');
 header.appendChild(namePhotograph);
 namePhotograph.textContent = "namephotograph";
-namePhotograph.setAttribute("class","namephotograph");
+namePhotograph.setAttribute("class","${name}");
 
 
 // PRENOM *

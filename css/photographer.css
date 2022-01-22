@@ -92,32 +92,41 @@ nav{
     cursor: pointer;
 }
 nav ul{
-    list-style: none;  
+    list-style: none; 
+    margin: 0;
+    padding:0;
+
 }
-nav li a {
-    padding: 20px 35px 20px 0px;
+nav ul li  {
+    margin: 0;
+    padding:0;
+    float: left;
+    line-height: 40px;
+    text-align: center;
+    padding: 15px;
+}
+#chevron {
+    margin-left: 40px;
 }
 nav li:hover .sousmenu{
     display: block;
 }
 .sousmenu{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    
+   
     padding-left: 0;
     display: none;
+}
+.popularite  {
+    margin-top: 20px;
+    border-bottom: #FAFAFA 2px;
+}
+.titre {
     margin-top: 15px;
-    height: 100px;
 }
-.sousmenu a {
-    margin-top: 25px;
-}
-
 
 /* SECTION DIV PHOTO */
 
-.divphoto{
+#divphoto{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
     align-items: center;

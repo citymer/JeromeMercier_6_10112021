@@ -1,12 +1,12 @@
 // Récupère tous les parametres des photographes dans le JSON  ***
 
- async function getPhotographers() {  
+  async function getPhotographers() {  
 
     // OBTENIR les parametres URL
     const getId = window.location.search;
     const urlParams = new URLSearchParams (getId);
     const idPhotograph = urlParams.get ('id');
-    
+ 
     const filterPhotographer = [];
     const filterMedia = [];
     
@@ -24,17 +24,19 @@
     .then(json => {
         const {photographers} = json;
         const {media} = json;
-        
+  
         // filtre photographe avec id
         this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
         
         // filtre media avec photographerId
         this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
-        
+    
         //  retourne le tableau photographers et media
+    
         return filterPhotographer,filterMedia;     
         
     })
+    
     
     .catch(function () {
         this.dataError = true;
@@ -45,7 +47,7 @@
 
 
 // Récupère et affiche les informations des photographes dans la section photograph-header ***
-const presentation = function attachInformationPhotograph(photographers) {
+function attachInformationPhotograph(photographers) {
     
     const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
     
@@ -94,10 +96,10 @@ const presentation = function attachInformationPhotograph(photographers) {
 
 }  
 
-    
+ 
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
- const mediaImage = function attachInformationMedia(media) {
+const mediaContent = function attachInformationMedia(media) {
         
             
             // <article>
@@ -110,6 +112,7 @@ const presentation = function attachInformationPhotograph(photographers) {
             articlePhoto.appendChild(lienImage);
             lienImage.setAttribute("class","lienimage");
             lienImage.setAttribute("href",media.image);
+        
              
             if (media.video == undefined){
                 
@@ -161,65 +164,65 @@ const presentation = function attachInformationPhotograph(photographers) {
                     const heart = document.createElement('i');
                     divspanHeart.appendChild(heart);
                     heart.setAttribute("class","fas fa-heart like-button");
+                    
+          
             
-            
-            // COMPTEUR DE LIKES DES IMAGES
-            
-         
+            // COMPTEUR DE LIKES 
             
             heart.addEventListener('click',function(){
             
-                
-                let textNumber = document.querySelector('.totalnumber');
+                const textNumber = document.querySelector('.totalnumber');
                 textNumber.textContent = parseInt(textNumber.textContent)+1;
     
-                
+                // cible le span qui contient le nombre de like par son id 
                 selectTextNumber = document.getElementById(media.id);
-            
                 selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
-
-                        
-                   
-        
-    }
-
-
-
- )}
-    
   
-    
-
-async function displayData() {
-        
-        const divPhotoSelect = document.querySelector('.divphoto');
-        
-        presentation();
-        
-        // créer un article pour chaque photo
-        filterMedia.forEach((media) => {
+            }
             
-             mediaImage(media);
+            
+            )}
+            
+            
+            
+            
+ async function displayData() {
                 
-        
-                   
-        });
-        
-        
-        // COMPTEUR total de likes  //
-        
-        const selectSpan = document.querySelectorAll('span'); 
-        
-        let somme = 0;
-        this.filterMedia.forEach(function(media) {
-            somme += media.likes;
-        })
-        textNumber.textContent = somme;
-           
-        
-        //LIGHTBOX //******************************* */
+                const divPhotoSelect = document.querySelector('.divphoto');
+                
+                
+                attachInformationPhotograph();
+                
+                // créer un article pour chaque photo
+                filterMedia.forEach((media) => {
+                    
+                    mediaContent(media);    
 
-        const body = document.querySelector('body');
+                
+                });
+        
+        
+                // COMPTEUR total de likes  //
+        
+                const selectSpan = document.querySelectorAll('span'); 
+               
+        
+                let somme = 0;
+                this.filterMedia.forEach(function(media) {
+                somme += media.likes;
+                })
+
+                textNumber.textContent = somme;
+           
+      
+        
+      
+                 //LIGHTBOX //******************************* */
+
+       
+        
+       
+     
         
         const contactModal = document.querySelector('#contact_modal');
         const lightbox = document.createElement('div');
@@ -228,10 +231,10 @@ async function displayData() {
         lightbox.setAttribute("class","lightbox");
         lightbox.innerHTML = `<button class="lightbox__close" ></button>
         <button class="lightbox__next" ></button>
-        <button class="lightbox__prev" ></button>
+        <button class="lightbox__prev onclick="prev()" " ></button>
         <div class="lightbox__container">
         <img class="lightbox__img" src="" alt="">
-        </div>`
+        </div>`;
 
          // replace les balise FOOTER et DIV Lightbox dans le DOM
         document.body.insertBefore(lightbox,main);
@@ -249,10 +252,10 @@ async function displayData() {
                 // désactive le comportement des liens
                 e.preventDefault();
 
-                
                 // ajoute l'image du lien cliqué dans la lightbox
                 const image = lightbox.querySelector(".lightbox__container img");
                 image.src = this.href;
+                
                 
                 // affiche la lightbox
                 lightbox.classList.add("show");
@@ -272,30 +275,46 @@ async function displayData() {
 
         }) 
 
+        const image = document.querySelectorAll("#divphoto .imgarticle");
+        const arrayImg = image.length;
+ 
+        for(let i = 0; i < image.length; i++) {
+           let pictures = image[i];
+        
+          }
+          
+     console.log(arrayImg);
 
-        const image = {filterMedia};
-        
-        const picture = image.lenght;
-        //const picture = `assets/img/${image}`;
-    
-        
-        const images = document.getElementsByClassName('lightbox__img');
-         
-        let i = 0;
-        buttonPrev.addEventListener("click", function() {
-            
-            if(i <= 0) i = image.lenght;
+        buttonPrev.addEventListener('click', () => {
+            let i =0;
+            if ( i <= 0) i = image.length; 
             i--;
-            console.log(image);
-            return image[i]; 
-        })
+            return setImg;
+            
+        })    
         
+
+  /*  function prev(setImg) {
+        if (i <= 0) i = image.length;
+        i--;
+        return setImg ();
+
+    }*/
+
+    function setImg() {
+        return image.setAttribute('src',arrayimg[i]);
+    }
+     
+       
         
+         
+
         
  };
 
+
+   
   
- 
     
 async function init() {
         
@@ -305,6 +324,7 @@ async function init() {
         const media = await getPhotographers();
         
         displayData(filterMedia);
+         
         
 };
     
@@ -315,6 +335,7 @@ async function init() {
 
 const body = document.querySelector('body');
 
+
 // DOM   SECTION trier avec menu déroulant  ****************
 
 const main = document.getElementById('main');
@@ -322,6 +343,7 @@ const main = document.getElementById('main');
 const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
+
 
     const label = document.createElement('label');
     label.textContent = 'Trier par';
@@ -346,6 +368,7 @@ main.appendChild(sectionTrier);
               const chevron = document.createElement('i');
               liDate.appendChild(chevron);
               chevron.setAttribute("class","fas fa-chevron-down");
+              chevron.setAttribute("id","chevron");
 
               const sousMenu = document.createElement('ul');
               liDate.appendChild(sousMenu);
@@ -353,6 +376,7 @@ main.appendChild(sectionTrier);
 
                     const popularite = document.createElement('li');
                     sousMenu.appendChild(popularite);
+                    popularite.setAttribute("class","popularite");
 
                         const lienPopularite = document.createElement('a');
                         popularite.appendChild(lienPopularite);
@@ -360,6 +384,7 @@ main.appendChild(sectionTrier);
 
                     const titre = document.createElement('li');
                     sousMenu.appendChild(titre);
+                    titre.setAttribute("class","titre");
 
                         const lienTitre = document.createElement('a');
                         titre.appendChild(lienTitre);
@@ -368,7 +393,7 @@ main.appendChild(sectionTrier);
 
 // DOM section Divphoto  *******************   
 const divPhoto = document.createElement('div');
-divPhoto.setAttribute("class","divphoto");
+divPhoto.setAttribute("id","divphoto");
 main.appendChild(divPhoto);
 
 // DOM FOOTER    *************************************
