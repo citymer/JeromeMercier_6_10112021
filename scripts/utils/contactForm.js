@@ -34,7 +34,7 @@ const header = document.querySelector('.modal header');
 const namePhotograph = document.createElement('span');
 header.appendChild(namePhotograph);
 namePhotograph.textContent = "namephotograph";
-namePhotograph.setAttribute("class","${name}");
+namePhotograph.setAttribute("class","name");
 
 
 // PRENOM *

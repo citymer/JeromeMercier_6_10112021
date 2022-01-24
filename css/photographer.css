@@ -137,7 +137,7 @@ nav li:hover .sousmenu{
 .imgphoto{
     margin-bottom: 20px;
 }
-.divphoto article{
+#divphoto article{
     height: 350px;
 }
 .imgarticle{
@@ -362,10 +362,10 @@ p{
     #photograph-header h2 {
         font-size: 34px;   
     }
-    .divphoto{
+    #divphoto{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+       
         align-items: center;
     }
     .modal {
@@ -396,7 +396,7 @@ p{
         flex-direction: column-reverse;
         height: 500px;   
     }
-    .divphoto {
+    #divphoto {
         display: grid;
         grid-template-columns: 1fr;
         align-items: center;

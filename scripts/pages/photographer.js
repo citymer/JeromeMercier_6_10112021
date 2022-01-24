@@ -96,6 +96,9 @@ function attachInformationPhotograph(photographers) {
 
 }  
 
+
+
+
  
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
@@ -165,7 +168,10 @@ const mediaContent = function attachInformationMedia(media) {
                     divspanHeart.appendChild(heart);
                     heart.setAttribute("class","fas fa-heart like-button");
                     
-          
+                    
+                    
+
+
             
             // COMPTEUR DE LIKES 
             
@@ -179,16 +185,16 @@ const mediaContent = function attachInformationMedia(media) {
                 selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
   
             }
-            
+
+
+
             
             )}
-            
-            
-            
+
             
  async function displayData() {
                 
-                const divPhotoSelect = document.querySelector('.divphoto');
+               // const divPhotoSelect = document.querySelector('#divphoto');
                 
                 
                 attachInformationPhotograph();
@@ -197,29 +203,43 @@ const mediaContent = function attachInformationMedia(media) {
                 filterMedia.forEach((media) => {
                     
                     mediaContent(media);    
-
-                
+                    
+                    
                 });
-        
-        
+                
+            
                 // COMPTEUR total de likes  //
-        
-                const selectSpan = document.querySelectorAll('span'); 
-               
-        
+                
+                const selectSpan = document.querySelectorAll('.nombrelike'); 
+                console.log(selectSpan);
+                
+                
                 let somme = 0;
                 this.filterMedia.forEach(function(media) {
-                somme += media.likes;
+                    somme += media.likes;
                 })
-
+                
                 textNumber.textContent = somme;
-           
-      
-        
-      
-                 //LIGHTBOX //******************************* */
 
-       
+       // classement des likes décroissant         
+
+                let allLikes = [];
+
+            for (let likes of selectSpan) {
+                allLikes.push(likes.innerText);
+            }
+         
+      console.log(allLikes.sort((a, b) => {
+          return b - a }));
+
+
+
+
+
+
+
+                 //LIGHTBOX //******************************* */
+     
         
        
      
@@ -274,40 +294,7 @@ const mediaContent = function attachInformationMedia(media) {
             lightbox.classList.remove("show");
 
         }) 
-
-        const image = document.querySelectorAll("#divphoto .imgarticle");
-        const arrayImg = image.length;
- 
-        for(let i = 0; i < image.length; i++) {
-           let pictures = image[i];
         
-          }
-          
-     console.log(arrayImg);
-
-        buttonPrev.addEventListener('click', () => {
-            let i =0;
-            if ( i <= 0) i = image.length; 
-            i--;
-            return setImg;
-            
-        })    
-        
-
-  /*  function prev(setImg) {
-        if (i <= 0) i = image.length;
-        i--;
-        return setImg ();
-
-    }*/
-
-    function setImg() {
-        return image.setAttribute('src',arrayimg[i]);
-    }
-     
-       
-        
-         
 
         
  };
