@@ -264,6 +264,8 @@ const mediaContent = function attachInformationMedia(media) {
              allDates.push(dates)
          }
 
+
+
                  //LIGHTBOX //******************************* */
      
         
@@ -279,8 +281,25 @@ const mediaContent = function attachInformationMedia(media) {
         <button class="lightbox__next" ></button>
         <button class="lightbox__prev"  ></button>
         <div class="lightbox__container">
-        <img class="lightbox__img" src="" alt="">
         </div>`;
+
+        const lighboxContent = document.querySelector('.lightbox__container');
+        
+        // <img>
+        const lighboxImg = document.createElement('img');
+        lighboxContent.appendChild(lighboxImg);
+        lighboxImg.setAttribute("class","lightbox__img");
+        lighboxImg.setAttribute("alt","");
+        lighboxImg.setAttribute("src","");
+    
+  /*  // <video>
+    const lighboxVideo = document.createElement('video');
+    lighboxContent.appendChild(lighboxVideo); 
+    lighboxVideo.setAttribute("class","lightbox__video");
+    lighboxVideo.setAttribute("alt","");
+    lighboxVideo.setAttribute("src","");
+    lighboxVideo.setAttribute("type","video/mp4");
+    lighboxVideo.setAttribute("controls","");*/
 
          // replace les balise FOOTER et DIV Lightbox dans le DOM
         document.body.insertBefore(lightbox,main);
@@ -341,11 +360,27 @@ const mediaContent = function attachInformationMedia(media) {
             i--;
             return setImg();
         });
+
+        window.addEventListener('keydown', function (e) {
+            if (e.key === "ArrowLeft") {
+                if(i <= 0) i = allImg.length;
+                i--;
+                return setImg();
+            }
+        })
         
         buttonNext.addEventListener('click', () => {
             if(i >= allImg.length - 1) i = -1;
             i++;
             return setImg();
+        })
+
+        window.addEventListener('keydown', function (e) {
+            if (e.key === "ArrowRight") {
+                if(i >= allImg.length - 1) i = -1;
+                i++;
+                return setImg();
+            }
         })
         
     
