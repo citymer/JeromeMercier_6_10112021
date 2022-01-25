@@ -150,6 +150,7 @@ const mediaContent = function attachInformationMedia(media) {
                // <h5>
                const titrePhoto = document.createElement('h5');
                divquantityheart.appendChild(titrePhoto);
+               titrePhoto.setAttribute("class","titrephoto");
                titrePhoto.textContent = media.title;
                 
                // <div>
@@ -211,7 +212,6 @@ const mediaContent = function attachInformationMedia(media) {
                 // COMPTEUR total de likes  //
                 
                 const selectSpan = document.querySelectorAll('.nombrelike'); 
-                console.log(selectSpan);
                 
                 
                 let somme = 0;
@@ -224,19 +224,45 @@ const mediaContent = function attachInformationMedia(media) {
        // classement des likes décroissant         
 
                 let allLikes = [];
+                console.log(allLikes);
 
             for (let likes of selectSpan) {
                 allLikes.push(likes.innerText);
             }
          
       console.log(allLikes.sort((a, b) => {
-          return b - a }));
+          return b - a; }));
 
 
+        // classement alphabethique des titres
+
+        
+        const titles = document.querySelectorAll('.titrephoto');
+
+                  let allTitle = [];
+                   console.log(allTitle);
+
+            for (let title of titles) {
+                allTitle.push(title.innerText);
+              
+            }      
+
+            console.log(allTitle.sort((a, b) => {
+                if (a < b) { return -1;}
+                if (a > b) {return 1;}
+                if (a === b) {return 0;}
+            }));
 
 
+         // classement par date
 
-
+         let allDates = [];
+         
+         const date = this.filterMedia;
+         console.log(date);
+         for (let dates of date) {
+             allDates.push(dates)
+         }
 
                  //LIGHTBOX //******************************* */
      
@@ -251,7 +277,7 @@ const mediaContent = function attachInformationMedia(media) {
         lightbox.setAttribute("class","lightbox");
         lightbox.innerHTML = `<button class="lightbox__close" ></button>
         <button class="lightbox__next" ></button>
-        <button class="lightbox__prev onclick="prev()" " ></button>
+        <button class="lightbox__prev"  ></button>
         <div class="lightbox__container">
         <img class="lightbox__img" src="" alt="">
         </div>`;
@@ -294,10 +320,42 @@ const mediaContent = function attachInformationMedia(media) {
             lightbox.classList.remove("show");
 
         }) 
-        
 
+        //selection des images 
         
- };
+        
+        const selectImg = document.querySelectorAll('article img');
+        let allImg = [];
+        console.log(allImg);
+        for (let img of selectImg) {
+            allImg.push(img.src)
+        }
+        // emplacement de l'image dans la lighbox
+        const imgBox = document.querySelector('.lightbox__img');
+
+        let i = 0;
+
+        buttonPrev.addEventListener('click', () => {
+
+            if(i <= 0) i = allImg.length;
+            i--;
+            return setImg();
+        });
+        
+        buttonNext.addEventListener('click', () => {
+            if(i >= allImg.length - 1) i = -1;
+            i++;
+            return setImg();
+        })
+        
+    
+        function setImg() {
+            return imgBox.setAttribute('src',allImg[i]);
+        }
+        
+    };
+
+    
 
 
    
