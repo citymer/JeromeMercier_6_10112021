@@ -322,11 +322,12 @@ form p {
     object-fit: contain;
     display: block;
     margin:30px auto 10px;
-    animation: lightboxIn .5s;
+    animation: lightboxIn 1.3s;
 }
 @keyframes lightboxIn {
-    form {opacity: 0;}
-    to {opacity: 1;}
+    0% {opacity: 0;}
+    30%{opacity: 0.4;}
+    100% {opacity: 1;}
 }
 /* FOOTER  */
 .divfooterinfo{
