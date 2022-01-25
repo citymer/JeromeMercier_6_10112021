@@ -224,14 +224,13 @@ const mediaContent = function attachInformationMedia(media) {
        // classement des likes décroissant         
 
                 let allLikes = [];
-                console.log(allLikes);
 
             for (let likes of selectSpan) {
                 allLikes.push(likes.innerText);
             }
          
-      console.log(allLikes.sort((a, b) => {
-          return b - a; }));
+            allLikes.sort((a, b) => {
+                    return b - a; });
 
 
         // classement alphabethique des titres
@@ -240,18 +239,17 @@ const mediaContent = function attachInformationMedia(media) {
         const titles = document.querySelectorAll('.titrephoto');
 
                   let allTitle = [];
-                   console.log(allTitle);
 
             for (let title of titles) {
                 allTitle.push(title.innerText);
               
             }      
 
-            console.log(allTitle.sort((a, b) => {
+            allTitle.sort((a, b) => {
                 if (a < b) { return -1;}
                 if (a > b) {return 1;}
                 if (a === b) {return 0;}
-            }));
+            });
 
 
          // classement par date
@@ -259,7 +257,7 @@ const mediaContent = function attachInformationMedia(media) {
          let allDates = [];
          
          const date = this.filterMedia;
-         console.log(date);
+         
          for (let dates of date) {
              allDates.push(dates)
          }
@@ -341,11 +339,10 @@ const mediaContent = function attachInformationMedia(media) {
         }) 
 
         //selection des images 
-        
-        
         const selectImg = document.querySelectorAll('article img');
+        // tableau qui regroupe les src des images
         let allImg = [];
-        console.log(allImg);
+    
         for (let img of selectImg) {
             allImg.push(img.src)
         }
@@ -354,13 +351,15 @@ const mediaContent = function attachInformationMedia(media) {
 
         let i = 0;
 
+        // function qui fait défiler les photos au click du bouton PREV
         buttonPrev.addEventListener('click', () => {
 
             if(i <= 0) i = allImg.length;
             i--;
             return setImg();
         });
-
+        
+        // fait défiler les photos avec le bouton du clavier "<--"
         window.addEventListener('keydown', function (e) {
             if (e.key === "ArrowLeft") {
                 if(i <= 0) i = allImg.length;
@@ -369,12 +368,14 @@ const mediaContent = function attachInformationMedia(media) {
             }
         })
         
+        // function qui fait défiler les photos au click du bouton NEXT
         buttonNext.addEventListener('click', () => {
             if(i >= allImg.length - 1) i = -1;
             i++;
             return setImg();
         })
-
+        
+        // fait défiler les photos avec le bouton du clavier "-->"
         window.addEventListener('keydown', function (e) {
             if (e.key === "ArrowRight") {
                 if(i >= allImg.length - 1) i = -1;
@@ -383,12 +384,12 @@ const mediaContent = function attachInformationMedia(media) {
             }
         })
         
-    
+     // function qui attribut l'image a la lighbox
         function setImg() {
             return imgBox.setAttribute('src',allImg[i]);
         }
         
-    };
+};
 
     
 
