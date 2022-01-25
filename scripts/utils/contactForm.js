@@ -129,6 +129,7 @@ inputPrenom.addEventListener('change', (e) => {
 function prenom() {
   if (inputPrenom.value.trim().length > 1) {
     errorPrenom.style.display = "none";
+    console.log(inputPrenom.value);
     return true;
   } else {
     errorPrenom.textContent = "Vous devez entrer 2 caractères minimum";
@@ -145,6 +146,7 @@ inputNom.addEventListener('change', (e) => {
 function nom() {
     if (inputNom.value.trim().length > 1) {
       errorNom.style.display = "none";
+      console.log(inputNom.value);
       return true;
     } else {
       errorNom.textContent = "Vous devez entrer 2 caractères minimum";
@@ -152,33 +154,41 @@ function nom() {
     }
 }
 
+inputEmail.addEventListener('change', (e) => {
+  email();
+})  
 
 // controle que l'email soit valide
 function email() {
-inputEmail.addEventListener('change', (e) => {
+
     const regex = '^[a-zA-Z0-9.-_]+[@]{1}[a-zA-Z0-9.-_]+[.]{1}[a-z]{2,10}$';
     if (inputEmail.value.trim().match(regex)) {
       errorEmail.style.display = "none";
+      console.log(inputEmail.value);
       return true;
     } else {
       errorEmail.textContent = "Vous devez renseigner un email valide";
       return false;
     }
   }
-)};
+
+  textMessage.addEventListener('change', (e) => {
+    message();
+  })  
 
 // controle l'espace texte  avec caractères minimum
 function message() {
-textMessage.addEventListener('change', (e) => {
+
     if (textMessage.value.trim().length > 1) {
       errorMessage.style.display = "none";
+      console.log(textMessage.value);
       return true;
     } else {
       errorMessage.textContent = "Vous devez laisser un message";
       return false;
     }
-  }
-)};
+}
+
 
   function inputValid() {
     prenom();nom();email();message();
@@ -195,8 +205,9 @@ textMessage.addEventListener('change', (e) => {
     return false
   }
 
+
 envoyez.addEventListener('click',function() {
-  inputValid(envoyez);
+  inputValid();
   if (verifAllTrue() === true) {
     modal.style.display = "none";
   }
