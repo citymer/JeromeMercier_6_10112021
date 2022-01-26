@@ -106,7 +106,9 @@ function attachInformationPhotograph(photographers) {
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
 const mediaContent = function attachInformationMedia(media) {
-        
+
+           let imgArticle;
+           let videoArticle;
             
             // <article>
             const articlePhoto = document.createElement('article');
@@ -118,28 +120,58 @@ const mediaContent = function attachInformationMedia(media) {
             articlePhoto.appendChild(lienImage);
             lienImage.setAttribute("class","lienimage");
             lienImage.setAttribute("href",media.image);
+            lienImage.setAttribute("title",media.title);
         
              
             if (media.video == undefined){
-                
+
                 // <img>
-                const imgArticle = document.createElement('img');
+                imgArticle = document.createElement('img');
                 lienImage.appendChild(imgArticle);
                 imgArticle.setAttribute("class","imgarticle");
                 imgArticle.setAttribute("src",media.image);
                 imgArticle.setAttribute("alt",media.alt);
                 
                 
+                imgArticle.addEventListener('click', () => {
+                    
+                    const lighboxContent = document.querySelector('.lightbox__container');
+
+                    // <img> LIGHBOX
+                   const lighboxImg = document.createElement('img');
+                   lighboxContent.appendChild(lighboxImg);
+                   lighboxImg.setAttribute("class","lightbox__img");
+                   lighboxImg.setAttribute("alt",media.alt);
+                   lighboxImg.setAttribute("src",media.image);
+                })
+                
+                
             }else {
                 
                 // <video>
-             const videoArticle = document.createElement('video');
+             videoArticle = document.createElement('video');
              lienImage.appendChild(videoArticle); 
              videoArticle.setAttribute("class","imgarticle");
              videoArticle.setAttribute("alt",media.alt);
              videoArticle.setAttribute("src",media.video);
              videoArticle.setAttribute("type","video/mp4");
              videoArticle.setAttribute("controls","");
+
+             videoArticle.addEventListener('click', () => {
+
+                const lighboxContent = document.querySelector('.lightbox__container');
+              
+                   // <video>  LIGHTBOX
+                  const lighboxVideo = document.createElement('video');
+                  lighboxContent.appendChild(lighboxVideo); 
+                  lighboxVideo.setAttribute("class","lightbox__video");
+                  lighboxVideo.setAttribute("alt",media.alt);
+                  lighboxVideo.setAttribute("src",media.src);
+                  lighboxVideo.setAttribute("type","video/mp4");
+                  lighboxVideo.setAttribute("controls","");
+
+            })
+            
                 
             } ; 
             
@@ -171,6 +203,9 @@ const mediaContent = function attachInformationMedia(media) {
                     const heart = document.createElement('i');
                     divspanHeart.appendChild(heart);
                     heart.setAttribute("class","fas fa-heart like-button");
+                    heart.setAttribute("aria-label","likes");
+                    heart.setAttribute("data-value",media.likes);
+                    heart.setAttribute("role","button");
                     
                     
                     
@@ -188,15 +223,16 @@ const mediaContent = function attachInformationMedia(media) {
                 selectTextNumber = document.getElementById(media.id);
                 selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
   
-            }
-
-
+            })
+            
+       
+            
+            
+ }
+            
 
             
-            )}
-
-            
- async function displayData() {
+ async function displayData(filterMedia) {
                 
                 
                 attachInformationPhotograph();
@@ -220,6 +256,8 @@ const mediaContent = function attachInformationMedia(media) {
                 })
                 
                 textNumber.textContent = somme;
+
+
 
        // classement des likes décroissant         
 
@@ -285,22 +323,7 @@ const mediaContent = function attachInformationMedia(media) {
         </div>`;
 
         const lighboxContent = document.querySelector('.lightbox__container');
-        
-        // <img>
-        const lighboxImg = document.createElement('img');
-        lighboxContent.appendChild(lighboxImg);
-        lighboxImg.setAttribute("class","lightbox__img");
-        lighboxImg.setAttribute("alt","");
-        lighboxImg.setAttribute("src","");
     
-  /*  // <video>
-    const lighboxVideo = document.createElement('video');
-    lighboxContent.appendChild(lighboxVideo); 
-    lighboxVideo.setAttribute("class","lightbox__video");
-    lighboxVideo.setAttribute("alt","");
-    lighboxVideo.setAttribute("src","");
-    lighboxVideo.setAttribute("type","video/mp4");
-    lighboxVideo.setAttribute("controls","");*/
 
          // replace les balise FOOTER et DIV Lightbox dans le DOM
         document.body.insertBefore(lightbox,main);
@@ -317,11 +340,6 @@ const mediaContent = function attachInformationMedia(media) {
                 
                 // désactive le comportement des liens
                 e.preventDefault();
-
-                // ajoute l'image du lien cliqué dans la lightbox
-                const image = lightbox.querySelector(".lightbox__container img");
-                image.src = this.href;
-                
                 
                 // affiche la lightbox
                 lightbox.classList.add("show");
@@ -401,6 +419,20 @@ const mediaContent = function attachInformationMedia(media) {
   
     
 async function init() {
+
+
+    const body = document.querySelector('body');
+    const lightbox = document.createElement('div');
+    body.appendChild(lightbox);
+
+    lightbox.setAttribute("class","lightbox");
+    lightbox.innerHTML = `<button class="lightbox__close" ></button>
+    <button class="lightbox__next" ></button>
+    <button class="lightbox__prev"  ></button>
+    <div class="lightbox__container">
+    </div>`;
+
+
         
         // Récupère les datas des photographes
         const photographers = await getPhotographers();
@@ -452,7 +484,7 @@ main.appendChild(sectionTrier);
 
               const chevron = document.createElement('i');
               liDate.appendChild(chevron);
-              chevron.setAttribute("class","fas fa-chevron-down");
+              chevron.setAttribute("class","fas fa-chevron-down  fa-chevron-up");
               chevron.setAttribute("id","chevron");
 
               const sousMenu = document.createElement('ul');
@@ -474,6 +506,21 @@ main.appendChild(sectionTrier);
                         const lienTitre = document.createElement('a');
                         titre.appendChild(lienTitre);
                         lienTitre.textContent = "Titre";    
+
+
+// appartion sous-menu
+nav.addEventListener('click', (e) => {
+    if ( sousMenu.style.display == "none") {
+        sousMenu.style.display = "block";
+       
+        
+    }else {
+
+        sousMenu.style.display = "none";
+    } 
+})                      
+
+
 
 
 // DOM section Divphoto  *******************   

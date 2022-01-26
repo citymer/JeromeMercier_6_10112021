@@ -108,9 +108,11 @@ nav ul li  {
 #chevron {
     margin-left: 40px;
 }
-nav li:hover .sousmenu{
-    display: block;
+.fa-chevron-up {
+    display: none;
+    
 }
+
 .sousmenu{
    
     padding-left: 0;
