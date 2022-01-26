@@ -59,12 +59,14 @@ function attachInformationPhotograph(photographers) {
     const aLienAcceuil = document.createElement('a');
        header.appendChild(aLienAcceuil);
        aLienAcceuil.setAttribute("href","./index.html");
+       aLienAcceuil.setAttribute("title","vers la page d'acceuil");
        
        const imgLogo = document.querySelector('.logo');
        aLienAcceuil.appendChild(imgLogo);
     
     //SELECTIONNE la section "photograph-header" 
     const sectionPhotographHeader = document.getElementById('photograph-header');
+    sectionPhotographHeader.setAttribute("arial-label","photographer header");
     
       //création "article" qui contient "h2,h3,h4"
       const article = document.createElement('article');
@@ -77,6 +79,7 @@ function attachInformationPhotograph(photographers) {
     
     // selection du bouton "contact_button"   
     const button = document.querySelector('.contact_button');
+    button.setAttribute("title","contactez-moi");
     
     //creation d' img pour la photo de profil du photographe
     const img = document.createElement('img');
@@ -195,16 +198,13 @@ const mediaContent = function attachInformationMedia(media) {
             
  async function displayData() {
                 
-               // const divPhotoSelect = document.querySelector('#divphoto');
-                
                 
                 attachInformationPhotograph();
                 
                 // créer un article pour chaque photo
                 filterMedia.forEach((media) => {
                     
-                    mediaContent(media);    
-                    
+                    mediaContent(media);       
                     
                 });
                 
@@ -243,7 +243,7 @@ const mediaContent = function attachInformationMedia(media) {
             for (let title of titles) {
                 allTitle.push(title.innerText);
               
-            }      
+            };      
 
             allTitle.sort((a, b) => {
                 if (a < b) { return -1;}
@@ -259,15 +259,18 @@ const mediaContent = function attachInformationMedia(media) {
          const date = this.filterMedia;
          
          for (let dates of date) {
-             allDates.push(dates)
-         }
+             allDates.push(dates.date)
+         };
+
+         allDates.sort((a, b) => {
+             return a.date - b.date;
+            });
+            
+            console.log(allDates);
 
 
 
-                 //LIGHTBOX //******************************* */
-     
-        
-       
+  //LIGHTBOX //******************************* */
      
         
         const contactModal = document.querySelector('#contact_modal');
@@ -445,6 +448,7 @@ main.appendChild(sectionTrier);
               const date = document.createElement('a');
               liDate.appendChild(date);
               date.textContent = "Date";
+              date.setAttribute("class","date");
 
               const chevron = document.createElement('i');
               liDate.appendChild(chevron);

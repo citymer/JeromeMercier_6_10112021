@@ -1,3 +1,10 @@
+const logo = document.querySelector('.logo');
+logo.setAttribute("alt","logo fisheyes");
+
+const divPhotograph = document.querySelector('.photographer_section');
+divPhotograph.setAttribute("aria-label","section des photographes");
+
+
 function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price,alt,id} = data;
 
@@ -12,7 +19,7 @@ function photographerFactory(data) {
         // balise <a> lien vers 'photographe.html' contenant <img> et >h2>
         const a = document.createElement('a');
         a.href = `photographer.html?id=${id}`;
-        a.title = "portrait photographe";
+        a.title = `profil de ${name}`;
 
           const img = document.createElement( 'img' );
           img.setAttribute("src", picture);

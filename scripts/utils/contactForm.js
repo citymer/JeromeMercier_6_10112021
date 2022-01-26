@@ -22,12 +22,12 @@ window.addEventListener('keydown', function (e) {
 
 //            DOM DU FORMULAIRE            //
 
-const divFormData = document.querySelector('.formdata');
 
+
+const divFormData = document.querySelector('.formdata');
 
 const envoyez = document.querySelector('#send');
 
-const modale = document.querySelector('#contact_modal');
 // header du formulaire
 const header = document.querySelector('.modal header');
 
@@ -127,6 +127,7 @@ inputPrenom.addEventListener('change', (e) => {
 })  
 
 function prenom() {
+  
   if (inputPrenom.value.trim().length > 1) {
     errorPrenom.style.display = "none";
     console.log(inputPrenom.value);
@@ -144,6 +145,7 @@ inputNom.addEventListener('change', (e) => {
 })  
 
 function nom() {
+
     if (inputNom.value.trim().length > 1) {
       errorNom.style.display = "none";
       console.log(inputNom.value);
@@ -155,6 +157,7 @@ function nom() {
 }
 
 inputEmail.addEventListener('change', (e) => {
+
   email();
 })  
 
@@ -173,6 +176,7 @@ function email() {
   }
 
   textMessage.addEventListener('change', (e) => {
+
     message();
   })  
 
@@ -191,15 +195,18 @@ function message() {
 
 
   function inputValid() {
+
     prenom();nom();email();message();
 
   }
 
   function verifAllTrue() {
+
     if (prenom() === true 
     && nom() === true
     && email() === true
     && message() === true) {
+
       return true
     }
     return false
@@ -207,8 +214,10 @@ function message() {
 
 
 envoyez.addEventListener('click',function() {
+
   inputValid();
+
   if (verifAllTrue() === true) {
     modal.style.display = "none";
   }
-})
+});  
