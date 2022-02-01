@@ -1,6 +1,6 @@
 // Récupère tous les parametres des photographes dans le JSON  ***
 
-  async function getPhotographers() {  
+   async function getPhotographers() {  
 
     // OBTENIR les parametres URL
     const getId = window.location.search;
@@ -45,11 +45,11 @@
 }
 
 
-
 // Récupère et affiche les informations des photographes dans la section photograph-header ***
 function attachInformationPhotograph(photographers) {
+     
     
-    const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
+  const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
     
     const picture = `assets/photographers/${portrait}`;
     
@@ -101,26 +101,27 @@ function attachInformationPhotograph(photographers) {
 
 
 
-
  
     // FUNCTION qui affiche les images et textes des photographes  dans la DIV "divphoto" ****************
     
-const mediaContent = function attachInformationMedia(media) {
+function attachInformationMedia(media) {
 
-           let imgArticle;
-           let videoArticle;
+ let imgArticle;
+ let videoArticle;
             
-            // <article>
-            const articlePhoto = document.createElement('article');
-            divPhoto.appendChild(articlePhoto);
-            articlePhoto.setAttribute("class","imgphoto");
+     
 
-            // <a>
-            const lienImage = document.createElement('a');
-            articlePhoto.appendChild(lienImage);
-            lienImage.setAttribute("class","lienimage");
-            lienImage.setAttribute("href",media.image);
-            lienImage.setAttribute("title",media.title);
+     // <article>
+    const articlePhoto = document.createElement('article');
+    divPhoto.appendChild(articlePhoto);
+    articlePhoto.setAttribute("class","imgphoto");
+
+        // <a>
+        const lienImage = document.createElement('a');
+        articlePhoto.appendChild(lienImage);
+        lienImage.setAttribute("class","lienimage");
+        lienImage.setAttribute("href",media.image);
+        lienImage.setAttribute("title",media.title);
         
              
             if (media.video == undefined){
@@ -133,15 +134,15 @@ const mediaContent = function attachInformationMedia(media) {
                 imgArticle.setAttribute("alt",media.alt);
                 
                 
-                imgArticle.addEventListener('click', () => {
+                   imgArticle.addEventListener('click', () => {
                     
                     const lighboxContent = document.querySelector('.lightbox__container');
 
                     // <img> LIGHBOX
-                   const lighboxImg = document.createElement('img');
-                   lighboxContent.appendChild(lighboxImg);
-                   lighboxImg.setAttribute("class","lightbox__img");
-                   lighboxImg.setAttribute("alt",media.alt);
+                    const lighboxImg = document.createElement('img');
+                    lighboxContent.appendChild(lighboxImg);
+                    lighboxImg.setAttribute("class","lightbox__img");
+                    lighboxImg.setAttribute("alt",media.alt);
                    lighboxImg.setAttribute("src",media.image);
                 })
                 
@@ -149,15 +150,15 @@ const mediaContent = function attachInformationMedia(media) {
             }else {
                 
                 // <video>
-             videoArticle = document.createElement('video');
-             lienImage.appendChild(videoArticle); 
-             videoArticle.setAttribute("class","imgarticle");
-             videoArticle.setAttribute("alt",media.alt);
-             videoArticle.setAttribute("src",media.video);
-             videoArticle.setAttribute("type","video/mp4");
-             videoArticle.setAttribute("controls","");
+                videoArticle = document.createElement('video');
+                lienImage.appendChild(videoArticle); 
+                videoArticle.setAttribute("class","imgarticle");
+                videoArticle.setAttribute("alt",media.alt);
+                videoArticle.setAttribute("src",media.video);
+                videoArticle.setAttribute("type","video/mp4");
+                videoArticle.setAttribute("controls","");
 
-             videoArticle.addEventListener('click', () => {
+                videoArticle.addEventListener('click', () => {
 
                 const lighboxContent = document.querySelector('.lightbox__container');
               
@@ -166,14 +167,13 @@ const mediaContent = function attachInformationMedia(media) {
                   lighboxContent.appendChild(lighboxVideo); 
                   lighboxVideo.setAttribute("class","lightbox__video");
                   lighboxVideo.setAttribute("alt",media.alt);
-                  lighboxVideo.setAttribute("src",media.src);
+                  lighboxVideo.setAttribute("src",media.video);
                   lighboxVideo.setAttribute("type","video/mp4");
                   lighboxVideo.setAttribute("controls","");
 
-            })
+             })
             
-                
-            } ; 
+            }; 
             
 
 
@@ -207,8 +207,6 @@ const mediaContent = function attachInformationMedia(media) {
                     heart.setAttribute("data-value",media.likes);
                     heart.setAttribute("role","button");
                     
-                    
-                    
 
 
             
@@ -225,26 +223,38 @@ const mediaContent = function attachInformationMedia(media) {
   
             })
             
-       
-            
-            
- }
+}
             
 
             
- async function displayData(filterMedia) {
+async function displayData(filterMedia) {
                 
-                
-                attachInformationPhotograph();
-                
+    
+    attachInformationPhotograph();
+    
+    
                 // créer un article pour chaque photo
                 filterMedia.forEach((media) => {
                     
-                    mediaContent(media);       
+                    attachInformationMedia(media); 
+                       
+                    
+                    
                     
                 });
+                popularite.addEventListener('click', (e) => {
+
+                   console.log( filterMedia.sort((a, b) => {
+                        return b.likes - a.likes;
+                    })); 
+                })
+
+                              
+       
+                                 
                 
             
+    
                 // COMPTEUR total de likes  //
                 
                 const selectSpan = document.querySelectorAll('.nombrelike'); 
@@ -261,14 +271,14 @@ const mediaContent = function attachInformationMedia(media) {
 
        // classement des likes décroissant         
 
-                let allLikes = [];
+              //  let allLikes = [];
 
-            for (let likes of selectSpan) {
-                allLikes.push(likes.innerText);
-            }
+        //    for (let likes of selectSpan) {
+        //        allLikes.push(likes.innerText);
+        //    }
          
-            allLikes.sort((a, b) => {
-                    return b - a; });
+         //   allLikes.sort((a, b) => {
+          //          return b - a; });
 
 
         // classement alphabethique des titres
@@ -304,7 +314,7 @@ const mediaContent = function attachInformationMedia(media) {
              return a.date - b.date;
             });
             
-            console.log(allDates);
+        
 
 
 
@@ -440,8 +450,8 @@ async function init() {
         const media = await getPhotographers();
         
         displayData(filterMedia);
+     
          
-        
 };
     
     init();
@@ -476,6 +486,7 @@ main.appendChild(sectionTrier);
 
           const liDate = document.createElement('li');
           ul.appendChild(liDate);
+          liDate.setAttribute("class","lidate");
 
               const date = document.createElement('a');
               liDate.appendChild(date);
@@ -484,7 +495,7 @@ main.appendChild(sectionTrier);
 
               const chevron = document.createElement('i');
               liDate.appendChild(chevron);
-              chevron.setAttribute("class","fas fa-chevron-down  fa-chevron-up");
+              chevron.setAttribute("class","fas fa-chevron-down");
               chevron.setAttribute("id","chevron");
 
               const sousMenu = document.createElement('ul');
@@ -509,7 +520,8 @@ main.appendChild(sectionTrier);
 
 
 // appartion sous-menu
-nav.addEventListener('click', (e) => {
+
+ul.addEventListener('click', (e) => {
     if ( sousMenu.style.display == "none") {
         sousMenu.style.display = "block";
        

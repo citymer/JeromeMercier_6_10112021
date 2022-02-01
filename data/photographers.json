@@ -260,7 +260,8 @@
 			"image": "assets/img/Nabeel/Travel_Outdoor_Baths.jpg",
 			"likes": 101,
 			"date": "2017-04-03",
-			"price": 45
+			"price": 45,
+			"alt":"bain en plein air dans une source chaude"
 		},
 		{
 			"id": 394583434,

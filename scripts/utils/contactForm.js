@@ -1,28 +1,77 @@
-const modal = document.getElementById("contact_modal");
+// Récupère tous les parametres des photographes dans le JSON  ***
 
-function displayModal() {
-    
-	modal.style.display = "block";
-}
+async function getPhotographers() {  
 
-function closeModal() {
+  // OBTENIR les parametres URL
+  const getId = window.location.search;
+  const urlParams = new URLSearchParams (getId);
+  const idPhotograph = urlParams.get ('id');
+
+  const filterPhotographer = [];
+  const filterMedia = [];
   
+  
+  // rapatrie les données de photographers.json
+  await fetch('data/photographers.json')
+  .then(response => {
+      if (!response.ok) {
+          throw new Error("HTTP error " + response.status);
+      }
+      return response.json();  
+  })
+  
+  //  données des photographes récupérées dans le json
+  .then(json => {
+      const {photographers} = json;
+      const {media} = json;
+
+      // filtre photographe avec id
+      this.filterPhotographer = photographers.filter((photographer) => photographer.id == idPhotograph);
+      
+      // filtre media avec photographerId
+      this.filterMedia = media.filter((media) => media.photographerId == idPhotograph);
+   
+      //  retourne le tableau photographers et media
+      
+      return filterPhotographer,filterMedia;     
+      
+    })
+    
+    
+    .catch(function () {
+      this.dataError = true;
+    }) 
+  }
+  
+  
+  
+  const modal = document.getElementById("contact_modal");
+  
+  function displayModal() {
+    
+    modal.style.display = "block";
+  }
+  
+  function closeModal() {
+    
     modal.style.display = "none";
-}
-
-// ferme le formulaire avec boutton "esc"
-window.addEventListener('keydown', function (e) {
+  }
+  
+  // ferme le formulaire avec boutton "esc"
+  window.addEventListener('keydown', function (e) {
     if (e.key === "Escape" || e.key === "Esc") {
-        closeModal(e);
+      closeModal(e);
     };
-})
+  })
+  
+  
 
-
-
-
-//            DOM DU FORMULAIRE            //
-
-
+  
+  
+  //            DOM DU FORMULAIRE            //
+  
+  function domModul(photographers) {
+  
 
 const divFormData = document.querySelector('.formdata');
 
@@ -31,10 +80,12 @@ const envoyez = document.querySelector('#send');
 // header du formulaire
 const header = document.querySelector('.modal header');
 
+  const {name} = this.filterPhotographer[0];
+
 const namePhotograph = document.createElement('span');
 header.appendChild(namePhotograph);
-namePhotograph.textContent = "namephotograph";
-namePhotograph.setAttribute("class","name");
+namePhotograph.textContent = `${name}`;
+namePhotograph.setAttribute("class","namephotograph");
 
 
 // PRENOM *
@@ -221,3 +272,12 @@ envoyez.addEventListener('click',function() {
     modal.style.display = "none";
   }
 });  
+}
+
+
+async function init()
+{
+  const photographers = await getPhotographers();
+  domModul();
+};
+init();

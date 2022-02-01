@@ -85,7 +85,6 @@ nav{
     width: 170px;
     font-size: 18px;
     font-weight: 700;
-    background-color: #901C1C;
     margin-left: 20px;
     color: white;
     border-radius:5px;
@@ -95,23 +94,29 @@ nav ul{
     list-style: none; 
     margin: 0;
     padding:0;
-
+    
+}
+.popularite:hover {
+    background-color: #d3573c;
 }
 nav ul li  {
+    background-color: #901C1C;
     margin: 0;
     padding:0;
     float: left;
-    line-height: 40px;
+    
     text-align: center;
     padding: 15px;
 }
+.lidate {
+    width: 150px;
+    border-radius: 5px;
+}
+
 #chevron {
     margin-left: 40px;
 }
-.fa-chevron-up {
-    display: none;
-    
-}
+
 
 .sousmenu{
    
@@ -318,7 +323,7 @@ form p {
     margin-top: 5%;
     margin-bottom: 5%;
 }
-.lightbox__container img {
+.lightbox__container img , .lightbox__video{
     width: 80%;
     height: 80%;
     object-fit: contain;
