@@ -1,10 +1,4 @@
-
-
-
- 
- 
             
-
             
 async function displayData(filterMedia) {
                 
@@ -30,9 +24,26 @@ async function displayData(filterMedia) {
                     })); 
                 })
 
+                // classement alphabethique des titres
+                     
+               titre.addEventListener('click', (e) => {
+
+                 console.log(filterMedia.sort((a, b) => {
+                        if (a.title < b.title) { return -1;}
+                        if (a.title > b.title) {return 1;}
+                        if (a.title === b.title) {return 0;}
+                    }));
                               
-       
+                });
                                  
+                // classement par date
+                
+               liDate.addEventListener('click', (e) => {
+       
+                 console.log(filterMedia.sort((a, b) => {
+                     return a.date - b.date;
+                   }));
+               })   
                 
             
     
@@ -49,39 +60,8 @@ async function displayData(filterMedia) {
                 textNumber.textContent = somme;
 
 
-        // classement alphabethique des titres
-
-        
-        const titles = document.querySelectorAll('.titrephoto');
-
-                  let allTitle = [];
-
-            for (let title of titles) {
-                allTitle.push(title.innerText);
-              
-            };      
-
-            allTitle.sort((a, b) => {
-                if (a < b) { return -1;}
-                if (a > b) {return 1;}
-                if (a === b) {return 0;}
-            });
 
 
-         // classement par date
-
-         let allDates = [];
-         
-         const date = this.filterMedia;
-         
-         for (let dates of date) {
-             allDates.push(dates.date)
-         };
-
-         allDates.sort((a, b) => {
-             return a.date - b.date;
-            });
-            
         
 
 
