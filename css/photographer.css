@@ -331,6 +331,14 @@ form p {
     margin:30px auto 10px;
     animation: lightboxIn 1.3s;
 }
+h6 {
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
 @keyframes lightboxIn {
     0% {opacity: 0;}
     30%{opacity: 0.4;}

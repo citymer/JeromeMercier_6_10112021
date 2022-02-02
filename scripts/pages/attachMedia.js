@@ -32,18 +32,22 @@
                    
                       imgArticle.addEventListener('click', () => {
                        
-                       const lighboxContent = document.querySelector('.lightbox__container');
-   
+                       const lighboxContent = document.querySelector('.mediacontent');
+                        lighboxContent.innerHTML = "";
                        // <img> LIGHBOX
                        const lighboxImg = document.createElement('img');
                        lighboxContent.appendChild(lighboxImg);
                        lighboxImg.setAttribute("class","lightbox__img");
                        lighboxImg.setAttribute("alt",media.alt);
                       lighboxImg.setAttribute("src",media.image);
-                   })
+                      //titre img lightbox
+                      const titleImg = document.createElement('h6');
+                      lighboxContent.appendChild(titleImg);
+                      titleImg.textContent = media.title;
+                   }) 
                    
                    
-               }else {
+               }else  {
                    
                    // <video>
                    videoArticle = document.createElement('video');
@@ -56,8 +60,8 @@
    
                    videoArticle.addEventListener('click', () => {
    
-                   const lighboxContent = document.querySelector('.lightbox__container');
-                 
+                   const lighboxContent = document.querySelector('.mediacontent');
+                 lighboxContent.innerHTML ="";
                       // <video>  LIGHTBOX
                      const lighboxVideo = document.createElement('video');
                      lighboxContent.appendChild(lighboxVideo); 
@@ -66,6 +70,10 @@
                      lighboxVideo.setAttribute("src",media.video);
                      lighboxVideo.setAttribute("type","video/mp4");
                      lighboxVideo.setAttribute("controls","");
+                       //titre video lightbox
+                       const titleVideo = document.createElement('h6');
+                       lighboxContent.appendChild(titleVideo);
+                       titleVideo.textContent = media.title;
    
                 })
                
@@ -118,5 +126,10 @@
                    selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
      
                })
+
+              
+         
+            
+                    
                
    }
