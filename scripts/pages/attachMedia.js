@@ -18,6 +18,7 @@
            lienImage.setAttribute("class","lienimage");
            lienImage.setAttribute("href",media.image);
            lienImage.setAttribute("title",media.title);
+           lienImage.setAttribute("aria-label",media.alt);
            
                 
                if (media.video == undefined){

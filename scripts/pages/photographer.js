@@ -27,6 +27,13 @@ async function displayData(filterMedia) {
                     rangementLikes.forEach((media) => {
                         attachInformationMedia(media);
                     })
+
+                    date.innerHTML = "Popularité";
+                    lienPopularite.innerHTML = "Titre";
+                    lienTitre.innerHTML = "Date";
+                    sousMenu.style.display = "none";
+                    chevron.classList.remove("rotate");
+                    
                 })
 
                 // classement alphabethique des titres
@@ -43,6 +50,13 @@ async function displayData(filterMedia) {
                     classementAlphabethique.forEach((media) => {
                         attachInformationMedia(media);
                     })
+
+                    date.innerHTML = "Titre";
+                    lienTitre.innerHTML = "Date";
+                    lienPopularite.innerHTML = "Popularité"
+                    sousMenu.style.display = "none";
+                    chevron.classList.remove("rotate");
+                    
                 });
                                  
                 // classement par date
@@ -212,16 +226,18 @@ async function init() {
 
 
 
-// appartion sous-menu
+// apparition du sous-menu
 
-ul.addEventListener('click', (e) => {
+chevron.addEventListener('click', (e) => {
     if ( sousMenu.style.display == "none") {
         sousMenu.style.display = "block";
+        chevron.className += " rotate";
        
         
     }else {
 
         sousMenu.style.display = "none";
+        chevron.classList.remove("rotate");
     } 
 })                      
 

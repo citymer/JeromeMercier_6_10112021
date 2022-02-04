@@ -38,6 +38,7 @@ main.appendChild(sectionTrier);
               liDate.appendChild(chevron);
               chevron.setAttribute("class","fas fa-chevron-down");
               chevron.setAttribute("id","chevron");
+              chevron.setAttribute("role","button");
 
               const sousMenu = document.createElement('ul');
               liDate.appendChild(sousMenu);
