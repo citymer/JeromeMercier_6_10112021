@@ -56,6 +56,7 @@ inputPrenom.setAttribute("id","first_name");
 inputPrenom.setAttribute("aria-required","true");
 inputPrenom.setAttribute("minlenght","2");
 inputPrenom.setAttribute("tabindex","0");
+inputPrenom.setAttribute("aria-labelledby","first_name");
 // message d'erreur prenom
 const errorPrenom = document.createElement('p');
 divFormData.appendChild(errorPrenom);
@@ -78,6 +79,7 @@ inputNom.setAttribute("name","last_name");
 inputNom.setAttribute("aria-requiered","true");
 inputNom.setAttribute("minlenght","2");
 inputNom.setAttribute("tabindex","0");
+inputNom.setAttribute("aria-labelledby","last_name");
 // message d'erreur nom
 const errorNom = document.createElement('p');
 divFormData.appendChild(errorNom);
@@ -98,6 +100,7 @@ inputEmail.setAttribute("name","email");
 inputEmail.setAttribute("id","email");
 inputEmail.setAttribute("aria-requiered","true");
 inputEmail.setAttribute("tabindex","0");
+inputEmail.setAttribute("aria-labelledby","email");
 // message d'erreur email
 const errorEmail = document.createElement('p');
 divFormData.appendChild(errorEmail);
@@ -118,6 +121,7 @@ textMessage.setAttribute("name","your_message");
 textMessage.setAttribute("aria-requiered","true");
 textMessage.setAttribute("tabindex","0");
 textMessage.setAttribute("maxlenght","150");
+textMessage.setAttribute("aria-labelledby","your_message");
 // message d'erreur de votre message
 const errorMessage = document.createElement('p');
 divFormData.appendChild(errorMessage);

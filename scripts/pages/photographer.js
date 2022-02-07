@@ -28,9 +28,9 @@ async function displayData(filterMedia) {
                         attachInformationMedia(media);
                     })
 
-                    date.innerHTML = "Popularité";
-                    lienPopularite.innerHTML = "Titre";
-                    lienTitre.innerHTML = "Date";
+                   // date.innerHTML = "Popularité";
+                   // lienPopularite.innerHTML = "Date";
+                    //lienTitre.innerHTML = "Titre";
                     sousMenu.style.display = "none";
                     chevron.classList.remove("rotate");
                     
@@ -51,17 +51,14 @@ async function displayData(filterMedia) {
                         attachInformationMedia(media);
                     })
 
-                    date.innerHTML = "Titre";
-                    lienTitre.innerHTML = "Date";
-                    lienPopularite.innerHTML = "Popularité"
-                    sousMenu.style.display = "none";
+                   sousMenu.style.display = "none";
                     chevron.classList.remove("rotate");
                     
                 });
                                  
                 // classement par date
                 
-               liDate.addEventListener('click', (e) => {
+               button.addEventListener('click', (e) => {
        
                  let classementParDate = filterMedia.sort((a, b) => {
                      return a.date - b.date;
@@ -71,6 +68,10 @@ async function displayData(filterMedia) {
                    classementParDate.forEach((media) => {
                        attachInformationMedia(media);
                    })
+
+                 
+                   //sousMenu.style.display = "none";
+                   //chevron.classList.remove("rotate");
                })   
                 
             
@@ -103,9 +104,9 @@ async function displayData(filterMedia) {
                         body.appendChild(lightbox);
                 
                         lightbox.setAttribute("class","lightbox");
-                        lightbox.innerHTML = `<button class="lightbox__close" ></button>
-                        <button class="lightbox__next" ></button>
-                        <button class="lightbox__prev"  ></button>
+                        lightbox.innerHTML = `<button class="lightbox__close" role="button" aria-label="close"></button>
+                        <button class="lightbox__next" role="button" aria-label="next"></button>
+                        <button class="lightbox__prev" role="button" aria-label="prev"></button>
                         <div class="lightbox__container"><div class="mediacontent"></div>
                         </div>`;
                 
@@ -200,8 +201,6 @@ async function displayData(filterMedia) {
 
     
 
-
-   
   
     
 async function init() {
@@ -229,7 +228,8 @@ async function init() {
 // apparition du sous-menu
 
 chevron.addEventListener('click', (e) => {
-    if ( sousMenu.style.display == "none") {
+
+    if ( sousMenu.style.display === "none") {
         sousMenu.style.display = "block";
         chevron.className += " rotate";
        
@@ -241,12 +241,21 @@ chevron.addEventListener('click', (e) => {
     } 
 })                      
 
+// ouvre le sous-menu en valider avec la touche ENTER du clavier
+window.addEventListener('keydown', function (e) {
+    if (e.key === "Enter") {
+        if ( sousMenu.style.display === "none") {
+            sousMenu.style.display = "block";
+            chevron.className += " rotate";
+           
+            
+        }else {
+    
+            sousMenu.style.display = "none";
+            chevron.classList.remove("rotate");
+        }   
+    }
+})
 
 
-
-
-
-
-
-
-
+        

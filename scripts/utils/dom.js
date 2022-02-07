@@ -10,55 +10,50 @@ const main = document.getElementById('main');
 const sectionTrier = document.createElement('section');
 sectionTrier.id = 'filter';
 main.appendChild(sectionTrier);
+sectionTrier.setAttribute("role","listbox");
 
 
-    const label = document.createElement('label');
+    const label = document.createElement('span');
     label.textContent = 'Trier par';
-    label.setAttribute("for","trier");
+    label.setAttribute("for","trier les images");
     label.setAttribute("class","trierpar"),
+    label.setAttribute("aria-label","trier par");
     sectionTrier.appendChild(label);
 
-    const nav = document.createElement('nav');
-    sectionTrier.appendChild(nav);
+    const button = document.createElement('button');
+    sectionTrier.appendChild(button);
+    button.textContent = "Date";
 
-       const ul = document.createElement('ul');
-       nav.appendChild(ul);
-       ul.setAttribute("class" , "menu");
-
-          const liDate = document.createElement('li');
-          ul.appendChild(liDate);
-          liDate.setAttribute("class","lidate");
-
-              const date = document.createElement('a');
-              liDate.appendChild(date);
-              date.textContent = "Date";
-              date.setAttribute("class","date");
+  
 
               const chevron = document.createElement('i');
-              liDate.appendChild(chevron);
+              button.appendChild(chevron);
               chevron.setAttribute("class","fas fa-chevron-down");
               chevron.setAttribute("id","chevron");
               chevron.setAttribute("role","button");
+              chevron.setAttribute("tabindex","0");
+           
 
               const sousMenu = document.createElement('ul');
-              liDate.appendChild(sousMenu);
+              button.appendChild(sousMenu);
               sousMenu.setAttribute("class","sousmenu");
+              console.log(sousMenu);
+
 
                     const popularite = document.createElement('li');
                     sousMenu.appendChild(popularite);
                     popularite.setAttribute("class","popularite");
+                    popularite.setAttribute("role","option");
+                    popularite.setAttribute("tabindex","0");
+                    popularite.textContent = "Popularité";
 
-                        const lienPopularite = document.createElement('a');
-                        popularite.appendChild(lienPopularite);
-                        lienPopularite.textContent = "Popularité";
 
                     const titre = document.createElement('li');
                     sousMenu.appendChild(titre);
                     titre.setAttribute("class","titre");
-
-                        const lienTitre = document.createElement('a');
-                        titre.appendChild(lienTitre);
-                        lienTitre.textContent = "Titre";    
+                    titre.setAttribute("role","option");
+                    titre.setAttribute("tabindex","0");
+                    titre.textContent = "Titre";    
 
 
    // DOM section Divphoto  *******************   
@@ -78,9 +73,10 @@ body.appendChild(footer);
     divFooterInfo.appendChild(divTotalLikes);
     divTotalLikes.setAttribute("class","divtotallikes");
 
-        const textNumber = document.createElement('p');
+        const textNumber = document.createElement('span');
         divTotalLikes.appendChild(textNumber);
         textNumber.setAttribute("class","textnumber totalnumber");
+        textNumber.setAttribute("aria-label","nombre total de likes");
         textNumber.textContent = "";
 
         const iconHeartFooter = document.createElement('i');

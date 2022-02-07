@@ -5,26 +5,26 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
+    <title>Fisheye </title>
     <script src="https://kit.fontawesome.com/46f67fcabd.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <img src="assets/icons/logo.png" class="logo" />
+    <header role="banner" titre="Fisheye">
+      <img src="assets/icons/logo.png" class="logo" alt="lien vers page d'acceuil" />
     </header>
     <main id="main">
-      <section id="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+      <section id="photograph-header" aria-label="information du photographe">
+        <button class="contact_button" onclick="displayModal()" >Contactez-moi</button>
       </section>
     </main>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img  src="assets/icons/close-formulaire.svg" onclick="closeModal()" />
+          <img  src="assets/icons/close-formulaire.svg" onclick="closeModal()" alt="ferme le formulaire"/>
         </header>
-				<form>
-					<div class="formdata">
+				<form method="get">
+					<div class="formdata" aria-label="coordonnees">
 						<label>Prénom</label>
 						<input type="text"/>
 					</div>

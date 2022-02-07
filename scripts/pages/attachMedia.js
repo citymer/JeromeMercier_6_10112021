@@ -42,8 +42,9 @@
                        lighboxImg.setAttribute("alt",media.alt);
                       lighboxImg.setAttribute("src",media.image);
                       //titre img lightbox
-                      const titleImg = document.createElement('h6');
+                      const titleImg = document.createElement('span');
                       lighboxContent.appendChild(titleImg);
+                      titleImg.setAttribute("class","titlemedia");
                       titleImg.textContent = media.title;
                    }) 
                    
@@ -72,8 +73,9 @@
                      lighboxVideo.setAttribute("type","video/mp4");
                      lighboxVideo.setAttribute("controls","");
                        //titre video lightbox
-                       const titleVideo = document.createElement('h6');
+                       const titleVideo = document.createElement('span');
                        lighboxContent.appendChild(titleVideo);
+                       titleVideo.setAttribute("class","titlemedia");
                        titleVideo.textContent = media.title;
    
                 })
@@ -88,7 +90,7 @@
                articlePhoto.appendChild(divquantityheart);
                    
                   // <h5>
-                  const titrePhoto = document.createElement('h5');
+                  const titrePhoto = document.createElement('h6');
                   divquantityheart.appendChild(titrePhoto);
                   titrePhoto.setAttribute("class","titrephoto");
                   titrePhoto.textContent = media.title;

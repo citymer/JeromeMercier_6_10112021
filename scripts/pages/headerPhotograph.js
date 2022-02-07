@@ -25,9 +25,9 @@ function attachInformationPhotograph(photographers) {
         const article = document.createElement('article');
         sectionPhotographHeader.appendChild(article); 
         article.id = id;
-        article.innerHTML = `<h2>${name}</h2>
-                             <h3>${city}, ${country}</h3>
-                             <h4>${tagline}</h4>`;
+        article.innerHTML = `<h1>${name}</h1>
+                             <h2>${city}, ${country}</h2>
+                             <h3>${tagline}</h3>`;
     
       
       // selection du bouton "contact_button"   
@@ -48,6 +48,6 @@ function attachInformationPhotograph(photographers) {
       const divPriceDay = document.createElement('div');
       divFooterInfo.appendChild(divPriceDay);
       divPriceDay.setAttribute("class","divpriceday");
-      divPriceDay.innerHTML = `<p class="textpriceday">${price} €/jour</p>`; 
+      divPriceDay.innerHTML = `<span class="textpriceday">${price} €/jour</span>`; 
   
   }  
