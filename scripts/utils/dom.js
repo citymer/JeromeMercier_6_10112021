@@ -35,7 +35,7 @@ sectionTrier.setAttribute("role","listbox");
            
 
               const sousMenu = document.createElement('ul');
-              button.appendChild(sousMenu);
+              sectionTrier.appendChild(sousMenu);
               sousMenu.setAttribute("class","sousmenu");
               console.log(sousMenu);
 

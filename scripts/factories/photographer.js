@@ -4,8 +4,9 @@ logo.setAttribute("alt","logo fisheyes");
 const divPhotograph = document.querySelector('.photographer_section');
 divPhotograph.setAttribute("aria-label","section des photographes");
 
-
+// Function qui construit l'article contenant le portrait du photographe
 function photographerFactory(data) {
+  
     const { name, portrait, city, country, tagline, price,alt,id} = data;
 
     const picture = `assets/photographers/${portrait}`;

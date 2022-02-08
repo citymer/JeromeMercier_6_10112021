@@ -134,7 +134,7 @@ document.querySelector('form').addEventListener('submit', (e) => {e.preventDefau
 
 // controle l'input du prénom 2 caractères minimum
 inputPrenom.addEventListener('change', (e) => {
-       prenom();
+       prenom(inputPrenom);
 })  
 
 function prenom() {
@@ -152,7 +152,7 @@ function prenom() {
 
 // controle l'input du prénom 2 caractères minimum
 inputNom.addEventListener('change', (e) => {
-     nom();
+     nom(inputNom);
 })  
 
 function nom() {
@@ -169,7 +169,7 @@ function nom() {
 
 inputEmail.addEventListener('change', (e) => {
 
-  email();
+  email(inputEmail);
 })  
 
 // controle que l'email soit valide
@@ -188,7 +188,7 @@ function email() {
 
   textMessage.addEventListener('change', (e) => {
 
-    message();
+    message(textMessage);
   })  
 
 // controle l'espace texte  avec caractères minimum
@@ -219,10 +219,8 @@ function message() {
     && message() === true) {
 
       return true
-    }else {
-       inputValid();
-      return false
     }
+    return false
   }
 
 
@@ -232,8 +230,6 @@ envoyez.addEventListener('click',function() {
 
   if (verifAllTrue() === true) {
     modal.style.display = "none";
-  }else {
-    inpu();
   }
 });  
 
