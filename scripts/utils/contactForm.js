@@ -219,8 +219,10 @@ function message() {
     && message() === true) {
 
       return true
+    }else {
+       inputValid();
+      return false
     }
-    return false
   }
 
 
@@ -230,6 +232,8 @@ envoyez.addEventListener('click',function() {
 
   if (verifAllTrue() === true) {
     modal.style.display = "none";
+  }else {
+    inpu();
   }
 });  
 
