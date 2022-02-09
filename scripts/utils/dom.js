@@ -63,9 +63,10 @@ sectionTrier.setAttribute("role","listbox");
                     chevronUp.setAttribute("class","fas fa-chevron-up");
                     chevronUp.setAttribute("role","button");
                     chevronUp.setAttribute("tabindex","0");
-
-
-                         
+                    
+                    const lineUp = document.createElement('div');
+                    sousMenu.appendChild(lineUp);
+                    lineUp.setAttribute("class","lineup");
 
                     const popularite = document.createElement('li');
                     sousMenu.appendChild(popularite);
@@ -73,6 +74,10 @@ sectionTrier.setAttribute("role","listbox");
                     popularite.setAttribute("role","option");
                     popularite.setAttribute("tabindex","0");
                     popularite.textContent = "Popularité";
+
+                    const lineDown = document.createElement('div');
+                    sousMenu.appendChild(lineDown);
+                    lineDown.setAttribute("class","linedown");
 
                     const titres = document.createElement('li');
                     sousMenu.appendChild(titres);
