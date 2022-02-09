@@ -20,11 +20,19 @@ sectionTrier.setAttribute("role","listbox");
     label.setAttribute("aria-label","trier par");
     sectionTrier.appendChild(label);
 
-    const button = document.createElement('button');
-    sectionTrier.appendChild(button);
-    button.textContent = "Date";
+    const divButton = document.createElement('div');
+    sectionTrier.appendChild(divButton);
+    divButton.setAttribute("class","divbutton");
 
-  
+    const button = document.createElement('button');
+    divButton.appendChild(button);
+    button.setAttribute("class","boutontrie");
+               
+              const textButton = document.createElement('div');
+              button.appendChild(textButton);
+              textButton.textContent = "Date";
+              textButton.setAttribute("tabindex","0");
+              textButton.setAttribute("class","textbutton");
 
               const chevron = document.createElement('i');
               button.appendChild(chevron);
@@ -34,11 +42,30 @@ sectionTrier.setAttribute("role","listbox");
               chevron.setAttribute("tabindex","0");
            
 
-              const sousMenu = document.createElement('ul');
-              sectionTrier.appendChild(sousMenu);
-              sousMenu.setAttribute("class","sousmenu");
-              console.log(sousMenu);
+     const sousMenu = document.createElement('ul');
+     divButton.appendChild(sousMenu);
+     sousMenu.setAttribute("class","sousmenu");
+    
+            
+            const divDateChevron = document.createElement('div');
+            sousMenu.appendChild(divDateChevron);
+            divDateChevron.setAttribute("class","divdatechevron");
 
+                    const date = document.createElement('li');
+                    divDateChevron.appendChild(date);
+                    date.setAttribute("class","date");
+                    date.setAttribute("role","option");
+                    date.setAttribute("tabindex","0");
+                    date.textContent = "Date";
+
+                    const chevronUp = document.createElement('i');
+                    divDateChevron.appendChild(chevronUp);
+                    chevronUp.setAttribute("class","fas fa-chevron-up");
+                    chevronUp.setAttribute("role","button");
+                    chevronUp.setAttribute("tabindex","0");
+
+
+                         
 
                     const popularite = document.createElement('li');
                     sousMenu.appendChild(popularite);
@@ -47,13 +74,15 @@ sectionTrier.setAttribute("role","listbox");
                     popularite.setAttribute("tabindex","0");
                     popularite.textContent = "Popularité";
 
+                    const titres = document.createElement('li');
+                    sousMenu.appendChild(titres);
+                    titres.setAttribute("class","titre");
+                    titres.setAttribute("role","option");
+                    titres.setAttribute("tabindex","0");
+                    titres.textContent = "Titre"; 
 
-                    const titre = document.createElement('li');
-                    sousMenu.appendChild(titre);
-                    titre.setAttribute("class","titre");
-                    titre.setAttribute("role","option");
-                    titre.setAttribute("tabindex","0");
-                    titre.textContent = "Titre";    
+                    
+           
 
 
    // DOM section Divphoto  *******************   

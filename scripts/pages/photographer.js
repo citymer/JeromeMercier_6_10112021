@@ -28,17 +28,14 @@ async function displayData(filterMedia) {
                         attachInformationMedia(media);
                     })
 
-                   // date.innerHTML = "Popularité";
-                   // lienPopularite.innerHTML = "Date";
-                    //lienTitre.innerHTML = "Titre";
                     sousMenu.style.display = "none";
-                    chevron.classList.remove("rotate");
-                    
+                    button.style.display ="flex";
+                    textButton.innerHTML = "Popularité";
                 })
 
                 // classement alphabethique des titres
                      
-               titre.addEventListener('click', (e) => {
+               titres.addEventListener('click', (e) => {
 
                  let classementAlphabethique = filterMedia.sort((a, b) => {
                         if (a.title < b.title) { return -1;}
@@ -46,32 +43,33 @@ async function displayData(filterMedia) {
                         if (a.title === b.title) {return 0;}
                     });
                     
-                    document.getElementById('divphoto').innerHTML ="";
+                    document.getElementById('divphoto').innerHTML = "";
                     classementAlphabethique.forEach((media) => {
                         attachInformationMedia(media);
                     })
 
                    sousMenu.style.display = "none";
-                    chevron.classList.remove("rotate");
+                   button.style.display = "flex";
+                   textButton.innerHTML = "Titre";
                     
                 });
                                  
                 // classement par date
                 
-               button.addEventListener('click', (e) => {
+               date.addEventListener('click', (e) => {
        
                  let classementParDate = filterMedia.sort((a, b) => {
                      return a.date - b.date;
                    });
 
-                   document.getElementById('divphoto').innerHTML="";
+                   document.getElementById('divphoto').innerHTML= "";
                    classementParDate.forEach((media) => {
                        attachInformationMedia(media);
                    })
 
-                 
-                   //sousMenu.style.display = "none";
-                   //chevron.classList.remove("rotate");
+                   sousMenu.style.display = "none";
+                   button.style.display = "flex";
+                   textButton.innerHTML = "Date";
                })   
                 
             
@@ -230,33 +228,39 @@ async function init() {
 chevron.addEventListener('click', (e) => {
 
     if ( sousMenu.style.display === "none") {
-        sousMenu.style.display = "block";
-        chevron.className += " rotate";
+        sousMenu.style.display = "flex";
+        button.style.display = "none";
        
         
     }else {
 
         sousMenu.style.display = "none";
-        chevron.classList.remove("rotate");
+        
     } 
-})                      
+}) 
+
 
 // ouvre le sous-menu en valider avec la touche ENTER du clavier
 window.addEventListener('keydown', function (e) {
     if (e.key === "Enter") {
         if ( sousMenu.style.display === "none") {
-            sousMenu.style.display = "block";
+            sousMenu.style.display = "flex";
             chevron.className += " rotate";
-           
+            
             
         }else {
-    
+            
             sousMenu.style.display = "none";
             chevron.classList.remove("rotate");
         }   
     }
 })
 
+// fermeture du sous-menu en cliquant sur le chevron
+chevronUp.addEventListener('click', (e) => {
+    sousMenu.style.display = "none";
+    button.style.display = "block";
+})
 
         
  
