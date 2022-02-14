@@ -27,7 +27,7 @@
   
   //            DOM DU FORMULAIRE            //
   
-  function domModul(photographers) {
+  function domModul() {
   
 
 const divFormData = document.querySelector('.formdata');
@@ -230,6 +230,7 @@ envoyez.addEventListener('click',function() {
   inputValid();
 
   if (verifAllTrue() === true) {
+    console.log(modal);
     modal.style.display = "none";
   }
 });  

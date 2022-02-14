@@ -230,7 +230,7 @@ chevron.addEventListener('click', () => {
 
 
 // ouvre le sous-menu en valider avec la touche ENTER du clavier
-window.addEventListener('keydown', function () {
+window.addEventListener('keydown', function (e) {
     if (e.key === "Enter") {
             sousMenu.style.display = "block";
             button.style.display = "none";
