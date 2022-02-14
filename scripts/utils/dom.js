@@ -20,6 +20,26 @@ sectionTrier.setAttribute("role","listbox");
     label.setAttribute("aria-label","trier par");
     sectionTrier.appendChild(label);
 
+   /* const select = document.createElement('select');
+    sectionTrier.appendChild(select);
+    select.setAttribute("id","select");
+          
+           const optiondate = document.createElement('option');
+           select.appendChild(optiondate);
+           optiondate.setAttribute("value","date");
+           optiondate.setAttribute("selected","");
+           optiondate.textContent = "Date";
+
+           const optionPopularite = document.createElement('option');
+           select.appendChild(optionPopularite);
+           optionPopularite.setAttribute("value","popularite");
+           optionPopularite.textContent = "Popularite";
+
+           const optionTitre = document.createElement('option');
+           select.appendChild(optionTitre);
+           optionTitre.setAttribute("value","titre");
+           optionTitre.textContent = "Titre";*/
+
     const divButton = document.createElement('div');
     sectionTrier.appendChild(divButton);
     divButton.setAttribute("class","divbutton");

@@ -82,7 +82,7 @@ body {
 }
 
 .boutontrie {
-    
+    display: block;
     position: relative;
     width: 170px;
     height: 70px;
@@ -112,8 +112,6 @@ body {
 }
 .sousmenu {
     display: none;
-    flex-direction: column;
-    justify-content: space-around;
     list-style: none; 
     width: 170px;
     height: 170px;
@@ -137,7 +135,7 @@ body {
 .fa-chevron-up {
     font-size: 20px;
     margin-right: 22px;
-    margin-top: 8px;
+    margin-top: 23px;
     cursor: pointer;
 }
 .lineup , .linedown {
@@ -157,10 +155,11 @@ body {
  .popularite, .titre {
     cursor: pointer;
     margin-left: 37px;
+    margin-top: 29px;
 }
 .date {
     cursor: pointer;
-    margin-top: 7px;
+    margin-top: 20px;
     margin-right: auto;
     margin-left: 37px;
 }

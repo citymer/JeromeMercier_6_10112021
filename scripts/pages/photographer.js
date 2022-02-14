@@ -14,63 +14,9 @@ async function displayData(filterMedia) {
                 });
 
 
+               
 
-                      // classement des likes décroissant    
-                popularite.addEventListener('click', (e) => {
-                     
-                    let rangementLikes = filterMedia.sort((a, b) => {
-                         return b.likes - a.likes;
-
-                    }); 
-                
-                    document.getElementById('divphoto').innerHTML = "";
-                    rangementLikes.forEach((media) => {
-                        attachInformationMedia(media);
-                    })
-
-                    sousMenu.style.display = "none";
-                    button.style.display ="flex";
-                    textButton.innerHTML = "Popularité";
-                })
-
-                // classement alphabethique des titres
-                     
-               titres.addEventListener('click', (e) => {
-
-                 let classementAlphabethique = filterMedia.sort((a, b) => {
-                        if (a.title < b.title) { return -1;}
-                        if (a.title > b.title) {return 1;}
-                        if (a.title === b.title) {return 0;}
-                    });
-                    
-                    document.getElementById('divphoto').innerHTML = "";
-                    classementAlphabethique.forEach((media) => {
-                        attachInformationMedia(media);
-                    })
-
-                   sousMenu.style.display = "none";
-                   button.style.display = "flex";
-                   textButton.innerHTML = "Titre";
-                    
-                });
-                                 
-                // classement par date
-                
-               date.addEventListener('click', (e) => {
-       
-                 let classementParDate = filterMedia.sort((a, b) => {
-                     return a.date - b.date;
-                   });
-
-                   document.getElementById('divphoto').innerHTML= "";
-                   classementParDate.forEach((media) => {
-                       attachInformationMedia(media);
-                   })
-
-                   sousMenu.style.display = "none";
-                   button.style.display = "flex";
-                   textButton.innerHTML = "Date";
-               })   
+          
                 
             
     
@@ -220,44 +166,80 @@ async function init() {
     init();
 
 
+            // classement des likes décroissant   
+    
+           popularite.addEventListener('click', (e) => {
+                document.getElementById('divphoto').innerHTML = "";
+                     
+                let rangementLikes = filterMedia.sort((a, b) => {
+                     return b.likes - a.likes;
 
+                }); 
+            
+                rangementLikes.forEach((media) => {
+                    attachInformationMedia(media);
+                })
+
+              
+            })
+
+            // classement alphabethique des titres
+                 
+           titres.addEventListener('click', (e) => {
+               document.getElementById('divphoto').innerHTML = "";
+
+             let classementAlphabethique = filterMedia.sort((a, b) => {
+                    if (a.title < b.title) { return -1;}
+                    if (a.title > b.title) {return 1;}
+                    return 0;
+                });
+                
+                classementAlphabethique.forEach((media) => {
+                    attachInformationMedia(media);
+                })
+
+              
+                
+            });
+                             
+            // classement par date
+            
+           date.addEventListener('click', (e) => {
+               
+                 document.getElementById('divphoto').innerHTML= "";
+   
+             let classementParDate = filterMedia.sort((a, b) => {
+                 return a.date - b.date;
+               });
+               classementParDate.forEach((media) => {
+                   attachInformationMedia(media);
+               })
+
+             
+           })   
 
 
 // apparition du sous-menu
 
-chevron.addEventListener('click', (e) => {
+chevron.addEventListener('click', () => {
 
-    if ( sousMenu.style.display === "none") {
-        sousMenu.style.display = "flex";
-        button.style.display = "none";
-       
-        
-    }else {
-
-        sousMenu.style.display = "none";
-        
-    } 
+        sousMenu.style.display = "block";
+        button.style.display = "none";   
+ 
 }) 
 
 
 // ouvre le sous-menu en valider avec la touche ENTER du clavier
-window.addEventListener('keydown', function (e) {
+window.addEventListener('keydown', function () {
     if (e.key === "Enter") {
-        if ( sousMenu.style.display === "none") {
-            sousMenu.style.display = "flex";
-            chevron.className += " rotate";
+            sousMenu.style.display = "block";
+            button.style.display = "none";
             
-            
-        }else {
-            
-            sousMenu.style.display = "none";
-            chevron.classList.remove("rotate");
-        }   
     }
 })
 
 // fermeture du sous-menu en cliquant sur le chevron
-chevronUp.addEventListener('click', (e) => {
+chevronUp.addEventListener('click', () => {
     sousMenu.style.display = "none";
     button.style.display = "block";
 })
