@@ -230,7 +230,6 @@ envoyez.addEventListener('click',function() {
   inputValid();
 
   if (verifAllTrue() === true) {
-    console.log(modal);
     modal.style.display = "none";
   }
 });  
