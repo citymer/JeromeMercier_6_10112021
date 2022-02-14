@@ -1,7 +1,8 @@
 
   
   
-  const modal = document.getElementById("contact_modal");
+  const modal = document.querySelector('#contact_modal');
+  
   
   function displayModal() {
     
