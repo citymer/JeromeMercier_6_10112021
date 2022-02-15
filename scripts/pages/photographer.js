@@ -54,7 +54,6 @@ async function displayData(filterMedia) {
                         <div class="lightbox__container"><div class="mediacontent"></div>
                         </div>`;
                 
-                       // const lighboxContent = document.querySelector('.lightbox__container');
                     
                 
                          // replace les balise FOOTER et DIV Lightbox dans le DOM
@@ -106,7 +105,9 @@ async function displayData(filterMedia) {
                         
                         // function qui fait défiler les photos au click du bouton PREV
                         buttonPrev.addEventListener('click', () => {
-                            
+
+                       
+                             
                             if(i <= 0) i = allImg.length;
                             i--;
                             return setImg();
@@ -136,9 +137,11 @@ async function displayData(filterMedia) {
                                 return setImg();
                             }
                         })
-                        
+                    
                      // function qui attribut l'image a la lighbox
-                        function setImg() {
+                        function setImg(filterMedia) {
+
+                     
                             return imgBox.setAttribute('src',allImg[i]);
                         }
 };
@@ -148,9 +151,6 @@ async function displayData(filterMedia) {
   
     
 async function init() {
-
-
-    
 
         
         // Récupère les datas des photographes
@@ -166,9 +166,11 @@ async function init() {
     init();
 
 
+
+
             // classement des likes décroissant   
     
-           popularite.addEventListener('click', (e) => {
+           newOptionPopularite.addEventListener('click', () => {
                 document.getElementById('divphoto').innerHTML = "";
                      
                 let rangementLikes = filterMedia.sort((a, b) => {
@@ -185,7 +187,7 @@ async function init() {
 
             // classement alphabethique des titres
                  
-           titres.addEventListener('click', (e) => {
+           newOptionTitre.addEventListener('click', () => {
                document.getElementById('divphoto').innerHTML = "";
 
              let classementAlphabethique = filterMedia.sort((a, b) => {
@@ -198,25 +200,34 @@ async function init() {
                     attachInformationMedia(media);
                 })
 
-              
                 
             });
                              
             // classement par date
             
-           date.addEventListener('click', (e) => {
+          newOptionDate.addEventListener('click', () => {
                
                  document.getElementById('divphoto').innerHTML= "";
    
              let classementParDate = filterMedia.sort((a, b) => {
-                 return a.date - b.date;
+                 let aDate = a.date;
+                 let bDate = b.date;
+
+                 if (aDate < bDate) {
+                    return -1;
+                } else if (aDate == bDate) {
+                    return 0;
+                } else {
+                    return 1;
+                }
+                
                });
                classementParDate.forEach((media) => {
                    attachInformationMedia(media);
                })
 
              
-           })   
+           })   /*
 
 
 // apparition du sous-menu
@@ -243,7 +254,7 @@ chevronUp.addEventListener('click', () => {
     sousMenu.style.display = "none";
     button.style.display = "block";
 })
-
+*/
         
  
  

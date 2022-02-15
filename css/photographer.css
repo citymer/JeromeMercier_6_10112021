@@ -80,7 +80,34 @@ body {
     margin-left: 100px;
     color:black;
 }
+.divselect {
+    margin-left: 20px;
+}
+.newselect , .newmenu{
+    background-color: #901C1C;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 15px 20px 15px 20px;
+}
 
+.new-option-date, .new-option-popularite{
+    padding: 10px 10px 10px 20px;
+    border-bottom:2px solid white ;
+    cursor: pointer;
+}
+.new-option-titre {
+    padding: 10px 10px 10px 20px;
+    cursor: pointer;
+}
+.fa-chevron-up {
+    padding-left: 30px;
+}
+#select {
+    display: none;
+}
+/*
 .boutontrie {
     display: block;
     position: relative;
@@ -102,6 +129,7 @@ body {
     
 }
 /* chevron down */
+/*
 .fa-chevron-down {
     font-size: 20px;
     position: absolute;
@@ -162,7 +190,7 @@ body {
     margin-top: 20px;
     margin-right: auto;
     margin-left: 37px;
-}
+}*/
 
 
 

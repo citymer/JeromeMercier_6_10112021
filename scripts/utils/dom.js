@@ -20,9 +20,13 @@ sectionTrier.setAttribute("role","listbox");
     label.setAttribute("aria-label","trier par");
     sectionTrier.appendChild(label);
 
-   /* const select = document.createElement('select');
-    sectionTrier.appendChild(select);
-    select.setAttribute("id","select");
+    const divSelect = document.createElement('div');
+    sectionTrier.appendChild(divSelect);
+    divSelect.setAttribute("class","divselect");
+
+      const select = document.createElement('select');
+      divSelect.appendChild(select);
+      select.setAttribute("id","select");
           
            const optiondate = document.createElement('option');
            select.appendChild(optiondate);
@@ -38,9 +42,49 @@ sectionTrier.setAttribute("role","listbox");
            const optionTitre = document.createElement('option');
            select.appendChild(optionTitre);
            optionTitre.setAttribute("value","titre");
-           optionTitre.textContent = "Titre";*/
+           optionTitre.textContent = "Titre";
 
-    const divButton = document.createElement('div');
+       const newSelect = document.createElement('div');
+       divSelect.appendChild(newSelect);
+       newSelect.setAttribute("class","newselect"); 
+
+          const chevronDown = document.createElement('i');
+          newSelect.appendChild(chevronDown);
+          chevronDown.setAttribute("class","fas fa-chevron-down");
+          chevronDown.setAttribute("tabindex","0");
+     
+
+         const newMenu = document.createElement('div');
+         divSelect.appendChild(newMenu);
+         newMenu.setAttribute("class","newmenu close");
+          
+            newSelect.innerHTML = select.options[select.selectedIndex].innerHTML;
+             
+             const newOptionDate = document.createElement('div');
+             newMenu.appendChild(newOptionDate);
+             newOptionDate.innerHTML = select.options[0].innerHTML;
+             newOptionDate.setAttribute("class","new-option-date")
+
+                 const chevronUp = document.createElement('i');
+                  newOptionDate.appendChild(chevronUp);
+                  chevronUp.setAttribute("class","fas fa-chevron-up");
+                  chevronUp.setAttribute("tabindex","0");
+
+             const newOptionPopularite = document.createElement('div');
+             newMenu.appendChild(newOptionPopularite);
+             newOptionPopularite.innerHTML = select.options[1].innerHTML;
+             newOptionPopularite.setAttribute("class","new-option-popularite");
+
+             const newOptionTitre = document.createElement('div');
+             newMenu.appendChild(newOptionTitre);
+             newOptionTitre.innerHTML = select.options[2].innerHTML;
+             newOptionTitre.setAttribute("class","new-option-titre");
+            
+        
+
+       
+
+  /*  const divButton = document.createElement('div');
     sectionTrier.appendChild(divButton);
     divButton.setAttribute("class","divbutton");
 
@@ -104,7 +148,7 @@ sectionTrier.setAttribute("role","listbox");
                     titres.setAttribute("class","titre");
                     titres.setAttribute("role","option");
                     titres.setAttribute("tabindex","0");
-                    titres.textContent = "Titre"; 
+                    titres.textContent = "Titre"; */
 
                     
            
