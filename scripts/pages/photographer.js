@@ -182,7 +182,11 @@ async function init() {
                     attachInformationMedia(media);
                 })
 
-              
+                newSelect.innerHTML = "Popularite";
+                newMenu.style.display = "none";
+                newSelect.style.display = "block";
+                chevronDown.style.display = "block";
+
             })
 
             // classement alphabethique des titres
@@ -200,6 +204,10 @@ async function init() {
                     attachInformationMedia(media);
                 })
 
+                newSelect.innerHTML = "Titre";
+                newMenu.style.display = "none";
+                newSelect.style.display = "block";
+                chevronDown.style.display = "block";
                 
             });
                              
@@ -226,20 +234,33 @@ async function init() {
                    attachInformationMedia(media);
                })
 
+               newSelect.innerHTML = "Date";
+               newMenu.style.display = "none";
+               newSelect.style.display = "block";
+               chevronDown.style.display = "block";
              
-           })   /*
+           })   
 
 
 // apparition du sous-menu
+chevronDown.addEventListener('click', () => {
 
-chevron.addEventListener('click', () => {
-
-        sousMenu.style.display = "block";
-        button.style.display = "none";   
+        newMenu.style.display = "block";
+        newSelect.style.display = "none";
+        chevronDown.style.display = "none";   
  
 }) 
 
+// fermeture du sous-menu en cliquant sur le chevron
+chevronUp.addEventListener('click', () => {
 
+    newMenu.style.display = "none";
+    newSelect.style.display = "block";
+    chevronDown.style.display = "block";
+    
+})
+
+/*
 // ouvre le sous-menu en valider avec la touche ENTER du clavier
 window.addEventListener('keydown', (e) => {
         if (e.key === "Enter") {
@@ -249,10 +270,7 @@ window.addEventListener('keydown', (e) => {
         }
     })
 
-// fermeture du sous-menu en cliquant sur le chevron
-chevronUp.addEventListener('click', () => {
-    sousMenu.style.display = "none";
-    button.style.display = "block";
+
 })
 */
         

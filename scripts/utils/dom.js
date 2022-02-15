@@ -49,7 +49,7 @@ sectionTrier.setAttribute("role","listbox");
        newSelect.setAttribute("class","newselect"); 
 
           const chevronDown = document.createElement('i');
-          newSelect.appendChild(chevronDown);
+          divSelect.appendChild(chevronDown);
           chevronDown.setAttribute("class","fas fa-chevron-down");
           chevronDown.setAttribute("tabindex","0");
      

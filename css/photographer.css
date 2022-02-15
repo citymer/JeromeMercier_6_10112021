@@ -81,15 +81,28 @@ body {
     color:black;
 }
 .divselect {
+    position: relative;
     margin-left: 20px;
+    width: 170px;
+}
+.newselect {
+    display: block;
 }
 .newselect , .newmenu{
+    
     background-color: #901C1C;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     font-weight: 700;
-    padding: 15px 20px 15px 20px;
+    padding: 23px 20px 23px 30px;
+}
+.newmenu {
+    position: relative;
+    padding: 15px 20px 15px 10px;
+}
+.close {
+    display: none;
 }
 
 .new-option-date, .new-option-popularite{
@@ -102,97 +115,22 @@ body {
     cursor: pointer;
 }
 .fa-chevron-up {
-    padding-left: 30px;
+    position: absolute;
+    margin-left: 55px;
+    cursor: pointer;
+}
+.fa-chevron-down {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    top: 26px;
+    right: 30px;
+    cursor: pointer;
 }
 #select {
     display: none;
 }
-/*
-.boutontrie {
-    display: block;
-    position: relative;
-    width: 170px;
-    height: 70px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    margin-left: 20px;
-    color: white;
-    background-color: #901C1C;
-    border-radius:5px;
-    border: transparent;
-    cursor: pointer;
-}
-.textbutton {
-    margin-right: 55px;
-    font-size: 18px;
-    font-weight: 600;
-    
-}
-/* chevron down */
-/*
-.fa-chevron-down {
-    font-size: 20px;
-    position: absolute;
-    bottom: 25px;
-    left: 130px;
-    
-    
-}
-.sousmenu {
-    display: none;
-    list-style: none; 
-    width: 170px;
-    height: 170px;
-    padding-left: 0;
-    margin-left: 20px;
-    margin-top: 0;
-    font-size: 18px;
-    font-weight: 700;
-    background-color: #901C1C;
-    color: white;
-    border-radius:5px;
-    
-}
-.divdatechevron {
-    width: 100%;
-    display: flex;
-   justify-content: space-around;
- 
-}
-
-.fa-chevron-up {
-    font-size: 20px;
-    margin-right: 22px;
-    margin-top: 23px;
-    cursor: pointer;
-}
-.lineup , .linedown {
-    position: absolute;
-    margin-left: 4px;
-    height: 2px;
-    width: 160px;
-    background-color: white;
-    border-radius: 1px;
-}
-.lineup {
-    top: 60px;
-}
-.linedown {
-    top: 115px;
-} 
- .popularite, .titre {
-    cursor: pointer;
-    margin-left: 37px;
-    margin-top: 29px;
-}
-.date {
-    cursor: pointer;
-    margin-top: 20px;
-    margin-right: auto;
-    margin-left: 37px;
-}*/
-
-
 
 
 /* SECTION DIV PHOTO */
