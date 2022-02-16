@@ -27,24 +27,30 @@ sectionTrier.setAttribute("role","listbox");
       const select = document.createElement('select');
       divSelect.appendChild(select);
       select.setAttribute("id","select");
+      select.setAttribute("class","newselect");
           
            const optiondate = document.createElement('option');
            select.appendChild(optiondate);
            optiondate.setAttribute("value","date");
+           optiondate.setAttribute("class","new-option-date")
            optiondate.setAttribute("selected","");
            optiondate.textContent = "Date";
 
            const optionPopularite = document.createElement('option');
            select.appendChild(optionPopularite);
            optionPopularite.setAttribute("value","popularite");
+           optionPopularite.setAttribute("id","popularite");
+           optionPopularite.setAttribute("class","new-option-popularite");
            optionPopularite.textContent = "Popularite";
 
            const optionTitre = document.createElement('option');
            select.appendChild(optionTitre);
            optionTitre.setAttribute("value","titre");
+           optionTitre.setAttribute("class","new-option-titre");
+           optionTitre.setAttribute("id","titre");
            optionTitre.textContent = "Titre";
 
-       const newSelect = document.createElement('div');
+     /*  const newSelect = document.createElement('div');
        divSelect.appendChild(newSelect);
        newSelect.setAttribute("class","newselect"); 
 
@@ -57,98 +63,50 @@ sectionTrier.setAttribute("role","listbox");
          const newMenu = document.createElement('div');
          divSelect.appendChild(newMenu);
          newMenu.setAttribute("class","newmenu close");
-          
-            newSelect.innerHTML = select.options[select.selectedIndex].innerHTML;
-             
-             const newOptionDate = document.createElement('div');
-             newMenu.appendChild(newOptionDate);
-             newOptionDate.innerHTML = select.options[0].innerHTML;
-             newOptionDate.setAttribute("class","new-option-date")
-
-                 const chevronUp = document.createElement('i');
-                  newOptionDate.appendChild(chevronUp);
-                  chevronUp.setAttribute("class","fas fa-chevron-up");
-                  chevronUp.setAttribute("tabindex","0");
-
-             const newOptionPopularite = document.createElement('div');
-             newMenu.appendChild(newOptionPopularite);
-             newOptionPopularite.innerHTML = select.options[1].innerHTML;
-             newOptionPopularite.setAttribute("class","new-option-popularite");
-
-             const newOptionTitre = document.createElement('div');
-             newMenu.appendChild(newOptionTitre);
-             newOptionTitre.innerHTML = select.options[2].innerHTML;
-             newOptionTitre.setAttribute("class","new-option-titre");
             
-        
+            //donne le contenu de l'option actuellement choisi dans le select
+            newSelect.innerHTML = select.options[select.selectedIndex].innerHTML;
 
-       
-
-  /*  const divButton = document.createElement('div');
-    sectionTrier.appendChild(divButton);
-    divButton.setAttribute("class","divbutton");
-
-    const button = document.createElement('button');
-    divButton.appendChild(button);
-    button.setAttribute("class","boutontrie");
-               
-              const textButton = document.createElement('div');
-              button.appendChild(textButton);
-              textButton.textContent = "Date";
-              textButton.setAttribute("tabindex","0");
-              textButton.setAttribute("class","textbutton");
-
-              const chevron = document.createElement('i');
-              button.appendChild(chevron);
-              chevron.setAttribute("class","fas fa-chevron-down");
-              chevron.setAttribute("id","chevron");
-              chevron.setAttribute("role","button");
-              chevron.setAttribute("tabindex","0");
+            
+            const newOptionDate = document.createElement('div');
+            newMenu.appendChild(newOptionDate);
+            // on copie le contenu de l'option
+            newOptionDate.innerHTML = select.options[0].innerHTML;
+            newOptionDate.setAttribute("class","new-option-date")
+            
+            
+            
+            const newOptionPopularite = document.createElement('div');
+            newMenu.appendChild(newOptionPopularite);
+             // on copie le contenu de l'option
+            newOptionPopularite.innerHTML = select.options[1].innerHTML;
+            newOptionPopularite.setAttribute("class","new-option-popularite");
+           
+            newOptionPopularite.setAttribute("id","popularite");
+            
+            
+            const newOptionTitre = document.createElement('div');
+            newMenu.appendChild(newOptionTitre);
+            // on copie le contenu de l'option
+            newOptionTitre.innerHTML = select.options[2].innerHTML;
+            newOptionTitre.setAttribute("class","new-option-titre");
            
 
-     const sousMenu = document.createElement('ul');
-     divButton.appendChild(sousMenu);
-     sousMenu.setAttribute("class","sousmenu");
-    
-            
-            const divDateChevron = document.createElement('div');
-            sousMenu.appendChild(divDateChevron);
-            divDateChevron.setAttribute("class","divdatechevron");
 
-                    const date = document.createElement('li');
-                    divDateChevron.appendChild(date);
-                    date.setAttribute("class","date");
-                    date.setAttribute("role","option");
-                    date.setAttribute("tabindex","0");
-                    date.textContent = "Date";
-
-                    const chevronUp = document.createElement('i');
-                    divDateChevron.appendChild(chevronUp);
-                    chevronUp.setAttribute("class","fas fa-chevron-up");
-                    chevronUp.setAttribute("role","button");
-                    chevronUp.setAttribute("tabindex","0");
+            newMenu.addEventListener("click",function(){
+                for (let option of select.options){
+                    console.log(option);
                     
-                    const lineUp = document.createElement('div');
-                    sousMenu.appendChild(lineUp);
-                    lineUp.setAttribute("class","lineup");
-
-                    const popularite = document.createElement('li');
-                    sousMenu.appendChild(popularite);
-                    popularite.setAttribute("class","popularite");
-                    popularite.setAttribute("role","option");
-                    popularite.setAttribute("tabindex","0");
-                    popularite.textContent = "Popularité";
-
-                    const lineDown = document.createElement('div');
-                    sousMenu.appendChild(lineDown);
-                    lineDown.setAttribute("class","linedown");
-
-                    const titres = document.createElement('li');
-                    sousMenu.appendChild(titres);
-                    titres.setAttribute("class","titre");
-                    titres.setAttribute("role","option");
-                    titres.setAttribute("tabindex","0");
-                    titres.textContent = "Titre"; */
+                    if (option.innerHTML === newMenu.innerText){
+                        select.selectedIndex = option.index;
+                        console.log(select.selectedIndex);
+                        
+                        break;
+                    }
+                }
+            })
+                */
+        
 
                     
            

@@ -85,39 +85,47 @@ body {
     margin-left: 20px;
     width: 170px;
 }
-.newselect {
+.newselect ,#select{
     display: block;
+    cursor: pointer;
+    padding: 23px 20px 23px 30px;
 }
-.newselect , .newmenu{
+.newselect {
+
     
     background-color: #901C1C;
     border-radius: 5px;
     color: white;
     font-size: 18px;
     font-weight: 700;
-    padding: 23px 20px 23px 30px;
+}
+/* radius de newSelect quand newMenu est ouvert */
+.radius {
+    border-radius: 5px 5px 0px 0px;
 }
 .newmenu {
     position: relative;
-    padding: 15px 20px 15px 10px;
+    padding: 2px 20px 15px 10px;
+    border-radius: 0px 0px 5px 5px;
 }
+/* ferme le newMenu */
 .close {
     display: none;
 }
 
-.new-option-date, .new-option-popularite{
+ .new-option-popularite, #popularite{
     padding: 10px 10px 10px 20px;
     border-bottom:2px solid white ;
+    border-top:2px solid white ;
     cursor: pointer;
 }
 .new-option-titre {
     padding: 10px 10px 10px 20px;
     cursor: pointer;
 }
-.fa-chevron-up {
-    position: absolute;
-    margin-left: 55px;
-    cursor: pointer;
+/* fait pivoter le chevron */
+.rotate {
+    transform: rotate(180deg);
 }
 .fa-chevron-down {
     position: absolute;
@@ -126,10 +134,10 @@ body {
     color: white;
     top: 26px;
     right: 30px;
-    cursor: pointer;
+  
 }
 #select {
-    display: none;
+    display: block;
 }
 
 

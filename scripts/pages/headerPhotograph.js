@@ -1,6 +1,6 @@
 // Récupère et affiche les informations des photographes dans la section photograph-header ***
 function attachInformationPhotograph(photographers) {
-     
+    
     
     const { name, portrait, city, country, tagline,price,alt,id} = this.filterPhotographer[0];
       

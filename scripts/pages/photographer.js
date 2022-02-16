@@ -94,7 +94,7 @@ async function displayData(filterMedia) {
                         const selectImg = document.querySelectorAll('.imgarticle');
                         // tableau qui regroupe les src des images
                         let allImg = [];
-                        console.log(allImg);
+                
                         for (let src of selectImg) {
                             allImg.push(src)
                         }
@@ -110,7 +110,7 @@ async function displayData(filterMedia) {
                              
                             if(i <= 0) i = allImg.length;
                             i--;
-                            return setImg();
+                            return setImg(i);
                         });
                         
                         // fait défiler les photos avec le bouton du clavier "<--"
@@ -118,7 +118,7 @@ async function displayData(filterMedia) {
                             if (e.key === "ArrowLeft") {
                                 if(i <= 0) i = allImg.length;
                                 i--;
-                                return setImg();
+                                return setImg(i);
                             }
                         })
                         
@@ -126,7 +126,7 @@ async function displayData(filterMedia) {
                         buttonNext.addEventListener('click', () => {
                             if(i >= allImg.length - 1) i = -1;
                             i++;
-                            return setImg();
+                            return setImg(i);
                         })
                         
                         // fait défiler les photos avec le bouton du clavier "-->"
@@ -134,15 +134,20 @@ async function displayData(filterMedia) {
                             if (e.key === "ArrowRight") {
                                 if(i >= allImg.length - 1) i = -1;
                                 i++;
-                                return setImg();
+                                return setImg(i);
                             }
                         })
                     
                      // function qui attribut l'image a la lighbox
-                        function setImg(filterMedia) {
+                        function setImg(i) {
 
-                     
-                            return imgBox.setAttribute('src',allImg[i]);
+                       console.log(filterMedia[i]);
+
+                         const imgBox = document.querySelector('.lightbox__img');
+
+                             imgBox.setAttribute('src',filterMedia[i].image);
+                             imgBox.setAttribute('alt',filterMedia[i].alt);
+                             document.querySelector('.titlemedia').textContent = filterMedia[i].title;
                         }
 };
 
@@ -161,6 +166,28 @@ async function init() {
         displayData(filterMedia);
      
          
+        // classement alphabethique des titres
+        const titre = document.getElementById('select');
+         
+        
+        titre.addEventListener('change', function() {
+           console.log(this.value);
+           document.getElementById('divphoto').innerHTML = "";
+        
+         let classementAlphabethique = filterMedia.sort((a, b) => {
+                if (a.title < b.title) { return -1;}
+                else {return 1;};
+                
+            });
+            
+            classementAlphabethique.forEach((media) => {
+                attachInformationMedia(media);
+            })
+        
+        
+            
+            
+        });
 };
     
     init();
@@ -170,7 +197,7 @@ async function init() {
 
             // classement des likes décroissant   
     
-           newOptionPopularite.addEventListener('click', () => {
+        /*   newOptionPopularite.addEventListener('click', () => {
                 document.getElementById('divphoto').innerHTML = "";
                      
                 let rangementLikes = filterMedia.sort((a, b) => {
@@ -182,67 +209,56 @@ async function init() {
                     attachInformationMedia(media);
                 })
 
-                newSelect.innerHTML = "Popularite";
-                newMenu.style.display = "none";
-                newSelect.style.display = "block";
-                chevronDown.style.display = "block";
-
-            })
-
-            // classement alphabethique des titres
-                 
-           newOptionTitre.addEventListener('click', () => {
-               document.getElementById('divphoto').innerHTML = "";
-
-             let classementAlphabethique = filterMedia.sort((a, b) => {
-                    if (a.title < b.title) { return -1;}
-                    if (a.title > b.title) {return 1;}
-                    return 0;
-                });
                 
-                classementAlphabethique.forEach((media) => {
-                    attachInformationMedia(media);
-                })
 
-                newSelect.innerHTML = "Titre";
-                newMenu.style.display = "none";
-                newSelect.style.display = "block";
-                chevronDown.style.display = "block";
-                
-            });
-                             
+            })*/
+
+            
             // classement par date
             
-          newOptionDate.addEventListener('click', () => {
-               
-                 document.getElementById('divphoto').innerHTML= "";
-   
-             let classementParDate = filterMedia.sort((a, b) => {
-                 let aDate = a.date;
-                 let bDate = b.date;
-
-                 if (aDate < bDate) {
-                    return -1;
-                } else if (aDate == bDate) {
-                    return 0;
-                } else {
-                    return 1;
-                }
+         /*  newOptionDate.addEventListener('click', () => {
                 
-               });
-               classementParDate.forEach((media) => {
-                   attachInformationMedia(media);
-               })
-
-               newSelect.innerHTML = "Date";
-               newMenu.style.display = "none";
-               newSelect.style.display = "block";
-               chevronDown.style.display = "block";
-             
-           })   
-
+                document.getElementById('divphoto').innerHTML= "";
+                
+                let classementParDate = filterMedia.sort((a, b) => {
+                    let aDate = a.date;
+                    let bDate = b.date;
+                    
+                    if (aDate < bDate) {
+                        return -1;
+                    } else if (aDate == bDate) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                    
+                });
+                classementParDate.forEach((media) => {
+                    attachInformationMedia(media);
+                })
+            
+               
+                
+            }) */ 
+            
 
 // apparition du sous-menu
+
+/*newSelect.addEventListener("click",function(e) {
+     // bloque la propagation du click
+     e.stopPropagation();
+     //retire le "close" de newMenu
+     newMenu.classList.toggle("close");
+     //ajoute la class "rotate" a chevron
+     chevronDown.classList.toggle("rotate");
+     //modifie le border-radius de newSelect
+     newSelect.classList.toggle("radius");
+     
+})*/
+
+
+
+/*
 chevronDown.addEventListener('click', () => {
 
         newMenu.style.display = "block";
@@ -251,28 +267,26 @@ chevronDown.addEventListener('click', () => {
  
 }) 
 
-// fermeture du sous-menu en cliquant sur le chevron
-chevronUp.addEventListener('click', () => {
 
-    newMenu.style.display = "none";
-    newSelect.style.display = "block";
-    chevronDown.style.display = "block";
-    
-})
 
-/*
+
 // ouvre le sous-menu en valider avec la touche ENTER du clavier
-window.addEventListener('keydown', (e) => {
+window.addEventListener('keydown', function(e)  {
+
         if (e.key === "Enter") {
-            sousMenu.style.display = "block";
-            button.style.display = "none";
+
+        newMenu.style.display = "block";
+        newSelect.style.display = "none";
+        chevronDown.style.display = "none";  
 
         }
-    })
+    })*/
 
 
-})
-*/
+
+
+
+
         
  
  
