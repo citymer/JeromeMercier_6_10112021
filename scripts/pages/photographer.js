@@ -141,8 +141,6 @@ async function displayData(filterMedia) {
                      // function qui attribut l'image a la lighbox
                         function setImg(i) {
 
-                       console.log(filterMedia[i]);
-
                          const imgBox = document.querySelector('.lightbox__img');
 
                              imgBox.setAttribute('src',filterMedia[i].image);
@@ -166,28 +164,63 @@ async function init() {
         displayData(filterMedia);
      
          
-        // classement alphabethique des titres
         const titre = document.getElementById('select');
-         
+        
         
         titre.addEventListener('change', function() {
-           console.log(this.value);
-           document.getElementById('divphoto').innerHTML = "";
+
+            let value = this.value;
         
-         let classementAlphabethique = filterMedia.sort((a, b) => {
-                if (a.title < b.title) { return -1;}
-                else {return 1;};
+            document.getElementById('divphoto').innerHTML = "";
+
+            // classement alphabethique des titres
+        if (value == "titre") {
+
+            let classementAlphabethique = filterMedia.sort((a, b) => {
+                   if (a.title < b.title) { return -1;}
+                   else {return 1;};
+                   
+               });
+               
+               classementAlphabethique.forEach((media) => {
+                   attachInformationMedia(media);
+               })
+
+            // classement des likes décroissant  
+        }else if (value == "popularite") {
+
+            let rangementLikes = filterMedia.sort((a, b) => {
+                return b.likes - a.likes;
+
+           }); 
+       
+           rangementLikes.forEach((media) => {
+               attachInformationMedia(media);
+           })
+           
+           // classement par date
+        }else if (value == "date") {
+            let classementParDate = filterMedia.sort((a, b) => {
+                let aDate = a.date;
+                let bDate = b.date;
+                
+                if (aDate < bDate) {
+                    return -1;
+                } else if (aDate == bDate) {
+                    return 0;
+                } else {
+                    return 1;
+                }
                 
             });
-            
-            classementAlphabethique.forEach((media) => {
+            classementParDate.forEach((media) => {
                 attachInformationMedia(media);
             })
-        
-        
-            
+        }
             
         });
+
+        
 };
     
     init();
