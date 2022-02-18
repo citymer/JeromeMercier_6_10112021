@@ -5,7 +5,7 @@
     let imgArticle;
     let videoArticle;
                
-        
+    
    
         // <article>
        const articlePhoto = document.createElement('article');
@@ -63,7 +63,8 @@
                    videoArticle.addEventListener('click', () => {
    
                    const lighboxContent = document.querySelector('.mediacontent');
-                 lighboxContent.innerHTML ="";
+
+                    lighboxContent.innerHTML ="";
                       // <video>  LIGHTBOX
                      const lighboxVideo = document.createElement('video');
                      lighboxContent.appendChild(lighboxVideo); 
@@ -117,22 +118,24 @@
    
    
                
-               // COMPTEUR DE LIKES 
-               
-               heart.addEventListener('click',function(){
-               
-                   const textNumber = document.querySelector('.totalnumber');
-                   textNumber.textContent = parseInt(textNumber.textContent)+1;
-       
-                   // cible le span qui contient le nombre de like par son id 
-                   selectTextNumber = document.getElementById(media.id);
-                   selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
-     
-               })
+                       // COMPTEUR DE LIKES 
+                                 
+                       heart.addEventListener('click',function(){
+                                 
+                          const textNumber = document.querySelector('.totalnumber');
+                          textNumber.textContent = parseInt(textNumber.textContent)+1;
+                       
+                          // cible le span qui contient le nombre de like par son id 
+                          selectTextNumber = document.getElementById(media.id);
+                          selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+                       
+                       })
+          
 
               
          
-            
-                    
-               
-   }
+}
+
+
+
+

@@ -50,7 +50,14 @@ sectionTrier.setAttribute("role","listbox");
            optionTitre.setAttribute("id","titre");
            optionTitre.textContent = "Titre";
 
-     /*  const newSelect = document.createElement('div');
+
+            let selectElem = document.getElementById('select');
+            let popularite = document.getElementById('popularite');
+            selectElem.addEventListener('change', function() {
+                let index = selectElem.selectedIndex;
+                popularite.innerHTML = select.options[select.selectedIndex];
+            })
+       const newSelect = document.createElement('div');
        divSelect.appendChild(newSelect);
        newSelect.setAttribute("class","newselect"); 
 
@@ -93,7 +100,7 @@ sectionTrier.setAttribute("role","listbox");
            
 
 
-            newMenu.addEventListener("click",function(){
+          /*  newMenu.addEventListener("click",function(){
                 for (let option of select.options){
                     console.log(option);
                     
