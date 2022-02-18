@@ -24,6 +24,7 @@ function lightbox(filterMedia) {
     const buttonPrev = document.querySelector('.lightbox__prev');
     const buttonClose = document.querySelector('.lightbox__close');
     const lienphoto = document.querySelectorAll('.lienimage');
+
     //on ajoute l'ecouteur click sur les liens
     for(let link of lienphoto) {
         link.addEventListener("click",function(e){
@@ -66,7 +67,6 @@ function lightbox(filterMedia) {
     // function qui fait défiler les photos au click du bouton PREV
     buttonPrev.addEventListener('click', () => {
 
-         
         if(i <= 0) i = allImg.length;
         i--;
         return setImg(i);
@@ -108,96 +108,97 @@ function lightbox(filterMedia) {
      mediaContent.innerHTML = "";
 
 
-if (filterMedia[i].video === undefined) {
+       if (filterMedia[i].video === undefined) {
 
- // <img> LIGHBOX
- const lighboxImg = document.createElement('img');
- mediaContent.appendChild(lighboxImg);
- lighboxImg.setAttribute("class","lightbox__img");
- lighboxImg.setAttribute("alt",filterMedia[i].alt);
- lighboxImg.setAttribute("src",filterMedia[i].image);
+          // <img> LIGHBOX
+          const lighboxImg = document.createElement('img');
+          mediaContent.appendChild(lighboxImg);
+          lighboxImg.setAttribute("class","lightbox__img");
+          lighboxImg.setAttribute("alt",filterMedia[i].alt);
+          lighboxImg.setAttribute("src",filterMedia[i].image);
 
-  //titre img lightbox
-  const titleImg = document.createElement('span');
-  mediaContent.appendChild(titleImg);
-  titleImg.setAttribute("class","titlemedia");
-  titleImg.textContent = filterMedia[i].title;
+           //titre img lightbox
+          const titleImg = document.createElement('span');
+          mediaContent.appendChild(titleImg);
+          titleImg.setAttribute("class","titlemedia");
+          titleImg.textContent = filterMedia[i].title;
 
      
-    }else if(filterMedia[i].image == undefined) {
+        }else if(filterMedia[i].image == undefined) {
 
-   // <video>  LIGHTBOX
- const lighboxVideo = document.createElement('video');
- mediaContent.appendChild(lighboxVideo); 
- lighboxVideo.setAttribute("class","lightbox__video");
- lighboxVideo.setAttribute("alt",filterMedia[i].alt);
- lighboxVideo.setAttribute("src",filterMedia[i].video);
- lighboxVideo.setAttribute("type","video/mp4");
- lighboxVideo.setAttribute("controls","");
- }
- //titre video lightbox
- const titleVideo = document.createElement('span');
- mediaContent.appendChild(titleVideo);
- titleVideo.setAttribute("class","titlemedia");
- titleVideo.textContent = filterMedia[i].title;
+          // <video>  LIGHTBOX
+         const lighboxVideo = document.createElement('video');
+         mediaContent.appendChild(lighboxVideo); 
+         lighboxVideo.setAttribute("class","lightbox__video");
+         lighboxVideo.setAttribute("alt",filterMedia[i].alt);
+         lighboxVideo.setAttribute("src",filterMedia[i].video);
+         lighboxVideo.setAttribute("type","video/mp4");
+         lighboxVideo.setAttribute("controls","");
+        }
 
-        
+      //titre video lightbox
+        const titleVideo = document.createElement('span');
+        mediaContent.appendChild(titleVideo);
+        titleVideo.setAttribute("class","titlemedia");
+        titleVideo.textContent = filterMedia[i].title;   
         
     }
-    const selectMenu = document.getElementById('select');
 
+
+    const selectMenu = document.getElementById('select');
 
     selectMenu.addEventListener('change', function() {
 
-    
-        document.getElementById('divphoto').innerHTML = "";
+     document.getElementById('divphoto').innerHTML = "";
 
-        // classement alphabethique des titres
-    if (this.value == "titre") {
+     // classement alphabethique des titres
 
-        let classementAlphabethique = filterMedia.sort((a, b) => {
+        if (this.value == "titre") {
+
+            let classementAlphabethique = filterMedia.sort((a, b) => {
                if (a.title < b.title) { return -1;}
                else {return 1;};
                
             });
+
             classementAlphabethique.forEach((media) => {
                 attachInformationMedia(media);
      
-           })
+            })
 
-        // classement des likes décroissant  
-    }else if (this.value == "popularite") {
+         // classement des likes décroissant  
+        } else if (this.value == "popularite") {
 
-        let rangementLikes = filterMedia.sort((a, b) => {
-            return b.likes - a.likes;
+            let rangementLikes = filterMedia.sort((a, b) => {
+               return b.likes - a.likes;
 
-       }); 
+            }); 
    
-       rangementLikes.forEach((media) => {
-           attachInformationMedia(media);
-       })
+            rangementLikes.forEach((media) => {
+              attachInformationMedia(media);
+            })
 
-       // classement par date
-    }else if (this.value == "date") {
+            // classement par date
+        }else if (this.value == "date") {
 
-        let classementParDate = filterMedia.sort((a, b) => {
-            let aDate = a.date;
-            let bDate = b.date;
+            let classementParDate = filterMedia.sort((a, b) => {
+               let aDate = a.date;
+               let bDate = b.date;
             
-            if (aDate < bDate) {
-                return -1;
-            } else if (aDate == bDate) {
-                return 0;
-            } else {
-                return 1;
-            }
+               if (aDate < bDate) {
+                   return -1;
+                } else if (aDate == bDate) {
+                   return 0;
+                } else {
+                   return 1;
+                }
             
-        });
+            });
 
-        classementParDate.forEach((media) => {
-            attachInformationMedia(media);
-        })
-    }
+            classementParDate.forEach((media) => {
+               attachInformationMedia(media);
+            })
+        }
         
     });
 
