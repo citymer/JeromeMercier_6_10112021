@@ -26,10 +26,7 @@ async function displayData(filterMedia) {
     });
 };
 
-
-   
-            
-            
+           
           
     
 async function init() {
@@ -43,11 +40,8 @@ async function init() {
         displayData(filterMedia);
 
         lightbox(filterMedia);
-        
         counterTotalLikes(filterMedia);
-         
-   
-
+        sortMedia(filterMedia);
         
 };
     
