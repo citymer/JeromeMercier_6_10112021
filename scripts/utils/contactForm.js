@@ -16,14 +16,18 @@
     document.querySelector('#main').style.display = "block";
   }
   
-  // ferme le formulaire avec boutton "esc"
+  // ferme le formulaire avec boutton "ESC"
   window.addEventListener('keydown', function (e) {
     if (e.key === "Escape" || e.key === "Esc") {
       closeModal(e);
     };
   })
-  
-  
+  //ferme le formulaire avec "ENTER " quand button close est selectionné avec TAB
+  document.querySelector('div header img').addEventListener('keydown',function(e){
+    if (e.key === "Enter" ) {
+      closeModal(e);
+    };
+  })
 
   
   

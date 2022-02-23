@@ -45,10 +45,11 @@ function lightbox(filterMedia) {
         })
     }
     
+    const mediaContent = document.querySelector('.mediacontent');
     // active le bouton close 
     buttonClose.addEventListener("click",function() {
         lightbox.classList.remove("show");
-
+       
     }) 
 
     //selection des images 
@@ -97,7 +98,6 @@ function lightbox(filterMedia) {
         }
     })
 
-    const mediaContent = document.querySelector('.mediacontent');
  
 
  // function qui attribut l'image a la lighbox
