@@ -310,7 +310,7 @@ form p {
   
 }
 .lightbox__next{
-    background:  url(JeromeMercier_6_10112021/assets/icons/chevron-right.svg) center center / 48px 29.64px no-repeat;
+    background:  url(/assets/icons/chevron-right.svg) center center / 48px 29.64px no-repeat;
     height:90% ;
     width: 48px;
     top: 50px;
