@@ -316,16 +316,15 @@ form p {
     top: 50px;
     right: 0;
 }
-.lightbox__prev {
-    background: url(/assets/icons/chevron-left-solid.svg) center center / 48px 29.64px no-repeat;
-    height: 90%;
-    width: 48px;
+.fa-chevron-right{
+ 
+   font-size: 100px;
     top: 50px;
     left: 0;
+    color: #901C1C;
 }
 .lightbox__close {
-   /* background: url(/assets/icons/close.svg) center center / 32px 32px no-repeat;*/
-   background-color: white;
+    background: url(/assets/icons/close.svg) center center / 32px 32px no-repeat;
     height: 32px;
     width: 32px;
     top: 5px;
