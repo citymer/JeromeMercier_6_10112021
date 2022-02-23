@@ -8,7 +8,7 @@ function lightbox(filterMedia) {
 
     lightbox.setAttribute("class","lightbox");
     lightbox.innerHTML = `<button class="lightbox__close" role="button" aria-label="close"></button>
-    <i class="fas fa-chevron-right lightbox__next"></i>
+    <button class="lightbox__next" role="button" aria-label="next"></button>
     <button class="lightbox__prev" role="button" aria-label="prev"></button>
     <div class="lightbox__container">
           <div class="mediacontent"> </div>
