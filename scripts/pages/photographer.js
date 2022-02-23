@@ -11,13 +11,27 @@
       
       textNumber.textContent = somme;
  }           
-            
+ 
+ 
+ 
 async function displayData(filterMedia) {
                 
     
     attachInformationPhotograph();
     
-    
+    let classementParDate = filterMedia.sort((a, b) => {
+        let aDate = a.date;
+        let bDate = b.date;
+     
+        if (aDate < bDate) {
+            return -1;
+         } else if (aDate == bDate) {
+            return 0;
+         } else {
+            return 1;
+         }
+     
+     });
     // créer un article pour chaque photo
     filterMedia.forEach((media) => {
         

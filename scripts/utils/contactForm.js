@@ -7,11 +7,13 @@
   function displayModal() {
     
     modal.style.display = "block";
+    document.querySelector('#main').style.display = "none";
   }
   
   function closeModal() {
     
     modal.style.display = "none";
+    document.querySelector('#main').style.display = "block";
   }
   
   // ferme le formulaire avec boutton "esc"
@@ -231,6 +233,7 @@ envoyez.addEventListener('click',function() {
 
   if (verifAllTrue() === true) {
     modal.style.display = "none";
+    document.querySelector('#main').style.display = "block";
   }
 });  
 

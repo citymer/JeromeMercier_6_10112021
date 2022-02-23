@@ -27,7 +27,7 @@ sectionTrier.setAttribute("role","listbox");
       const select = document.createElement('select');
       divSelect.appendChild(select);
       select.setAttribute("id","select");
-      select.setAttribute("class","newselect");
+      
           
            const optiondate = document.createElement('option');
            select.appendChild(optiondate);
@@ -51,15 +51,15 @@ sectionTrier.setAttribute("role","listbox");
            optionTitre.textContent = "Titre";
 
 
-            let selectElem = document.getElementById('select');
-            let popularite = document.getElementById('popularite');
-            selectElem.addEventListener('change', function() {
-                let index = selectElem.selectedIndex;
-                popularite.innerHTML = select.options[select.selectedIndex];
-            })
+ /*     
+
        const newSelect = document.createElement('div');
        divSelect.appendChild(newSelect);
        newSelect.setAttribute("class","newselect"); 
+
+       //donne le contenu de l'option actuellement choisi dans le select
+       newSelect.innerHTML = select.options[select.selectedIndex].innerHTML;
+       console.log(newSelect.innerHTML);
 
           const chevronDown = document.createElement('i');
           divSelect.appendChild(chevronDown);
@@ -71,15 +71,28 @@ sectionTrier.setAttribute("role","listbox");
          divSelect.appendChild(newMenu);
          newMenu.setAttribute("class","newmenu close");
             
-            //donne le contenu de l'option actuellement choisi dans le select
-            newSelect.innerHTML = select.options[select.selectedIndex].innerHTML;
 
             
             const newOptionDate = document.createElement('div');
             newMenu.appendChild(newOptionDate);
             // on copie le contenu de l'option
             newOptionDate.innerHTML = select.options[0].innerHTML;
-            newOptionDate.setAttribute("class","new-option-date")
+            newOptionDate.setAttribute("class","new-option date");
+
+            newOptionDate.addEventListener("click",function(){
+
+             
+             
+                if(newOptionDate.innerHTML === optiondate.innerHTML) {
+                    select.selectedIndex = optiondate.index;
+                    newSelect.innerHTML = optiondate.innerHTML;
+                    newSelect.click();
+                    optiondate.click();
+                
+                }
+               
+            })
+            
             
             
             
@@ -87,34 +100,56 @@ sectionTrier.setAttribute("role","listbox");
             newMenu.appendChild(newOptionPopularite);
              // on copie le contenu de l'option
             newOptionPopularite.innerHTML = select.options[1].innerHTML;
-            newOptionPopularite.setAttribute("class","new-option-popularite");
-           
+            newOptionPopularite.setAttribute("class","new-option popularite");
             newOptionPopularite.setAttribute("id","popularite");
+
+            newOptionPopularite.addEventListener("click",function(){
+
+                if(newOptionPopularite.innerHTML === optionPopularite.innerHTML) {
+                    select.selectedIndex = optionPopularite.index;
+                    newSelect.innerHTML = optionPopularite.innerHTML;
+                    newSelect.click();
+                    optionPopularite.click();
+                    
+                }
+               
+            })
             
             
             const newOptionTitre = document.createElement('div');
             newMenu.appendChild(newOptionTitre);
             // on copie le contenu de l'option
             newOptionTitre.innerHTML = select.options[2].innerHTML;
-            newOptionTitre.setAttribute("class","new-option-titre");
-           
+            newOptionTitre.setAttribute("class","new-option titre");
 
+            newOptionTitre.addEventListener("click",function(){
 
-          /*  newMenu.addEventListener("click",function(){
-                for (let option of select.options){
-                    console.log(option);
-                    
-                    if (option.innerHTML === newMenu.innerText){
-                        select.selectedIndex = option.index;
-                        console.log(select.selectedIndex);
-                        
-                        break;
-                    }
+                if(newOptionTitre.innerHTML === optionTitre.innerHTML) {
+                    select.selectedIndex = optionTitre.index;
+                    newSelect.innerHTML = optionTitre.innerHTML;
+                    newSelect.click();
+                    optionTitre.click();
+                
                 }
             })
-                */
-        
+            
 
+
+          //ouvre le sous-menu
+           newSelect.addEventListener("click",function(e) {
+                // empeche la propagation du click
+                e.stopPropagation();
+                //retire la class "close" au newmenu
+                newMenu.classList.toggle("close");
+                //rotation du chevron
+                chevronDown.classList.toggle("rotate");
+                select.click();
+                
+                
+            })
+
+     
+*/
                     
            
 

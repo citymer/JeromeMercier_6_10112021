@@ -85,14 +85,16 @@ body {
     margin-left: 20px;
     width: 170px;
 }
-.newselect ,#select{
+#select{
+    display: block;
+}
+.newselect, #select {
     display: block;
     cursor: pointer;
     padding: 23px 20px 23px 30px;
 }
-.newselect {
+.newselect , #select{
 
-    
     background-color: #901C1C;
     border-radius: 5px;
     color: white;
@@ -107,19 +109,23 @@ body {
     position: relative;
     padding: 2px 20px 15px 10px;
     border-radius: 0px 0px 5px 5px;
+    background-color: #901C1C;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
 }
 /* ferme le newMenu */
 .close {
     display: none;
 }
 
- .new-option-popularite, #popularite{
+ .popularite{
     padding: 10px 10px 10px 20px;
     border-bottom:2px solid white ;
     border-top:2px solid white ;
     cursor: pointer;
 }
-.new-option-titre {
+.titre,.date{
     padding: 10px 10px 10px 20px;
     cursor: pointer;
 }
@@ -135,9 +141,6 @@ body {
     top: 26px;
     right: 30px;
   
-}
-#select {
-    display: block;
 }
 
 
