@@ -309,20 +309,20 @@ form p {
     cursor: pointer;
   
 }
-.lightbox__next{
-    background:  url(/assets/icons/chevron-right.svg) center center / 48px 29.64px no-repeat;
-    height:90% ;
-    width: 48px;
-    top: 50px;
-    right: 0;
+.lightbox__next, .lightbox__prev{
+
+ font-size: 50px;
+ color: #901C1C;
+ cursor: pointer;
+    
 }
 .lightbox__prev {
-    background: url(/assets/icons/chevron-left-solid.svg) center center / 48px 29.64px no-repeat;
-    height: 90%;
-    width: 48px;
-    top: 50px;
-    left: 0;
+    margin-left: 30px;
 }
+.lightbox__next {
+    margin-right: 30px;
+}
+
 .lightbox__close {
     background: url(/assets/icons/close.svg) center center / 32px 32px no-repeat;
     height: 32px;
@@ -330,21 +330,26 @@ form p {
     top: 5px;
     right: 0.5%;
 }
-.lightbox__container, .mediacontent {
+.lightbox__container {
+    display: flex;
+    align-items: center;
+}
+.mediacontent {
     text-align: center;
     height: 900px;
-    margin: 0 auto;
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
-.lightbox__container img , .lightbox__video{
+.lightbox__container img , .lightbox__container video{
     width: 80%;
     height: 80%;
     object-fit: contain;
     display: block;
-    margin:30px auto 10px;
+    margin:80px auto 10px;
     animation: lightboxIn 1.3s;
 }
+
 .titlemedia {
     font-size: 24px;
     width: 400px;
@@ -410,6 +415,9 @@ p{
     .lightbox__container img {
         width: 80%;
     }
+    .lightbox__container video {
+        height: 70%;
+     }
 }
 
 @media screen and (max-width:1080px) {
@@ -422,6 +430,11 @@ p{
     .lightbox__container img {
         width: 70%;
     }
+    .lightbox__container video {
+        height: 50%;
+        margin-top: 200px;
+     }
+  
 }
 
 @media screen and (max-width:992px) {
@@ -446,18 +459,13 @@ p{
     .modal header h2, .namephotograph{
         font-size: 38px;
     }
+    .lightbox__container img ,.lightbox__container video{
+        height: 50%;
+        margin-top: 210px;
+    }
 
-    .lightbox__container {
-        display: flex;
-        justify-content: center;
-        width: auto;
-        height: 100%;
-    }
-    .lightbox__container img {
-        width: 60%;
-        margin: 0;
-        
-    }
+
+
 }
 
 @media screen and (max-width:768px) {
@@ -472,6 +480,10 @@ p{
     .modal header img {
         height: 25px;
     }
+    .lightbox__container img ,.lightbox__container video{
+        height: 30%;
+        margin-top: 310px;
+    }
 }
 @media screen and (max-width:540px) {
     .trierpar {
@@ -485,4 +497,8 @@ p{
     .modal header h2 {
         font-size: 30px;
     }
+    .lightbox__container video {
+        height: 20%;
+        margin-top: 330px;
+    }    
 }

@@ -8,10 +8,12 @@ function lightbox(filterMedia) {
 
     lightbox.setAttribute("class","lightbox");
     lightbox.innerHTML = `<button class="lightbox__close" role="button" aria-label="close"></button>
-    <button class="lightbox__next" role="button" aria-label="next"></button>
-    <button class="lightbox__prev" role="button" aria-label="prev"></button>
+    
     <div class="lightbox__container">
+          <i class="fas fa-chevron-left lightbox__prev" role="button" aria-label="prev"></i>
           <div class="mediacontent"> </div>
+          <i class="fas fa-chevron-right lightbox__next " role="button" aria-label="next"></i>
+          
     </div>`;
 
 
@@ -29,7 +31,8 @@ function lightbox(filterMedia) {
     for(let link of lienphoto) {
         link.addEventListener("click",function(e){
             
-            console.log(lienphoto);
+         
+
             // désactive le comportement des liens
             e.preventDefault();
             
