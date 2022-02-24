@@ -7,12 +7,16 @@ function lightbox(filterMedia) {
     body.appendChild(lightbox);
 
     lightbox.setAttribute("class","lightbox");
-    lightbox.innerHTML = `<button class="lightbox__close" role="button" aria-label="close"></button>
+    lightbox.innerHTML = `
+                 
     
     <div class="lightbox__container">
           <i class="fas fa-chevron-left lightbox__prev" role="button" aria-label="prev"></i>
           <div class="mediacontent"> </div>
           <i class="fas fa-chevron-right lightbox__next " role="button" aria-label="next"></i>
+          <p><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="#901c1c"/>
+          </svg></p>
           
     </div>`;
 

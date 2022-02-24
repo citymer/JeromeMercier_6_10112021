@@ -324,13 +324,13 @@ form p {
 }
 
 .lightbox__close {
-    background: url(/assets/icons/close.svg) center center / 32px 32px no-repeat;
-    height: 32px;
-    width: 32px;
-    top: 5px;
-    right: 0.5%;
+   
+  
+
+  
 }
 .lightbox__container {
+    position: relative;
     display: flex;
     align-items: center;
 }
