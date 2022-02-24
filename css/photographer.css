@@ -323,9 +323,12 @@ form p {
     margin-right: 30px;
 }
 
-.lightbox__close {
+.lightbox__container p {
    
-  
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
 
   
 }
