@@ -29,23 +29,32 @@
                    imgArticle.setAttribute("class","imgarticle");
                    imgArticle.setAttribute("src",media.image);
                    imgArticle.setAttribute("alt",media.alt);
+                   imgArticle.id = media.id;
                    
                    
-                      imgArticle.addEventListener('click', () => {
-                       
+                      imgArticle.addEventListener('click', (e) => {
+                          e.preventDefault();
+                    
+                
                        const lighboxContent = document.querySelector('.mediacontent');
                         lighboxContent.innerHTML = "";
+
                        // <img> LIGHBOX
                        const lighboxImg = document.createElement('img');
                        lighboxContent.appendChild(lighboxImg);
                        lighboxImg.setAttribute("class","lightbox__img");
                        lighboxImg.setAttribute("alt",media.alt);
                       lighboxImg.setAttribute("src",media.image);
+                      lighboxImg.id = media.id;
+                      
                       //titre img lightbox
                       const titleImg = document.createElement('span');
                       lighboxContent.appendChild(titleImg);
                       titleImg.setAttribute("class","titlemedia");
                       titleImg.textContent = media.title;
+                      //ouvre la lightbox
+                      document.querySelector('.lightbox').classList.add("show");
+                      
                    }) 
                    
                    
@@ -59,9 +68,11 @@
                    videoArticle.setAttribute("src",media.video);
                    videoArticle.setAttribute("type","video/mp4");
                    videoArticle.setAttribute("controls","");
+                   videoArticle.id = media.id;
    
-                   videoArticle.addEventListener('click', () => {
-   
+                   videoArticle.addEventListener('click', (e) => {
+                    e.preventDefault();
+
                    const lighboxContent = document.querySelector('.mediacontent');
 
                     lighboxContent.innerHTML ="";
@@ -78,7 +89,8 @@
                        lighboxContent.appendChild(titleVideo);
                        titleVideo.setAttribute("class","titlemedia");
                        titleVideo.textContent = media.title;
-   
+                       //ouvre la lightbox
+                       document.querySelector('.lightbox').classList.add("show");
                 })
                
                }; 
@@ -135,7 +147,5 @@
               
          
 }
-
-
 
 

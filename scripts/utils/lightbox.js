@@ -10,11 +10,11 @@ function lightbox(filterMedia) {
     lightbox.innerHTML = `
                  
     
-    <div class="lightbox__container">
-          <i class="fas fa-chevron-left lightbox__prev" role="button" aria-label="prev"></i>
+    <div class="lightbox__container" >
+          <i class="fas fa-chevron-left lightbox__prev" role="button" aria-label="prev" tabindex="0"></i>
           <div class="mediacontent"> </div>
-          <i class="fas fa-chevron-right lightbox__next " role="button" aria-label="next"></i>
-          <p class="lightbox__close" role="button" aria-label="close"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <i class="fas fa-chevron-right lightbox__next " role="button" aria-label="next" tabindex="0"></i>
+          <p class="lightbox__close" role="button" aria-label="close" tabindex="0"><svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="#901c1c"/>
           </svg></p>
           
@@ -25,6 +25,7 @@ function lightbox(filterMedia) {
      // replace les balise FOOTER et DIV Lightbox dans le DOM
     document.body.insertBefore(lightbox,main);
     document.body.insertBefore(footer,contactModal);
+    const selectMenu = document.getElementById('select');
 
     const buttonNext = document.querySelector('.lightbox__next');
     const buttonPrev = document.querySelector('.lightbox__prev');
@@ -34,8 +35,6 @@ function lightbox(filterMedia) {
     //on ajoute l'ecouteur click sur les liens
     for(let link of lienphoto) {
         link.addEventListener("click",function(e){
-            
-         
 
             // désactive le comportement des liens
             e.preventDefault();
@@ -58,48 +57,56 @@ function lightbox(filterMedia) {
         lightbox.classList.remove("show");
        
     }) 
-
+ let f = Array.from(filterMedia);
+ console.log(f);
     //selection des images 
     const selectImg = document.querySelectorAll('.imgarticle');
-    // tableau qui regroupe les src des images
-    let allImg = [];
+    console.log(selectImg);
 
-    for (let src of selectImg) {
-        allImg.push(src)
-    }
+ 
+  
+
+const selectLien = document.querySelectorAll('.lienimage');
+console.log(selectLien);
+
+
     // emplacement de l'image dans la lighbox
     const imgBox = document.querySelector('.lightbox__img');
     
     let i = 0;
     
     // function qui fait défiler les photos au click du bouton PREV
-    buttonPrev.addEventListener('click', () => {
-
-        if(i <= 0) i = allImg.length;
+    buttonPrev.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(i <= 0) i = filterMedia.length;
         i--;
+       
+        console.log(i);
         return setImg(i);
     });
     
     // fait défiler les photos avec le bouton du clavier "<--"
     window.addEventListener('keydown', function (e) {
         if (e.key === "ArrowLeft") {
-            if(i <= 0) i = allImg.length;
+            if(i <= 0) i = filterMedia.length;
             i--;
             return setImg(i);
         }
     })
     
     // function qui fait défiler les photos au click du bouton NEXT
-    buttonNext.addEventListener('click', () => {
-        if(i >= allImg.length - 1) i = -1;
+    buttonNext.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(i >= filterMedia.length - 1) i = -1;
         i++;
+        console.log(i);
         return setImg(i);
     })
     
     // fait défiler les photos avec le bouton du clavier "-->"
     window.addEventListener('keydown', function (e) {
         if (e.key === "ArrowRight") {
-            if(i >= allImg.length - 1) i = -1;
+            if(i >= filterMedia.length - 1) i = -1;
             i++;
             return setImg(i);
         }
@@ -123,6 +130,8 @@ function lightbox(filterMedia) {
           lighboxImg.setAttribute("class","lightbox__img");
           lighboxImg.setAttribute("alt",filterMedia[i].alt);
           lighboxImg.setAttribute("src",filterMedia[i].image);
+          lighboxImg.id = filterMedia[i].id;
+          
 
            //titre img lightbox
           const titleImg = document.createElement('span');
@@ -141,6 +150,7 @@ function lightbox(filterMedia) {
          lighboxVideo.setAttribute("src",filterMedia[i].video);
          lighboxVideo.setAttribute("type","video/mp4");
          lighboxVideo.setAttribute("controls","");
+         lighboxVideo.id = filterMedia[i].id;
         }
 
       //titre video lightbox
@@ -151,7 +161,18 @@ function lightbox(filterMedia) {
         
     }
 
+// essaie ecoute des lien dans div photo
 
+/*   let lien = document.querySelector('.imgarticle');
    
+   for (let i=0, i_liens = lien.length; i < i_liens; i++) {
+       lien[i].addEventListener('click', function(e) {
+           console.log(lien[i]);
+           e.preventDefault();
+           console.log("fonctionnel");
+       })
+   }*/
 
+    
+    
 }

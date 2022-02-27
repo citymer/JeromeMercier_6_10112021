@@ -19,7 +19,7 @@ async function displayData(filterMedia) {
     
     attachInformationPhotograph();
     
-    let classementParDate = filterMedia.sort((a, b) => {
+    filterMedia.sort((a, b) => {
         let aDate = a.date;
         let bDate = b.date;
      
@@ -35,9 +35,11 @@ async function displayData(filterMedia) {
     // créer un article pour chaque photo
     filterMedia.forEach((media) => {
         
-        attachInformationMedia(media);     
+        attachInformationMedia(media);  
+           
         
     });
+    
 };
 
            
