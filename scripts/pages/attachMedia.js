@@ -34,7 +34,7 @@
                    imgArticle.setAttribute("src",media.image);
                    imgArticle.setAttribute("alt",media.alt);
  
-                   
+   
                    //ouvre la lightbox au clic de l'article
                       imgArticle.addEventListener('click', (e) => {
                           e.preventDefault();
@@ -78,7 +78,7 @@
                    const lighboxContent = document.querySelector('.mediacontent');
 
                     lighboxContent.innerHTML ="";
-                    
+
                       // <video>  LIGHTBOX
                      const lighboxVideo = document.createElement('video');
                      lighboxContent.appendChild(lighboxVideo); 

@@ -447,7 +447,7 @@ p{
     }
     #photograph-header {
         flex-direction: column-reverse;
-        height: 500px;   
+        height: 600px;   
     }
     #divphoto {
         display: grid;
@@ -490,8 +490,18 @@ p{
     }
 }
 @media screen and (max-width:540px) {
+    #photograph-header h1 {
+        font-size: 40px;
+    }
+    #photograph-header h2 {
+        font-size: 28px;
+    }
+    #photograph-header img {
+        height: 160px;
+        width: 160px;
+    }
     .trierpar {
-        margin-left: 50px;
+        margin-left: 20px;
     }
     .modal {
         left: 2%;
