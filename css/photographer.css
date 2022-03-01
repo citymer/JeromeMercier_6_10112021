@@ -514,5 +514,8 @@ p{
     .lightbox__container video {
         height: 20%;
         margin-top: 330px;
-    }    
+    }
+    .divfooterinfo {
+        width: 250px;
+    }   
 }

@@ -22,12 +22,7 @@ function lightbox(filterMedia) {
     
     const mediaContent = document.querySelector('.mediacontent');
 
-   /* const lighboxImg = document.createElement('img');
-    mediaContent.appendChild(lighboxImg);
-    lighboxImg.setAttribute("class","lightbox__img");
-    lighboxImg.setAttribute("alt",filterMedia.alt);
-    lighboxImg.setAttribute("src",filterMedia.image);
-    lighboxImg.id = filterMedia.id;*/
+
 
      // replace les balise FOOTER et DIV Lightbox dans le DOM
     document.body.insertBefore(lightbox,main);
@@ -134,8 +129,9 @@ function lightbox(filterMedia) {
           // <img> LIGHBOX
           const lighboxImg = document.createElement('img');
           mediaContent.appendChild(lighboxImg);
-          lighboxImg.setAttribute("class","lightbox__img");
           lighboxImg.setAttribute("alt",filterMedia[i].alt);
+          lighboxImg.setAttribute("class","lightbox__img");
+          lighboxImg.setAttribute("tabindex","0");
           lighboxImg.setAttribute("src",filterMedia[i].image);
           lighboxImg.id = filterMedia[i].id;
           
@@ -157,6 +153,7 @@ function lightbox(filterMedia) {
          lighboxVideo.setAttribute("src",filterMedia[i].video);
          lighboxVideo.setAttribute("type","video/mp4");
          lighboxVideo.setAttribute("controls","");
+         lighboxVideo.setAttribute("tabindex","0");
          lighboxVideo.id = filterMedia[i].id;
         }
 

@@ -46,6 +46,7 @@
                        const lighboxImg = document.createElement('img');
                        lighboxContent.appendChild(lighboxImg);
                        lighboxImg.setAttribute("class","lightbox__img");
+                       lighboxImg.setAttribute("tabindex","0");
                        lighboxImg.setAttribute("alt",media.alt);
                        lighboxImg.setAttribute("src",media.image);
                       
@@ -87,6 +88,7 @@
                      lighboxVideo.setAttribute("src",media.video);
                      lighboxVideo.setAttribute("type","video/mp4");
                      lighboxVideo.setAttribute("controls","");
+                     lighboxVideo.setAttribute("tabindex","0");
                        //titre video lightbox
                        const titleVideo = document.createElement('span');
                        lighboxContent.appendChild(titleVideo);
