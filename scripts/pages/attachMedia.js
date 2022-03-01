@@ -11,7 +11,8 @@
        const articlePhoto = document.createElement('article');
        divPhoto.appendChild(articlePhoto);
        articlePhoto.setAttribute("class","imgphoto");
-   
+           
+            
            // <a>
            const lienImage = document.createElement('a');
            articlePhoto.appendChild(lienImage);
@@ -19,8 +20,11 @@
            lienImage.setAttribute("href",media.image);
            lienImage.setAttribute("title",media.title);
            lienImage.setAttribute("aria-label",media.alt);
-           
-                
+     
+           if (media.image === undefined) {
+                lienImage.setAttribute("href",media.video);
+            }          
+   
                if (media.video == undefined){
    
                    // <img>
@@ -29,12 +33,11 @@
                    imgArticle.setAttribute("class","imgarticle");
                    imgArticle.setAttribute("src",media.image);
                    imgArticle.setAttribute("alt",media.alt);
-                   imgArticle.id = media.id;
+ 
                    
-                   
+                   //ouvre la lightbox au clic de l'article
                       imgArticle.addEventListener('click', (e) => {
                           e.preventDefault();
-                    
                 
                        const lighboxContent = document.querySelector('.mediacontent');
                         lighboxContent.innerHTML = "";
@@ -44,8 +47,7 @@
                        lighboxContent.appendChild(lighboxImg);
                        lighboxImg.setAttribute("class","lightbox__img");
                        lighboxImg.setAttribute("alt",media.alt);
-                      lighboxImg.setAttribute("src",media.image);
-                      lighboxImg.id = media.id;
+                       lighboxImg.setAttribute("src",media.image);
                       
                       //titre img lightbox
                       const titleImg = document.createElement('span');
@@ -54,9 +56,10 @@
                       titleImg.textContent = media.title;
                       //ouvre la lightbox
                       document.querySelector('.lightbox').classList.add("show");
+
                       
                    }) 
-                   
+            
                    
                }else  {
                    
@@ -68,14 +71,14 @@
                    videoArticle.setAttribute("src",media.video);
                    videoArticle.setAttribute("type","video/mp4");
                    videoArticle.setAttribute("controls","");
-                   videoArticle.id = media.id;
    
-                   videoArticle.addEventListener('click', (e) => {
+                  videoArticle.addEventListener('click', (e) => {
                     e.preventDefault();
 
                    const lighboxContent = document.querySelector('.mediacontent');
 
                     lighboxContent.innerHTML ="";
+                    
                       // <video>  LIGHTBOX
                      const lighboxVideo = document.createElement('video');
                      lighboxContent.appendChild(lighboxVideo); 
@@ -124,10 +127,8 @@
                        divspanHeart.appendChild(heart);
                        heart.setAttribute("class","fas fa-heart like-button");
                        heart.setAttribute("aria-label","likes");
-                       heart.setAttribute("data-value",media.likes);
                        heart.setAttribute("role","button");
-                       
-   
+                       heart.setAttribute("tabindex","0");
    
                
                        // COMPTEUR DE LIKES 
@@ -144,7 +145,6 @@
                        })
           
 
-              
          
 }
 

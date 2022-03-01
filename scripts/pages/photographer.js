@@ -16,7 +16,6 @@
  
 async function displayData(filterMedia) {
                 
-    
     attachInformationPhotograph();
     
     filterMedia.sort((a, b) => {
@@ -35,8 +34,7 @@ async function displayData(filterMedia) {
     // créer un article pour chaque photo
     filterMedia.forEach((media) => {
         
-        attachInformationMedia(media);  
-           
+        attachInformationMedia(media);         
         
     });
     

@@ -235,16 +235,15 @@ envoyez.addEventListener('click',function() {
 
   inputValid();
 
-  if (verifAllTrue() === true) {
-    modal.style.display = "none";
-    document.querySelector('#main').style.display = "block";
-  }
-});  
+     if (verifAllTrue() === true) {
+       modal.style.display = "none";
+       document.querySelector('#main').style.display = "block";
+      }
+    });  
 
-  }
+}
 
-async function init()
-{
+async function init(){
   const photographers = await getPhotographers();
   domModul();
 };

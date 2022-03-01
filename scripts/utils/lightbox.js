@@ -19,8 +19,15 @@ function lightbox(filterMedia) {
           </svg></p>
           
     </div>`;
+    
+    const mediaContent = document.querySelector('.mediacontent');
 
-
+   /* const lighboxImg = document.createElement('img');
+    mediaContent.appendChild(lighboxImg);
+    lighboxImg.setAttribute("class","lightbox__img");
+    lighboxImg.setAttribute("alt",filterMedia.alt);
+    lighboxImg.setAttribute("src",filterMedia.image);
+    lighboxImg.id = filterMedia.id;*/
 
      // replace les balise FOOTER et DIV Lightbox dans le DOM
     document.body.insertBefore(lightbox,main);
@@ -31,6 +38,12 @@ function lightbox(filterMedia) {
     const buttonPrev = document.querySelector('.lightbox__prev');
     const buttonClose = document.querySelector('.lightbox__close');
     const lienphoto = document.querySelectorAll('.lienimage');
+   
+
+        
+
+         
+       
 
     //on ajoute l'ecouteur click sur les liens
     for(let link of lienphoto) {
@@ -42,6 +55,7 @@ function lightbox(filterMedia) {
             // affiche la lightbox
             lightbox.classList.add("show");
             
+            
             // Ferme la lighbox avec boutton "Escape"
             window.addEventListener('keydown', function (e) {
                 if (e.key === "Escape" || e.key === "Esc") {
@@ -51,23 +65,15 @@ function lightbox(filterMedia) {
         })
     }
     
-    const mediaContent = document.querySelector('.mediacontent');
+   
     // active le bouton close 
     buttonClose.addEventListener("click",function() {
         lightbox.classList.remove("show");
        
     }) 
- let f = Array.from(filterMedia);
- console.log(f);
+
     //selection des images 
     const selectImg = document.querySelectorAll('.imgarticle');
-    console.log(selectImg);
-
- 
-  
-
-const selectLien = document.querySelectorAll('.lienimage');
-console.log(selectLien);
 
 
     // emplacement de l'image dans la lighbox
@@ -161,17 +167,10 @@ console.log(selectLien);
         
     }
 
-// essaie ecoute des lien dans div photo
 
-/*   let lien = document.querySelector('.imgarticle');
-   
-   for (let i=0, i_liens = lien.length; i < i_liens; i++) {
-       lien[i].addEventListener('click', function(e) {
-           console.log(lien[i]);
-           e.preventDefault();
-           console.log("fonctionnel");
-       })
-   }*/
+
+ 
+       
 
     
     
