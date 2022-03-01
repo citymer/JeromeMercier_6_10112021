@@ -55,11 +55,7 @@ function lightbox(filterMedia) {
             // affiche la lightbox
             lightbox.classList.add("show");
 
-            link.addEventListener('keydown', function (e) {
-                if (e.key === "Enter") {
-                    lightbox.classList.add("show");
-                };
-            })
+          
              
             // Ferme la lighbox avec boutton "Escape"
             window.addEventListener('keydown', function (e) {
