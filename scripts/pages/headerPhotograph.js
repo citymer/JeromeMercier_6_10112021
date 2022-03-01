@@ -25,9 +25,9 @@ function attachInformationPhotograph(photographers) {
         const article = document.createElement('article');
         sectionPhotographHeader.appendChild(article); 
         article.id = id;
-        article.innerHTML = `<h1>${name}</h1>
-                             <h2>${city}, ${country}</h2>
-                             <h3>${tagline}</h3>`;
+        article.innerHTML = `<h1 tabindex="0">${name}</h1>
+                             <h2 tabindex="0">${city}, ${country}</h2>
+                             <h3 tabindex="0">${tagline}</h3>`;
     
       
       // selection du bouton "contact_button"   

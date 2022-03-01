@@ -32,6 +32,7 @@
         
 
         const photographersSection = document.querySelector(".photographer_section");
+        
         // fabrique un article pour tous les  photographes
         photographers.forEach((photographer) => {
             const photographerModel = photographerFactory(photographer);
