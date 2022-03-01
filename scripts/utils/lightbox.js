@@ -59,17 +59,20 @@ function lightbox(filterMedia) {
     }
     
 
-    //buttonclose
-    //buttonprev
-    //buttonnext
-    //enfant mediacontent
    
-    // active le bouton close "X"
+    // ferme la lightbox en cliquant sur "X"
     buttonClose.addEventListener("click",function() {
         lightbox.classList.remove("show");
        
     }) 
 
+    // ferme la lightbox en pressant ENTER quand "X" sélectionner
+    buttonClose.addEventListener("keydown",function(e) {
+        if (e.key === "Enter") {
+            lightbox.classList.remove("show");
+        }
+       
+    }) 
   
     
     let i = 0;
@@ -79,6 +82,13 @@ function lightbox(filterMedia) {
         e.preventDefault();
         prev();
     });
+
+    //function qui fait défiler les photos en appuyant sur le bouton ENTER quand PREV sélectionner
+    buttonPrev.addEventListener('keydown', function(e) {
+        if (e.key === "Enter") {
+            prev();
+        }
+    })
     
     // fait défiler les photos avec le bouton du clavier "<--"
     window.addEventListener('keydown', function (e) {
@@ -90,7 +100,13 @@ function lightbox(filterMedia) {
     // function qui fait défiler les photos au click du bouton NEXT
     buttonNext.addEventListener('click', (e) => {
         e.preventDefault();
-        next();
+          next();
+    })
+    //function qui fait défiler les photos en appuyant sur le bouton ENTER quand NEXT sélectionner
+    buttonNext.addEventListener('keydown', function(e) {
+        if (e.key === "Enter") {
+          next();
+        }
     })
     
     // fait défiler les photos avec le bouton du clavier "-->"
@@ -179,9 +195,9 @@ const focusVideo = document.getElementsByClassName('lightbox__video');
  
  const lastFocusableElement = buttonClose;
 
+ mediaContent.click(); 
  document.addEventListener('keydown', function(e) {
     let isTabPressed = e.key === 'Tab';
-  
     if (!isTabPressed) {
       return;
     }
