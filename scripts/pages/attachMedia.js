@@ -138,33 +138,32 @@
 
                    
                
-                       // COMPTEUR DE LIKES 
-                                 
+                       
+                        // compteur de likes au clic         
                        heart.addEventListener('click',function(e){
                               e.preventDefault();   
-                          const textNumber = document.querySelector('.totalnumber');
-                          textNumber.textContent = parseInt(textNumber.textContent)+1;
-                       
-                          // cible le span qui contient le nombre de like par son id 
-                          selectTextNumber = document.getElementById(media.id);
-                          selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+                          compteurLikes();
 
                         }) 
 
-                        // compteur de like au clavier
+                        // compteur de likes au clavier
                         heart.addEventListener('keydown', function(e) {
                            if (e.key === "Enter") {
-                              const textNumber = document.querySelector('.totalnumber');
-                              textNumber.textContent = parseInt(textNumber.textContent)+1;
-                           
-                              // cible le span qui contient le nombre de like par son id 
-                              selectTextNumber = document.getElementById(media.id);
-                              selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+                              compteurLikes();     
                            }
                        
                        })
-          
-         
+
+                        // FUNCTION COMPTEUR DE LIKES 
+                       function compteurLikes() {
+                          
+                        const textNumber = document.querySelector('.totalnumber');
+                        textNumber.textContent = parseInt(textNumber.textContent)+1;
+                     
+                        // cible le span qui contient le nombre de like par son id 
+                        selectTextNumber = document.getElementById(media.id);
+                        selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+                       }
                        
 }
 
