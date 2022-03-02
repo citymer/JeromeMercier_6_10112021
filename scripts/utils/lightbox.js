@@ -32,7 +32,7 @@ function lightbox(media) {
     const buttonNext = document.querySelector('.lightbox__next');
     const buttonPrev = document.querySelector('.lightbox__prev');
     const buttonClose = document.querySelector('.lightbox__close');
-    const lienphoto = document.querySelectorAll('.lightbox__img');
+    const lienphoto = document.querySelectorAll('.lienimage');
    
 
     
