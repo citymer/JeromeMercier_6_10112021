@@ -12,12 +12,12 @@
        divPhoto.appendChild(articlePhoto);
        articlePhoto.setAttribute("class","imgphoto");
            
-            
+           
            // <a>
            const lienImage = document.createElement('a');
            articlePhoto.appendChild(lienImage);
            lienImage.setAttribute("class","lienimage");
-           lienImage.setAttribute("href",media.image);
+           lienImage.setAttribute("href",media.image);   
            lienImage.setAttribute("title",media.title);
            lienImage.setAttribute("aria-label",media.alt);
      
@@ -143,6 +143,18 @@
                           // cible le span qui contient le nombre de like par son id 
                           selectTextNumber = document.getElementById(media.id);
                           selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+
+                        })  
+                        // compteur like au clavier
+                        heart.addEventListener('keydown', function(e) {
+                           if (e.key === "Enter") {
+                              const textNumber = document.querySelector('.totalnumber');
+                              textNumber.textContent = parseInt(textNumber.textContent)+1;
+                           
+                              // cible le span qui contient le nombre de like par son id 
+                              selectTextNumber = document.getElementById(media.id);
+                              selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
+                           }
                        
                        })
           
