@@ -39,27 +39,27 @@
                       imgArticle.addEventListener('click', (e) => {
                           e.preventDefault();
                 
-                       const lighboxContent = document.querySelector('.mediacontent');
-                        lighboxContent.innerHTML = "";
+                         const lighboxContent = document.querySelector('.mediacontent');
+                         lighboxContent.innerHTML = "";
 
-                       // <img> LIGHBOX
-                       const lighboxImg = document.createElement('img');
-                       lighboxContent.appendChild(lighboxImg);
-                       lighboxImg.setAttribute("class","lightbox__img");
-                       lighboxImg.setAttribute("tabindex","0");
-                       lighboxImg.setAttribute("alt",media.alt);
-                       lighboxImg.setAttribute("src",media.image);
+                          // <img> LIGHBOX
+                         const lighboxImg = document.createElement('img');
+                         lighboxContent.appendChild(lighboxImg);
+                         lighboxImg.setAttribute("class","lightbox__img");
+                         lighboxImg.setAttribute("tabindex","0");
+                         lighboxImg.setAttribute("alt",media.alt);
+                         lighboxImg.setAttribute("src",media.image);
                       
-                      //titre img lightbox
-                      const titleImg = document.createElement('span');
-                      lighboxContent.appendChild(titleImg);
-                      titleImg.setAttribute("class","titlemedia");
-                      titleImg.textContent = media.title;
-                      //ouvre la lightbox
-                      document.querySelector('.lightbox').classList.add("show");
-
+                         //titre img lightbox
+                         const titleImg = document.createElement('span');
+                         lighboxContent.appendChild(titleImg);
+                         titleImg.setAttribute("class","titlemedia");
+                         titleImg.textContent = media.title;
+                         //ouvre la lightbox
+                         document.querySelector('.lightbox').classList.add("show");
                       
-                   }) 
+                        }) 
+                    
             
                    
                }else  {

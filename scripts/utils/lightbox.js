@@ -2,7 +2,7 @@ function lightbox(filterMedia) {
 
                 
                    
-    const contactModal = document.querySelector('#contact_modal');
+   const contactModal = document.querySelector('#contact_modal');
     const lightbox = document.createElement('div');
     body.appendChild(lightbox);
 
@@ -26,7 +26,7 @@ function lightbox(filterMedia) {
 
 
      // replace les balise FOOTER et DIV Lightbox dans le DOM
-    document.body.insertBefore(lightbox,main);
+    document.body.insertBefore(lightbox,contactModal);
     document.body.insertBefore(footer,contactModal);
     const selectMenu = document.getElementById('select');
 
@@ -41,6 +41,8 @@ function lightbox(filterMedia) {
     
     //on ajoute l'ecouteur click sur les liens
     for(let link of lienphoto) {
+   
+     
         link.addEventListener("click",function(e){
             
             // désactive le comportement des liens
@@ -48,20 +50,76 @@ function lightbox(filterMedia) {
             
             // affiche la lightbox
             lightbox.classList.add("show");
+            document.querySelector('#main').style.display = "none";
+            
             
             // Ferme la lighbox avec boutton "Escape"
             window.addEventListener('keydown', function (e) {
                 if (e.key === "Escape" || e.key === "Esc") {
                     lightbox.classList.remove("show");
+                    document.querySelector('#main').style.display = "block";
+                   
                 };
             })
         })
-    }
+
+        link.addEventListener('keydown', function(e) {
+          if (e.key === "Enter") {
+            mediaContent.innerHTML = "";
+          
+
+            if (filterMedia[i].video === undefined) {
+
+              // <img> LIGHBOX
+              const lighboxImg = document.createElement('img');
+              mediaContent.appendChild(lighboxImg);
+              lighboxImg.setAttribute("alt",filterMedia[i].alt);
+              lighboxImg.setAttribute("class","lightbox__img");
+              lighboxImg.setAttribute("tabindex","0");
+              lighboxImg.setAttribute("src",filterMedia[i].image);
+  
+      
+  
+              //titre img lightbox
+              const titleImg = document.createElement('span');
+              mediaContent.appendChild(titleImg);
+              titleImg.setAttribute("class","titlemedia");
+              titleImg.textContent = filterMedia[i].title;
+  
+       
+            }else if(filterMedia[i].image == undefined) {
+  
+              // <video>  LIGHTBOX
+             const lighboxVideo = document.createElement('video');
+             mediaContent.appendChild(lighboxVideo); 
+             lighboxVideo.setAttribute("class","lightbox__video");
+             lighboxVideo.setAttribute("alt",filterMedia[i].alt);
+             lighboxVideo.setAttribute("src",filterMedia[i].video);
+             lighboxVideo.setAttribute("type","video/mp4");
+             lighboxVideo.setAttribute("controls","");
+             lighboxVideo.setAttribute("tabindex","0");
+  
+              //titre video lightbox
+              const titleVideo = document.createElement('span');
+              mediaContent.appendChild(titleVideo);
+              titleVideo.setAttribute("class","titlemedia");
+              titleVideo.textContent = filterMedia[i].title;   
+          
+            }
+       
+      
+          }
+        })
+  }
+   
+  
     
    
     // ferme la lightbox en cliquant sur "X"
     buttonClose.addEventListener("click",function() {
         lightbox.classList.remove("show");
+        document.querySelector('#main').style.display = "block";
+        
        
     }) 
 
@@ -69,6 +127,8 @@ function lightbox(filterMedia) {
     buttonClose.addEventListener("keydown",function(e) {
         if (e.key === "Enter") {
             lightbox.classList.remove("show");
+            document.querySelector('#main').style.display = "block";
+            
         }
        
     }) 
@@ -167,13 +227,14 @@ function lightbox(filterMedia) {
          lighboxVideo.setAttribute("controls","");
          lighboxVideo.setAttribute("tabindex","0");
          
-        }
+        
 
-      //titre video lightbox
-        const titleVideo = document.createElement('span');
-        mediaContent.appendChild(titleVideo);
-        titleVideo.setAttribute("class","titlemedia");
-        titleVideo.textContent = filterMedia[i].title;   
+           //titre video lightbox
+           const titleVideo = document.createElement('span');
+           mediaContent.appendChild(titleVideo);
+           titleVideo.setAttribute("class","titlemedia");
+          titleVideo.textContent = filterMedia[i].title; 
+        }  
         
     }
 
@@ -194,7 +255,6 @@ const focusVideo = document.getElementsByClassName('lightbox__video');
  //dernier élément focusable
  const lastFocusableElement = buttonClose;
 
- mediaContent.click(); 
  document.addEventListener('keydown', function(e) {
     let isTabPressed = e.key === 'Tab';
     if (!isTabPressed) {
