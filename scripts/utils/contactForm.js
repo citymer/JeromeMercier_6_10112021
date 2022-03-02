@@ -56,6 +56,7 @@ namePhotograph.setAttribute("class","namephotograph");
 const labelPrenom = document.querySelector('.formdata label');
 labelPrenom.setAttribute("form","first_name");
 labelPrenom.setAttribute("tabindex","0");
+labelPrenom.setAttribute("id","labelprenom");
 // Input du prenom
 const inputPrenom = document.querySelector('input');
 inputPrenom.setAttribute("name","first_name");
@@ -77,6 +78,7 @@ divFormData.appendChild(labelNom);
 labelNom.textContent = "Nom";
 labelNom.setAttribute("form","last_name");
 labelNom.setAttribute("tabindex","0");
+labelNom.setAttribute("id","labelnom");
 // Input du nom
 const inputNom = document.createElement('input');
 divFormData.appendChild(inputNom);
@@ -99,6 +101,7 @@ divFormData.appendChild(labelEmail);
 labelEmail.textContent = "Email";
 labelEmail.setAttribute("form","email");
 labelEmail.setAttribute("tabindex","0");
+labelEmail.setAttribute("id","labelemail");
 // Input de Email
 const inputEmail = document.createElement('input');
 divFormData.appendChild(inputEmail);
@@ -120,6 +123,7 @@ divFormData.appendChild(labelMessage);
 labelMessage.textContent = "Votre message";
 labelMessage.setAttribute("form","your_message");
 labelMessage.setAttribute("tabindex","0");
+labelMessage.setAttribute("id","labelmessage");
 // texte de votre message
 const textMessage = document.createElement('textarea');
 divFormData.appendChild(textMessage);
@@ -211,7 +215,7 @@ function message() {
     }
 }
 
-
+// validation de tous les champs
   function inputValid() {
 
     prenom();nom();email();message();
@@ -242,6 +246,64 @@ envoyez.addEventListener('click',function() {
     });  
 
 }
+
+   //   GARDE LE FOCUS A L'INTERIEUR DU MODAL   //
+
+// selectionne la modale
+const selectModal = document.querySelector('#contact_modal');
+
+//selectionne "X" 
+const closeModale = document.querySelector('.closemodal');
+
+//selectionne LABEL et INPUT
+const firstName = document.querySelector('#labelprenom');
+const inputFirstName = document.querySelector('#first_name');
+const lastName = document.querySelector('#labelnom');
+const inputLastName = document.querySelector('#last_name');
+const emailLabel = document.querySelector('#labelemail');
+const emailInput = document.querySelector('#email');
+const yourMessage = document.querySelector('#labelmessage');
+const messageText = document.querySelector('#your_message');
+
+//selectionne le bouton "envoyez"
+const buttonSend = document.querySelector('#send');
+
+//selectionne tous les elements focusables
+const allFocusableElements = `${closeModale},${firstName},${inputFirstName},
+${lastName},${inputLastName},${emailLabel},${emailInput},${yourMessage},
+${messageText}, ${buttonSend},[tabindex]:not([tabindex="-1"])`;
+
+//premier élement focusable
+const firstFocusableElememt = closeModale;
+
+//contenu de tous
+const focusableContent = allFocusableElements;
+
+//dernier élement focusable
+const lastFocusableElement = buttonSend;
+
+document.addEventListener('keydown', function(e) {
+  let isTabPressed = e.key === 'Tab';
+  if (!isTabPressed) {
+    return;
+  }
+
+  if (e.shiftKey) { // if shift key pressed for shift + tab combination
+    if (document.activeElement === firstFocusableElememt) {
+      lastFocusableElement.focus(); // add focus for the last focusable element
+      e.preventDefault();
+    }
+  } else { // if tab key is pressed
+    if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+      firstFocusableElememt.focus(); // add focus for the first focusable element
+      e.preventDefault();
+    }
+  }
+});
+
+firstFocusableElememt.focus(); 
+
+
 
 async function init(){
   const photographers = await getPhotographers();

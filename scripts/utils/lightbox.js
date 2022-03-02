@@ -58,7 +58,6 @@ function lightbox(filterMedia) {
         })
     }
     
-
    
     // ferme la lightbox en cliquant sur "X"
     buttonClose.addEventListener("click",function() {
@@ -184,7 +183,7 @@ function lightbox(filterMedia) {
 const focusImg = document.getElementsByClassName('lightbox__img');
 //selectionne la video de la lightbox
 const focusVideo = document.getElementsByClassName('lightbox__video');
-//selectionne tous les éléments focusable
+//selectionne tous les éléments focusables
  const focusableElements = `${buttonClose},${buttonNext},${focusImg},${focusVideo},${buttonPrev},[tabindex]:not([tabindex="-1"])`;
  //selectionne la lightbox
  const selectLightbox = document.querySelector('#lightbox');
@@ -192,7 +191,7 @@ const focusVideo = document.getElementsByClassName('lightbox__video');
  const firstFocusableElememt = buttonPrev;
  //contenu de tous
  const focusableContent = focusableElements;
- 
+ //dernier élément focusable
  const lastFocusableElement = buttonClose;
 
  mediaContent.click(); 
