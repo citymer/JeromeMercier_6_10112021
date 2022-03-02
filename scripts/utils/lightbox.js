@@ -1,6 +1,5 @@
 function lightbox(media) {
 
-              console.log(media);
                    
    const contactModal = document.querySelector('#contact_modal');
     const lightbox = document.createElement('div');
@@ -33,7 +32,7 @@ function lightbox(media) {
     const buttonNext = document.querySelector('.lightbox__next');
     const buttonPrev = document.querySelector('.lightbox__prev');
     const buttonClose = document.querySelector('.lightbox__close');
-    const lienphoto = document.querySelectorAll('.lienimage');
+    const lienphoto = document.querySelectorAll('.lightbox__img');
    
 
     
@@ -41,17 +40,18 @@ function lightbox(media) {
     
     //on ajoute l'ecouteur click sur les liens
     for(let link of lienphoto) {
-   
+        
+
      
+      
         link.addEventListener("click",function(e){
-            
             // désactive le comportement des liens
             e.preventDefault();
+            console.log("click");
             
             // affiche la lightbox
             lightbox.classList.add("show");
             document.querySelector('#main').style.display = "none";
-            
             
             // Ferme la lighbox avec boutton "Escape"
             window.addEventListener('keydown', function (e) {
@@ -61,53 +61,15 @@ function lightbox(media) {
                    
                 };
             })
+          
         })
          // ouvre la lightbox avec touche "ENTER"
         link.addEventListener('keydown', function(e) {
           if (e.key === "Enter") {
-            mediaContent.innerHTML = "";
-          
-
-            if (media[i].video === undefined) {
-
-              // <img> LIGHBOX
-              const lighboxImg = document.createElement('img');
-              mediaContent.appendChild(lighboxImg);
-              lighboxImg.setAttribute("alt",media[i].alt);
-              lighboxImg.setAttribute("class","lightbox__img");
-              lighboxImg.setAttribute("tabindex","0");
-              lighboxImg.setAttribute("src",media[i].image);
-
-      
-  
-              //titre img lightbox
-              const titleImg = document.createElement('span');
-              mediaContent.appendChild(titleImg);
-              titleImg.setAttribute("class","titlemedia");
-              titleImg.textContent = media[i].title;
-  
+            console.log("ttt");
+            lightbox.classList.add("show");
+           setImg(i);
        
-            }else if(media[i].image == undefined) {
-  
-              // <video>  LIGHTBOX
-             const lighboxVideo = document.createElement('video');
-             mediaContent.appendChild(lighboxVideo); 
-             lighboxVideo.setAttribute("class","lightbox__video");
-             lighboxVideo.setAttribute("alt",media[i].alt);
-             lighboxVideo.setAttribute("src",media[i].video);
-             lighboxVideo.setAttribute("type","video/mp4");
-             lighboxVideo.setAttribute("controls","");
-             lighboxVideo.setAttribute("tabindex","0");
-  
-              //titre video lightbox
-              const titleVideo = document.createElement('span');
-              mediaContent.appendChild(titleVideo);
-              titleVideo.setAttribute("class","titlemedia");
-              titleVideo.textContent = media[i].title;   
-          
-            }
-       
-      
           }
         })
   }
@@ -135,7 +97,16 @@ function lightbox(media) {
   
     
     let i = 0;
+    let lienMedia = document.querySelectorAll('.lienimage');
     
+    let allMedia = [];
+    
+
+    for (let href of lienMedia ) {
+       allMedia.push(href);
+    }
+ 
+
     // function qui fait défiler les photos au click du bouton PREV
     buttonPrev.addEventListener('click', (e) => {
         e.preventDefault();
@@ -176,22 +147,57 @@ function lightbox(media) {
     })
 
     function prev() {
-        if(i <= 0) i = media.length;
+
+      allMedia = [];
+     
+     lienMedia = document.querySelectorAll('.lienimage')
+     //selectionne les medias dans la balise <img> et <video>
+     let position = document.querySelector('.lightbox__img');
+
+      for (let href of lienMedia ) {
+        
+         allMedia.push(href);
+         
+         if(href.href === position.src) {
+           position = href;
+           console.log(position);
+         }
+        
+      }
+
+       i = allMedia.indexOf(position);
+        if(i <= 0) i = allMedia.length;
         i--;
+        
         return setImg(i);
     }
     
 
     function next() {
-        if(i >= media.length - 1) i = -1;
+      allMedia = [];
+    
+     lienMedia = document.querySelectorAll('.lienimage');
+     //selectionne les medias dans la balise <img> et <video>
+     let position = document.querySelector('.lightbox__img');
+
+      for (let href of lienMedia ) {
+        
+         allMedia.push(href);
+         if(href.href == position.src) {
+           position = href;
+           console.log(position);
+         }
+        
+      }
+      i = allMedia.indexOf(position);
+        if(i >= allMedia.length - 1) i = 1;
             i++;
+          
             return setImg(i);
     }
 
  // function qui attribut l'image a la lighbox
     function setImg(i) {
-
-     const imgBox = document.querySelector('.lightbox__img');
      
      mediaContent.innerHTML = "";
 
@@ -220,7 +226,7 @@ function lightbox(media) {
           // <video>  LIGHTBOX
          const lighboxVideo = document.createElement('video');
          mediaContent.appendChild(lighboxVideo); 
-         lighboxVideo.setAttribute("class","lightbox__video");
+         lighboxVideo.setAttribute("class","lightbox__img");
          lighboxVideo.setAttribute("alt",media[i].alt);
          lighboxVideo.setAttribute("src",media[i].video);
          lighboxVideo.setAttribute("type","video/mp4");

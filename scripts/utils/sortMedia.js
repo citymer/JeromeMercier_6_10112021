@@ -17,30 +17,23 @@ function sortMedia(filterMedia) {
                
             });
 
-            filterMedia.forEach((media) => {
-            
-                attachInformationMedia(media);
-               
-            })
+      
      
 
          // classement des likes décroissant  
         } else if (this.value == "popularite") {
 
-            let rangementLikes = filterMedia.sort((a, b) => {
+            filterMedia = filterMedia.sort((a, b) => {
                return b.likes - a.likes;
 
             }); 
    
-            rangementLikes.forEach((media) => {
-              attachInformationMedia(media);
- 
-            })
+         
 
             // classement par date
         }else if (this.value == "date") {
 
-            let classementParDate = filterMedia.sort((a, b) => {
+            filterMedia = filterMedia.sort((a, b) => {
                let aDate = a.date;
                let bDate = b.date;
             
@@ -54,13 +47,13 @@ function sortMedia(filterMedia) {
             
             });
             
-            classementParDate.forEach((media) => {
-               attachInformationMedia(media);
-               
-            })
             
-        }
-
+         }
+         
+         filterMedia.forEach((media) => {
+            attachInformationMedia(media);
+            
+         })
 
 
       });

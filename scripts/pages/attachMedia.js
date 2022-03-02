@@ -23,8 +23,9 @@
      
            if (media.image === undefined) {
                 lienImage.setAttribute("href",media.video);
-            }          
-   
+            } 
+
+        
                if (media.video == undefined){
    
                    // <img>
@@ -33,6 +34,7 @@
                    imgArticle.setAttribute("class","imgarticle");
                    imgArticle.setAttribute("src",media.image);
                    imgArticle.setAttribute("alt",media.alt);
+                   
  
    
                    //ouvre la lightbox au clic de l'article
@@ -59,7 +61,7 @@
                          document.querySelector('.lightbox').classList.add("show");
                       
                         }) 
-                    
+              
             
                    
                }else  {
@@ -83,7 +85,7 @@
                       // <video>  LIGHTBOX
                      const lighboxVideo = document.createElement('video');
                      lighboxContent.appendChild(lighboxVideo); 
-                     lighboxVideo.setAttribute("class","lightbox__video");
+                     lighboxVideo.setAttribute("class","lightbox__img");
                      lighboxVideo.setAttribute("alt",media.alt);
                      lighboxVideo.setAttribute("src",media.video);
                      lighboxVideo.setAttribute("type","video/mp4");
@@ -96,8 +98,10 @@
                        titleVideo.textContent = media.title;
                        //ouvre la lightbox
                        document.querySelector('.lightbox').classList.add("show");
+                       
+                       
                 })
-               
+                
                }; 
                
    
@@ -131,12 +135,13 @@
                        heart.setAttribute("aria-label","likes");
                        heart.setAttribute("role","button");
                        heart.setAttribute("tabindex","0");
-   
+
+                   
                
                        // COMPTEUR DE LIKES 
                                  
-                       heart.addEventListener('click',function(){
-                                 
+                       heart.addEventListener('click',function(e){
+                              e.preventDefault();   
                           const textNumber = document.querySelector('.totalnumber');
                           textNumber.textContent = parseInt(textNumber.textContent)+1;
                        
@@ -144,8 +149,9 @@
                           selectTextNumber = document.getElementById(media.id);
                           selectTextNumber.textContent = parseInt(selectTextNumber.innerText)+1;
 
-                        })  
-                        // compteur like au clavier
+                        }) 
+
+                        // compteur de like au clavier
                         heart.addEventListener('keydown', function(e) {
                            if (e.key === "Enter") {
                               const textNumber = document.querySelector('.totalnumber');
@@ -158,8 +164,7 @@
                        
                        })
           
-
          
+                       
 }
-
 
