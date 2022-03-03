@@ -54,13 +54,11 @@ namePhotograph.setAttribute("class","namephotograph");
 // PRENOM *
 //Label du prenom
 const labelPrenom = document.querySelector('.formdata label');
-labelPrenom.setAttribute("form","first_name");
 labelPrenom.setAttribute("tabindex","0");
 labelPrenom.setAttribute("id","labelprenom");
 // Input du prenom
 const inputPrenom = document.querySelector('input');
 inputPrenom.setAttribute("name","first_name");
-inputPrenom.setAttribute("id","first_name");
 inputPrenom.setAttribute("aria-required","true");
 inputPrenom.setAttribute("minlenght","2");
 inputPrenom.setAttribute("tabindex","0");
