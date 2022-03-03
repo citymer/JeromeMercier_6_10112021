@@ -74,7 +74,7 @@ errorPrenom.setAttribute("class","first_name_error");
 const labelNom = document.createElement('label');
 divFormData.appendChild(labelNom);
 labelNom.textContent = "Nom";
-labelNom.setAttribute("form","last_name");
+labelNom.setAttribute("for","last_name");
 labelNom.setAttribute("tabindex","0");
 labelNom.setAttribute("id","labelnom");
 // Input du nom
@@ -97,7 +97,7 @@ errorNom.setAttribute("class","last_name_error");
 const labelEmail = document.createElement('label');
 divFormData.appendChild(labelEmail);
 labelEmail.textContent = "Email";
-labelEmail.setAttribute("form","email");
+labelEmail.setAttribute("for","email");
 labelEmail.setAttribute("tabindex","0");
 labelEmail.setAttribute("id","labelemail");
 // Input de Email
@@ -119,7 +119,7 @@ errorEmail.setAttribute("class","email_error");
 const labelMessage = document.createElement('label');
 divFormData.appendChild(labelMessage);
 labelMessage.textContent = "Votre message";
-labelMessage.setAttribute("form","your_message");
+labelMessage.setAttribute("for","your_message");
 labelMessage.setAttribute("tabindex","0");
 labelMessage.setAttribute("id","labelmessage");
 // texte de votre message
